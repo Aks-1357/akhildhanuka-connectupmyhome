@@ -1,0 +1,19 @@
+Database - /_db/connectupmyhome.sql
+
+HTML -
+	1. /components/com_homeconnect/views/createbundle/tmpl/default.php
+	2. /components/com_homeconnect/views/createbundle/tmpl/default_confirmation.php
+	3. /components/com_homeconnect/views/createbundle/tmpl/default_details.php
+	4. /components/com_homeconnect/views/createbundle/tmpl/default_installation.php
+	5. /components/com_homeconnect/views/createbundle/tmpl/default_landing.php
+	6. /components/com_homeconnect/views/createbundle/tmpl/default_main_category.php
+	7. /components/com_homeconnect/views/createbundle/tmpl/default_recommendation.php
+	8. /components/com_homeconnect/views/createbundle/tmpl/default_thank_you.php
+	9. /components/com_homeconnect/views/createbundle/view.html.php
+	10./modules/mod_homeconnect
+
+Javascript Files -
+		1. /js/connect_controller.js
+		2. /js/connect_model.js
+		3. /js/connect_view.js
+		4. /js/connect_module.js

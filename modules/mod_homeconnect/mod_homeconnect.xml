@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module"
+		version="1.7"
+		client="site"
+		method="upgrade"
+	>
+	<name>Homeconnect</name>
+	<author>Akshay</author>
+	<creationDate>Saturday 19th of January 2013 10:50:32 AM</creationDate>
+	<copyright>Copyright (C) 2005 - 2011 Open Source Matters. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>EMAIL</authorEmail>
+	<authorUrl>URL</authorUrl>
+	<version>1.0</version>
+	<description></description>
+
+	<files>
+		<filename module="mod_homeconnect">mod_homeconnect.php</filename>
+		<filename>index.html</filename>
+		<filename>helper.php</filename>
+		<filename>tmpl/index.html</filename>
+		<filename>tmpl/default.php</filename>
+		<filename>mod_homeconnect.xml</filename>
+		<folder>tmpl</folder>
+	</files>
+	
+	<config>
+		<fields name="params">
+			<fieldset name="advanced">
+				<field name="moduleclass_sfx"
+						type="text"
+						label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+						description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC"
+				/>
+				<field name="cache"
+						type="list"
+						default="0"
+						label="COM_MODULES_FIELD_CACHING_LABEL"
+						description="COM_MODULES_FIELD_CACHING_DESC">
+						<option value="0">COM_MODULES_FIELD_VALUE_NOCACHING</option>
+				</field>
+			</fieldset>
+		</fields>
+	</config>
+</extension>

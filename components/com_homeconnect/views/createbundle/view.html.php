@@ -20,21 +20,43 @@ class HomeconnectViewCreatebundle extends JView
 	protected $items;
 	protected $pagination;
 	protected $state;
-    protected $params;
+	protected $params;
+
+	// Aks : To Display Either of the Divs
+	protected $userEmail;
+	protected $userAddress;
+	protected $recommendDisplay;
+	protected $mainCategoryDisplay;
 
 	/**
 	 * Display the view
 	 */
 	public function display($tpl = null)
 	{
-        $app                = JFactory::getApplication();
+		$app                = JFactory::getApplication();
 		$this->state		= $this->get('State');
 		$this->items		= $this->get('Items');
 		$this->pagination	= $this->get('Pagination');
-        $this->params       = $app->getParams('com_homeconnect');
+		$this->params       = $app->getParams('com_homeconnect');
+
+		// Aks : To Display Either of the Divs
+		$this->userEmail = JRequest::getVar('email');
+		$this->userAddress = JRequest::getVar('geocomplete');
+		$this->recommendDisplay = "display: none;";
+		$this->mainCategoryDisplay = "display: none;";
+
+		if (JRequest::getVar('bundle_type') == 'recommend')
+		{
+			$this->recommendDisplay = "display: block;";
+		}
+		else
+		{
+			$this->mainCategoryDisplay = "display: block;";
+		}
 
 		// Check for errors.
-		if (count($errors = $this->get('Errors'))) {
+		if (count($errors = $this->get('Errors')))
+		{
             throw new Exception(implode("\n", $errors));
 		}
 
@@ -42,7 +64,6 @@ class HomeconnectViewCreatebundle extends JView
         
 		parent::display($tpl);
 	}
-
 
 	/**
 	 * Prepares the document
@@ -59,17 +80,22 @@ class HomeconnectViewCreatebundle extends JView
 		if($menu)
 		{
 			$this->params->def('page_heading', $this->params->get('page_title', $menu->title));
-		} else {
+		}
+		else
+		{
 			$this->params->def('page_heading', JText::_('com_homeconnect_DEFAULT_PAGE_TITLE'));
 		}
 		$title = $this->params->get('page_title', '');
-		if (empty($title)) {
+		if (empty($title))
+		{
 			$title = $app->getCfg('sitename');
 		}
-		elseif ($app->getCfg('sitename_pagetitles', 0) == 1) {
+		elseif ($app->getCfg('sitename_pagetitles', 0) == 1)
+		{
 			$title = JText::sprintf('JPAGETITLE', $app->getCfg('sitename'), $title);
 		}
-		elseif ($app->getCfg('sitename_pagetitles', 0) == 2) {
+		elseif ($app->getCfg('sitename_pagetitles', 0) == 2)
+		{
 			$title = JText::sprintf('JPAGETITLE', $title, $app->getCfg('sitename'));
 		}
 		$this->document->setTitle($title);
@@ -88,6 +114,5 @@ class HomeconnectViewCreatebundle extends JView
 		{
 			$this->document->setMetadata('robots', $this->params->get('robots'));
 		}
-	}    
-    	
+	}
 }

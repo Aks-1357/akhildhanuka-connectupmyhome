@@ -27,7 +27,7 @@ var Controller = function()
 
 		if(document.getElementById("geocomplete"))
 		{
-			controller.geoComplete("#geocomplete");
+//			controller.geoComplete("#geocomplete");
 		}
 		if(document.getElementById("category_accordion_div"))
 		{
@@ -47,10 +47,12 @@ var Controller = function()
 
 	this.initScreenDivs = function()
 	{
+		/* Aks : No need as Landing Div is now a separate Module
 		if(document.getElementById("landing_div"))
 		{
 			main_divs.push("#landing_div");
 		}
+		*/
 		if(document.getElementById("main_accordian_div"))
 		{
 			main_divs.push("#main_accordian_div");
@@ -76,9 +78,10 @@ var Controller = function()
 			main_divs.push("#recommendation_div");
 		}
 
-		controller.switchDivs("#landing_div");
+		controller.switchDivs("#main_accordian_div");
 	};
 
+	/* Aks : Shifted To connect_module.js
 	this.geoComplete = function (id)
 	{
 		$( id ).geocomplete({
@@ -109,8 +112,9 @@ var Controller = function()
 		{
 			$( id ).trigger("geocode");
 		});
-		*/
+		//*
 	};
+	*/
 
 	this.accordion = function (id)
 	{
@@ -221,7 +225,7 @@ var Controller = function()
 	{
 		if(document.getElementById("geocomplete"))
 		{
-			$( "#geocomplete" ).trigger("geocode");
+//			$( "#geocomplete" ).trigger("geocode");
 		}
 
 		if(CM_obj.getValidatedAddress() != "ERROR")
@@ -368,6 +372,7 @@ var Controller = function()
 		};
 	};
 
+	/* Aks : Shifted To connect_module.js
 	this.oncreatebundle = function(main_accordian_div,target_div,default_div)
 	{
 		if(target_div=="main_category_div")
@@ -382,6 +387,7 @@ var Controller = function()
 		controller.switchDivs("#"+main_accordian_div);
 		controller.switchInnerDivs(default_div, target_div, 0);
 	};
+	*/
 
 	this.switchInnerPrevDivs = function(source_div)
 	{
