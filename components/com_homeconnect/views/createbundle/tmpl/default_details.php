@@ -12,12 +12,12 @@
 
 			<tr style="border: none;">
 				<td style="border: none;" align="right" >Phone:</td>
-				<td style="border: none;"><input type="text" name="phone" id="phone" ></td>
+				<td style="border: none;"><input type="text" name="phone"  id="phone" ></td>
 			</tr>
 
 			<tr style="border: none;">
 				<td style="border: none;">What is Your email Address</td>
-				<td style="border: none;"><input type="text" name="email" id="email" ></td>
+				<td style="border: none;"><input type="text" name="email"   id="email" ></td>
 			</tr>
 
 			<tr style="border: none;">
@@ -25,7 +25,7 @@
 			</tr>
 
 			<tr style="border: none;">
-				<td style="border: none;" colspan="3"><input type="text" name="homeaddress" id="haddress" size="50"></td>
+				<td style="border: none;" colspan="3"><input type="text" name="homeaddress"  id="haddress" size="50"></td>
 			</tr>
 
 			<tr style="border: none;">
@@ -37,7 +37,7 @@
 			</tr>
 		</table>
 
-		<div style="cursor: pointer; float: left;" onclick="javascript:controllerObj.switchInnerPrevDivs('details_div');">
+		<div style="cursor: pointer; float: left;" onclick="javascript:controllerObj.switchInnerPrevDivs('details_div','<?php echo $this->prevDiv;?>');">
 			&lt;=
 		</div>
 

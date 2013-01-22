@@ -27,7 +27,7 @@ class HomeconnectViewCreatebundle extends JView
 	protected $userAddress;
 	protected $recommendDisplay;
 	protected $mainCategoryDisplay;
-
+    protected $prevDiv;
 	/**
 	 * Display the view
 	 */
@@ -44,13 +44,15 @@ class HomeconnectViewCreatebundle extends JView
 		$this->userAddress = JRequest::getVar('geocomplete');
 		$this->recommendDisplay = "display: none;";
 		$this->mainCategoryDisplay = "display: none;";
-
+      //edited by SDs for back navigation from details page prevDiv value stored in variable
 		if (JRequest::getVar('bundle_type') == 'recommend')
 		{
+			$this->prevDiv="recommended_div";
 			$this->recommendDisplay = "display: block;";
 		}
 		else
 		{
+			$this->prevDiv="confirmation_div";
 			$this->mainCategoryDisplay = "display: block;";
 		}
 

@@ -11,14 +11,14 @@ var Controller = function()
 	var main_divs;
 	var controller;
 	var prevDiv;
-
+   var c_module;
 	this.init = function ()
 	{
 		controller = this;
 
 		CM_obj	= new Model();
 		CV_obj	= new View();
-
+       
 		// CM_obj.init();
 		// CV_obj.init();
 
@@ -259,10 +259,10 @@ var Controller = function()
 	};
 
 	// modified by SDs for switch multiple inner divs
-	this.switchInnerDivs = function (hide_ids, show_ids, product_id,cat_id)
+	this.switchInnerDivs = function (h_ids, s_ids, product_id,cat_id)
 	{
-		hide_ids = hide_ids.split(",");
-		show_ids = show_ids.split(",");
+		hide_ids = h_ids.split(",");
+		show_ids = s_ids.split(",");
 
 		hide_ids.each(function(value, index)
 		{
@@ -387,12 +387,15 @@ var Controller = function()
 
 		controller.switchDivs("#"+main_accordian_div);
 		controller.switchInnerDivs(default_div, target_div, 0);
-	};
-	*/
+	}; */
+	
 
-	this.switchInnerPrevDivs = function(source_div)
+	this.switchInnerPrevDivs = function(source_div,prevDiv)
 	{
-		controller.switchInnerDivs(source_div, prevDiv, 0);
+		
+		console.log(prevDiv);
+		controller.switchInnerDivs(source_div, prevDiv,0, 0);
+		//console.log(source_div);
 	};
 
 	this.AddToMyBundle =function(category)
@@ -438,17 +441,22 @@ var Controller = function()
 	 {
 		var selected_product;
 		selected_product=CM_obj.getSelectedProducts(cat_id);
-		console.log(selected_product);
-		controller.hideDiv('#main_category_div');
-		controller.showDiv('#main_category_div');
-		controller.hideDiv('#main_category_inner_div_1');
-		controller.hideDiv('#main_category_inner_div_2');
-		controller.hideDiv('#main_category_inner_div_3');
-		controller.hideDiv('#main_category_inner_div_4');
-		controller.hideDiv('#main_category_inner_div_5');
-		controller.showDiv('#main_category_inner_div_'+cat_id); 
-		
+
+		controller.hideDiv('#category_accordion_div');
+		controller.nextAccordion('category_accordion_div',cat_id);
+	//	nextAccordion('category_accordion_div',3);
 		console.log(cat_id);
+		controller.showDiv('#category_accordion_div');
+		
+		//controller.hideDiv('#main_category_inner_div_1');
+		//controller.hideDiv('#main_category_inner_div_2');
+		//controller.hideDiv('#main_category_inner_div_3');
+		//controller.hideDiv('#main_category_inner_div_4');
+		//controller.hideDiv('#main_category_inner_div_5');
+		//controller.showDiv('#main_category_inner_div_'+cat_id); 
+			
+		//console.log(cat_id);
+		//console.log('#main_category_inner_div_'+cat_id);
 		
 		
 //		document.getElementById('main_category_inner_div_1').style.display="none";

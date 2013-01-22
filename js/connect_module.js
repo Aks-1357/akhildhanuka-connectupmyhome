@@ -6,7 +6,7 @@ var Module = function ()
 {
 	var thisObj = this;
 	var address;
-
+    var prevDiv;
 	this.init = function ()
 	{
 		thisObj.address = "ERROR";
@@ -115,11 +115,20 @@ var Module = function ()
 		{
 			$( "#geocomplete" ).trigger("geocode");
 		}
-
+        
 		if(thisObj.address != "ERROR")
 		{
 			if (this.checkEmail(document.getElementById("email").value))
 			{
+				if(bundle_type=="create")
+				{
+					prevDiv="confirmation_div";
+				}
+				else
+				{
+					prevDiv="confirmation_div";
+				}
+
 				if(document.getElementById('bundle_type'))
 				{
 					document.getElementById('bundle_type').value = bundle_type;
