@@ -259,7 +259,7 @@ var Controller = function()
 	};
 
 	// modified by SDs for switch multiple inner divs
-	this.switchInnerDivs = function (hide_ids, show_ids, cat_id)
+	this.switchInnerDivs = function (hide_ids, show_ids, product_id,cat_id)
 	{
 		hide_ids = hide_ids.split(",");
 		show_ids = show_ids.split(",");
@@ -275,14 +275,15 @@ var Controller = function()
 		});
 		if(cat_id > 0)
 		{
-			controller.setProductsOfCategory(hide_ids, show_ids, cat_id);
+			controller.setProductsOfCategory(hide_ids, show_ids,product_id, cat_id);
 		}
 	};
 
-	this.setProductsOfCategory = function (prev_div, div_id, cat_id)
+	this.setProductsOfCategory = function (prev_div, div_id,product_id, cat_id)
 	{
+		console.log(cat_id);
 		var html = "";
-		html += '<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; width: 20px;">B 1</div>'+
+		html += '<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; width: 20px;">B '+product_id+'</div>'+
 				'<div style="margin-top: 15px;"><div  style="cursor: pointer; border: 1px solid #ccc; padding: 16px; margin: 0 20px 0 0; float: left;"><INPUT onClick="javascript:controllerObj.AddToMyBundle(this.id)" id="'+cat_id+'_1" NAME="p" TYPE="CHECKBOX" VALUE="1"></div>'+
 				'<div >Product A : </div>'+
 				'<div>Main Features : ABC</div>'+
@@ -397,14 +398,69 @@ var Controller = function()
 	this.AddToMyBundle =function(category)
 	{
 		var cat_product=category.split("_");
+		var selected_product;
 		if(document.getElementById(category).checked)
 		{
 			CM_obj.setAddToMyBundleResult(cat_product[0],cat_product[1]);
+		    selected_product=CM_obj.getSelectedProducts(cat_product[0]);
+			controller.viewtoMybundle(cat_product[0],selected_product);
 		}
 		else
 		{
 			CM_obj.deleteAddedMyBundleResult(cat_product[0],cat_product[1]);
-			console.log(CM_obj.getSelectedProducts());
+			console.log(CM_obj.getSelectedProducts(cat_product[0]));
+		    selected_product=CM_obj.getSelectedProducts(cat_product[0]);
+			controller.viewtoMybundle(cat_product[0],selected_product)
 		}
 	}
+	//SDs for mybundle section
+	
+	this.viewtoMybundle = function(cat_id,selected_product)
+	{
+		var nofselection=selected_product.length;
+		console.log(nofselection);
+		if(cat_id==1)
+		  $("#tv").html(nofselection);
+		if(cat_id==2)
+			$("#gaming").html(nofselection);
+		if(cat_id==3)
+			$("#music").html(nofselection);
+		if(cat_id==4)
+			$("#broadband").html(nofselection);
+		if(cat_id==5)
+			$("#conectupmyhome").html(nofselection);
+
+
+	}
+	
+	//SDs for go to respecive selection page from my bundle section view edit
+	this.switchtoSelectionpage =function(cat_id)
+	 {
+		var selected_product;
+		selected_product=CM_obj.getSelectedProducts(cat_id);
+		console.log(selected_product);
+		controller.hideDiv('#main_category_div');
+		controller.showDiv('#main_category_div');
+		controller.hideDiv('#main_category_inner_div_1');
+		controller.hideDiv('#main_category_inner_div_2');
+		controller.hideDiv('#main_category_inner_div_3');
+		controller.hideDiv('#main_category_inner_div_4');
+		controller.hideDiv('#main_category_inner_div_5');
+		controller.showDiv('#main_category_inner_div_'+cat_id); 
+		
+		console.log(cat_id);
+		
+		
+//		document.getElementById('main_category_inner_div_1').style.display="none";
+//		document.getElementById('main_category_inner_div_2').style.display="none";
+//		document.getElementById('main_category_inner_div_3').style.display="none";
+//		document.getElementById('main_category_inner_div_4').style.display="none";
+//		document.getElementById('main_category_inner_div_5').style.display="none";
+//		document.getElementById('main_category_inner_div_'+cat_id).style.display="block";
+		
+		
+		
+		
+	 }
+	
 };

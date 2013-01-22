@@ -13,9 +13,9 @@ class JConfig {
 	public $debug_lang = '0';
 	public $dbtype = 'mysqli';
 	public $host = 'localhost';
-	public $user = 'akshay';
-	public $password = 'akshay';
-	public $db = 'connectupmyhome';
+	public $user = 'root';
+	public $password = '';
+	public $db = 'connecthome';
 	public $dbprefix = 'cnn_';
 	public $live_site = '';
 	public $secret = 'nJRIlQqgpxbe8bQU';

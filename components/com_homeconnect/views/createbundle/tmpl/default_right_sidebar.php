@@ -13,8 +13,8 @@
 			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_5', 'main_category_inner_product_div_5', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: left;">
 				C 1
 			</div> 
-			<div id="tv" onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_5', 'main_category_inner_product_div_5', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
-				1
+			<div id="tv" onClick="javascript:controllerObj.switchtoSelectionpage(1);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
+				0
 			</div>
 		</li>
 
@@ -22,8 +22,8 @@
  			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_5', 'main_category_inner_product_div_5', 4);" style="cursor: pointer; border: 1px solid #ccc; padding:  0px; margin: 0px; float: left;">
 				C 2
 			</div>
-			<div id="gaming" onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_5', 'main_category_inner_product_div_5', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
-				1
+			<div id="gaming" onClick="javascript:controllerObj.switchtoSelectionpage(2);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
+				0
 			</div>
 		</li>
 
@@ -31,8 +31,8 @@
 			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_5', 'main_category_inner_product_div_5', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: left;">
 				C 3
 			</div>
-			<div id="music" onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_5', 'main_category_inner_product_div_5', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
-				1
+			<div id="music" onClick="javascript:controllerObj.switchtoSelectionpage(3);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
+				0
 			</div>
 		</li>
 
@@ -40,8 +40,8 @@
 		 	<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_5', 'main_category_inner_product_div_5', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: left;">
 				C 4
 			</div>
-			<div id="broadband" onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_5', 'main_category_inner_product_div_5', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
-				1
+			<div id="broadband" onClick="javascript:controllerObj.switchtoSelectionpage(4);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
+				0
 			</div>
 		</li>
 
@@ -49,8 +49,8 @@
 			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_5', 'main_category_inner_product_div_5', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: left;">
 				C 5
 			</div>
-			<div id="connectupmyhome" onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_5', 'main_category_inner_product_div_5', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
-				1
+			<div id="connectupmyhome" onClick="javascript:controllerObj.switchtoSelectionpage(5);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
+				0
 			</div>
 		</li>
 	</ul>
