@@ -11,13 +11,11 @@ var Controller = function()
 	var main_divs;
 	var controller;
 	var prevDiv;
-    
-    
-    
+
 	this.init = function ()
 	{
 		controller = this;
-      
+
 		CM_obj	= new Model();
 		CV_obj	= new View();
 		tracker = new Array();
@@ -133,8 +131,7 @@ var Controller = function()
 
 	this.nextAccordion = function (main_accordion_id, index)
 	{
-		
-		console.log(CM_obj.getCurrentState());
+		// console.log(CM_obj.getCurrentState());
 		$('#ui-accordion-'+main_accordion_id+'-header-'+index).click();
 		/* Aks : Not Needed
 		$('#category_accordion_div').accordion('activate', 2);
@@ -224,25 +221,24 @@ var Controller = function()
 	this.switchDivs = function (id)
 	{
 		CM_obj.setCurrentState(id);
-		
-		console.log('switch to_'+CM_obj.getCurrentState());
+
+		// console.log('switch to_'+CM_obj.getCurrentState());
 		if(document.getElementById("geocomplete"))
 		{
-//			$( "#geocomplete" ).trigger("geocode");
+			// $( "#geocomplete" ).trigger("geocode");
 		}
 
 		if(CM_obj.getValidatedAddress() != "ERROR")
 		{
 			var useremail = document.getElementById("email").value;
 			if (controller.checkEmail(useremail))
-			{	
+			{
 				main_divs.each(function(value, index)
 				{
 					controller.hideDiv(value);
 					if(id == value)
 					{
 						controller.showDiv(value);
-						
 					}
 				});
 			}
@@ -263,7 +259,7 @@ var Controller = function()
 	};
 
 	// modified by SDs for switch multiple inner divs
-	this.switchInnerDivs = function (h_ids, s_ids, product_id,cat_id)
+	this.switchInnerDivs = function (h_ids, s_ids, product_id, cat_id)
 	{
 		CM_obj.setCurrentState(s_ids);
 		hide_ids = h_ids.split(",");
@@ -283,14 +279,13 @@ var Controller = function()
 		}
 		if(show_ids=="confirmation_div" || show_ids=="recommendation_div")
 		{
-		
 			controller.updateDiv(show_ids);
 		}
 	};
 
 	this.setProductsOfCategory = function (prev_div, div_id,product_id, cat_id)
 	{
-		console.log(cat_id);
+		// console.log(cat_id);
 		var html = "";
 		html += '<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; width: 20px;">B '+product_id+'</div>'+
 				'<div style="margin-top: 15px;"><div  style="cursor: pointer; border: 1px solid #ccc; padding: 16px; margin: 0 20px 0 0; float: left;"><INPUT onClick="javascript:controllerObj.AddToMyBundle(this.id)" id="'+cat_id+'_1" NAME="p" TYPE="CHECKBOX" VALUE="1"></div>'+
@@ -318,10 +313,9 @@ var Controller = function()
 
 	this.showDiv = function (id)
 	{
-
 		CM_obj.setCurrentState(id);
 
-		console.log(CM_obj.getCurrentState());
+		// console.log(CM_obj.getCurrentState());
 		// get effect type from
 		var selectedEffect = "slide";
 
@@ -401,114 +395,110 @@ var Controller = function()
 		controller.switchDivs("#"+main_accordian_div);
 		controller.switchInnerDivs(default_div, target_div, 0);
 	}; */
-	
-//SDs for back navigation from details page
+
+	// SDs for back navigation from details page
 	this.switchInnerPrevDivs = function(source_div,prevDiv)
 	{
 		CM_obj.setCurrentState(prevDiv);
-		console.log(prevDiv);
+		// console.log(prevDiv);
 		controller.switchInnerDivs(source_div, prevDiv,0, 0);
 		//console.log(source_div);
 	};
-//SDs for addto my bundle
-	this.AddToMyBundle =function(category)
+
+	// SDs for addto my bundle
+	this.AddToMyBundle = function(category)
 	{
 		console.log(CM_obj.getCurrentState());
-		var cat_product=category.split("_");
+		var cat_product = category.split("_");
 		var selected_product;
 		if(document.getElementById(category).checked)
 		{
-			CM_obj.setAddToMyBundleResult(cat_product[0],cat_product[1]);
-		    selected_product=CM_obj.getSelectedProducts(cat_product[0]);
-			controller.viewtoMybundle(cat_product[0],selected_product);
+			CM_obj.setAddToMyBundleResult(cat_product[0], cat_product[1]);
+		    selected_product = CM_obj.getSelectedProducts(cat_product[0]);
+			controller.viewtoMybundle(cat_product[0], selected_product);
 		}
 		else
 		{
 			CM_obj.deleteAddedMyBundleResult(cat_product[0],cat_product[1]);
-			console.log(CM_obj.getSelectedProducts(cat_product[0]));
-		    selected_product=CM_obj.getSelectedProducts(cat_product[0]);
+			// console.log(CM_obj.getSelectedProducts(cat_product[0]));
+		    selected_product = CM_obj.getSelectedProducts(cat_product[0]);
 			controller.viewtoMybundle(cat_product[0],selected_product)
 		}
 	};
-	//SDs for view in mybundle section
-	
-	this.viewtoMybundle = function(cat_id,selected_product)
+
+	// SDs for view in mybundle section
+	this.viewtoMybundle = function(cat_id, selected_product)
 	{
-		var nofselection=selected_product.length;
-		console.log(nofselection);
-		if(cat_id==1)
-		  $("#tv").html(nofselection);
-		if(cat_id==2)
+		var nofselection = selected_product.length;
+		// console.log(nofselection);
+		if(cat_id == 1)
+			$("#tv").html(nofselection);
+		if(cat_id == 2)
 			$("#gaming").html(nofselection);
-		if(cat_id==3)
+		if(cat_id == 3)
 			$("#music").html(nofselection);
-		if(cat_id==4)
+		if(cat_id == 4)
 			$("#broadband").html(nofselection);
-		if(cat_id==5)
+		if(cat_id == 5)
 			$("#connectupmyhome").html(nofselection);
-
-
 	};
-	
-	//SDs for go to respecive selection page from my bundle section view edit
-	this.switchtoSelectionpage =function(cat_id)
-	 {
-		
-			var selected_product;
-			 selected_product=CM_obj.getSelectedProducts(cat_id+1);
-			 console.log(selected_product);
-			 if(CM_obj.getCurrentState()=="#category_accordion_div")
-			 {
-				// controller.hideDiv('#category_accordion_div');
-				 controller.showDiv('#category_accordion_div');
-				 controller.nextAccordion('category_accordion_div',cat_id);
-				 controller.showDiv('#main_category_div');
-				 //controller.hideDiv('#main_category_inner_div_'+(cat_id+1));
-				 //controller.showDiv('#main_category_inner_product_div_'+(cat_id+1));
-				 //main_category_inner_product_div_2
-				 console.log('#main_category_inner_div_'+(cat_id+1));
-				
-			
-        }
-        
-		 else
-		 {
-			 controller.hideDiv(CM_obj.getCurrentState());
+
+	// SDs for go to respecive selection page from my bundle section view edit
+	this.switchtoSelectionpage = function(cat_id)
+	{
+		var selected_product;
+		selected_product = CM_obj.getSelectedProducts(cat_id+1);
+		// console.log(selected_product);
+		if(CM_obj.getCurrentState() == "#category_accordion_div")
+		{
 			// controller.hideDiv('#category_accordion_div');
-			 controller.showDiv('#category_accordion_div');
-			 controller.nextAccordion('category_accordion_div',cat_id);
-			 controller.showDiv('#main_category_div');
-			// controller.hideDiv('#main_category_inner_div_'+(cat_id+1));
-			 controller.showDiv('#main_category_inner_product_div_'+(cat_id+1));
- 		 }		
-	 };
-	 
-	 //SDs for set confirmation page on selected product
-	 	this.updateDiv = function(id)
-		 {
-		   if(id=="confirmation_div")
-			   {
-			      for (var i=1;i<=5;i++)
-			     {	  
-				   var selected=CM_obj.getSelectedProducts(cat_id=i);
-				   if(i==1)
-				   $("#c1").html(selected[0]);
-				   if(i==2)
-				   $("#c2").html(selected[0]);  
-				   if(i==3)
-				   $("#c3").html(selected[0]);
-				   if(i==4)
-				   $("#c4").html(selected[0]); 
-				   if(i==5)
-					$("#c5").html(selected[0]);  
-			     }
-				      
-				   
-				   
-				  
-			   }
-		 
-		 };
-	 
-	
+			controller.showDiv('#category_accordion_div');
+			controller.nextAccordion('category_accordion_div',cat_id);
+			controller.showDiv('#main_category_div');
+
+			// Aks : Added as Temporary solution
+			document.getElementById('main_category_inner_div_'+parseInt(cat_id+1)).style.display = "none";
+			// controller.hideDiv('#main_category_inner_div_'+parseInt(cat_id+1));
+
+			controller.showDiv('#main_category_inner_product_div_'+(cat_id+1));
+			// main_category_inner_product_div_2
+			// console.log('#main_category_inner_div_'+(cat_id+1));
+        }
+		else
+		{
+			controller.hideDiv(CM_obj.getCurrentState());
+			// controller.hideDiv('#category_accordion_div');
+			controller.showDiv('#category_accordion_div');
+			controller.nextAccordion('category_accordion_div',cat_id);
+			controller.showDiv('#main_category_div');
+
+			// Aks : Added as Temporary solution
+			document.getElementById('main_category_inner_div_'+parseInt(cat_id+1)).style.display = "none";
+			// controller.hideDiv('#main_category_inner_div_'+parseInt(cat_id+1));
+
+			controller.showDiv('#main_category_inner_product_div_'+parseInt(cat_id+1));
+		}
+	};
+
+	// SDs for set confirmation page on selected product
+	this.updateDiv = function(id)
+	{
+		if(id == "confirmation_div")
+		{
+			for (var i = 1;i <= 5; i++)
+			{
+				var selected=CM_obj.getSelectedProducts(cat_id=i);
+				if(i == 1)
+					$("#c1").html(selected[0]);
+				if(i == 2)
+					$("#c2").html(selected[0]);
+				if(i == 3)
+					$("#c3").html(selected[0]);
+				if(i == 4)
+					$("#c4").html(selected[0]);
+				if(i == 5)
+					$("#c5").html(selected[0]);
+			}
+		}
+	};
 };

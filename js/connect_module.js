@@ -15,6 +15,14 @@ var Module = function ()
 		{
 			this.geoComplete("#geocomplete");
 		}
+		if(document.getElementById("tool_tip_1"))
+		{
+			this.toolTip("#tool_tip_1");
+		}
+		if(document.getElementById("tool_tip_2"))
+		{
+			this.toolTip("#tool_tip_2");
+		}
 	};
 
 	this.geoComplete = function (id)
@@ -48,6 +56,23 @@ var Module = function ()
 			$( id ).trigger("geocode");
 		});
 		*/
+	};
+
+	this.toolTip = function (id)
+	{
+		$( id ).tooltip(
+		{
+			show: null,
+			position:
+			{
+				my: "left top",
+				at: "left bottom"
+			},
+			open: function( event, ui )
+			{
+				ui.tooltip.animate({ top: ui.tooltip.position().top + 10 }, "fast" );
+			}
+		});
 	};
 
 	// SDs TLD email validation
@@ -115,7 +140,7 @@ var Module = function ()
 		{
 			$( "#geocomplete" ).trigger("geocode");
 		}
-        
+
 		if(thisObj.address != "ERROR")
 		{
 			if (this.checkEmail(document.getElementById("email").value))

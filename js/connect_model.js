@@ -6,7 +6,7 @@ var Model = function ()
 {
 	var MV_obj;
 	var MC_obj;
-    
+
 	var model;
 	var brands;
 	var address;
@@ -15,22 +15,22 @@ var Model = function ()
 	var currentscreen;
 
 	var selected_product = new Array();
-	for(i=0;i<=5;i++)
-		{
-		  selected_product[i]=new Array();
-		}
+	for(i = 0; i <= 5; i++)
+	{
+		selected_product[i]=new Array();
+	}
 	var category_wise_selected = new Array();
 
 	this.init = function()
 	{
 		model	= this;
 		MV_obj	= new View();
+
 		model.address	= "ERROR";
 		model.currentscreen = "";
 		model.brands	= new Array();
 		model.brandProducts = new Array();
 	};
-	
 
 	this.setValidatedAddress = function (value)
 	{
@@ -105,12 +105,12 @@ var Model = function ()
 		{
 			category_wise_selected[category]=0;
 		}
-		console.log(category);
-		
+		// console.log(category);
+
 		category_wise_selected[category]++;
 		selected_product[category].push(product_id);
-		console.log(selected_product[category]);
-		console.log(selected_product);
+		// console.log(selected_product[category]);
+		// console.log(selected_product);
 	};
 
 	this.deleteAddedMyBundleResult=function(category, product_id)
@@ -118,10 +118,9 @@ var Model = function ()
 		if(category_wise_selected[category] === undefined)
 		{
 			category_wise_selected[category]=0;
-			
 		}
 		category_wise_selected[category]--;
-		selected_product[category].splice(selected_product[category].indexOf(product_id),1);
+		selected_product[category].splice(selected_product[category].indexOf(product_id), 1);
 		// model.selected_product.remByVal(product_id);
 	};
 
@@ -132,17 +131,15 @@ var Model = function ()
 		else
 			return selected_product[cat_id];
 	};
-	
-	//SDs global storage of currentscrren 
+
+	// SDs global storage of currentscrren
 	this.setCurrentState = function (screen)
 	{
-		this.currentscreen=screen;
-		
+		this.currentscreen = screen;
 	}
-	
+
 	this.getCurrentState = function ()
 	{
-	  return this.currentscreen;
-		
+		return this.currentscreen;
 	}
 };
