@@ -11,17 +11,15 @@ var Controller = function()
 	var main_divs;
 	var controller;
 	var prevDiv;
-   var c_module;
+    
+    
+    
 	this.init = function ()
 	{
 		controller = this;
-
+      
 		CM_obj	= new Model();
 		CV_obj	= new View();
-       
-		// CM_obj.init();
-		// CV_obj.init();
-
 		tracker = new Array();
 		main_divs = new Array();
 
@@ -135,6 +133,8 @@ var Controller = function()
 
 	this.nextAccordion = function (main_accordion_id, index)
 	{
+		
+		console.log(CM_obj.getCurrentState());
 		$('#ui-accordion-'+main_accordion_id+'-header-'+index).click();
 		/* Aks : Not Needed
 		$('#category_accordion_div').accordion('activate', 2);
@@ -223,6 +223,9 @@ var Controller = function()
 
 	this.switchDivs = function (id)
 	{
+		CM_obj.setCurrentState(id);
+		
+		console.log('switch to_'+CM_obj.getCurrentState());
 		if(document.getElementById("geocomplete"))
 		{
 //			$( "#geocomplete" ).trigger("geocode");
@@ -239,6 +242,7 @@ var Controller = function()
 					if(id == value)
 					{
 						controller.showDiv(value);
+						
 					}
 				});
 			}
@@ -261,9 +265,9 @@ var Controller = function()
 	// modified by SDs for switch multiple inner divs
 	this.switchInnerDivs = function (h_ids, s_ids, product_id,cat_id)
 	{
+		CM_obj.setCurrentState(s_ids);
 		hide_ids = h_ids.split(",");
 		show_ids = s_ids.split(",");
-
 		hide_ids.each(function(value, index)
 		{
 			controller.hideDiv("#"+value);
@@ -276,6 +280,11 @@ var Controller = function()
 		if(cat_id > 0)
 		{
 			controller.setProductsOfCategory(hide_ids, show_ids,product_id, cat_id);
+		}
+		if(show_ids=="confirmation_div" || show_ids=="recommendation_div")
+		{
+		
+			controller.updateDiv(show_ids);
 		}
 	};
 
@@ -309,6 +318,10 @@ var Controller = function()
 
 	this.showDiv = function (id)
 	{
+
+		CM_obj.setCurrentState(id);
+
+		console.log(CM_obj.getCurrentState());
 		// get effect type from
 		var selectedEffect = "slide";
 
@@ -389,17 +402,18 @@ var Controller = function()
 		controller.switchInnerDivs(default_div, target_div, 0);
 	}; */
 	
-
+//SDs for back navigation from details page
 	this.switchInnerPrevDivs = function(source_div,prevDiv)
 	{
-		
+		CM_obj.setCurrentState(prevDiv);
 		console.log(prevDiv);
 		controller.switchInnerDivs(source_div, prevDiv,0, 0);
 		//console.log(source_div);
 	};
-
+//SDs for addto my bundle
 	this.AddToMyBundle =function(category)
 	{
+		console.log(CM_obj.getCurrentState());
 		var cat_product=category.split("_");
 		var selected_product;
 		if(document.getElementById(category).checked)
@@ -415,8 +429,8 @@ var Controller = function()
 		    selected_product=CM_obj.getSelectedProducts(cat_product[0]);
 			controller.viewtoMybundle(cat_product[0],selected_product)
 		}
-	}
-	//SDs for mybundle section
+	};
+	//SDs for view in mybundle section
 	
 	this.viewtoMybundle = function(cat_id,selected_product)
 	{
@@ -431,44 +445,70 @@ var Controller = function()
 		if(cat_id==4)
 			$("#broadband").html(nofselection);
 		if(cat_id==5)
-			$("#conectupmyhome").html(nofselection);
+			$("#connectupmyhome").html(nofselection);
 
 
-	}
+	};
 	
 	//SDs for go to respecive selection page from my bundle section view edit
 	this.switchtoSelectionpage =function(cat_id)
 	 {
-		var selected_product;
-		selected_product=CM_obj.getSelectedProducts(cat_id);
-
-		controller.hideDiv('#category_accordion_div');
-		controller.nextAccordion('category_accordion_div',cat_id);
-	//	nextAccordion('category_accordion_div',3);
-		console.log(cat_id);
-		controller.showDiv('#category_accordion_div');
 		
-		//controller.hideDiv('#main_category_inner_div_1');
-		//controller.hideDiv('#main_category_inner_div_2');
-		//controller.hideDiv('#main_category_inner_div_3');
-		//controller.hideDiv('#main_category_inner_div_4');
-		//controller.hideDiv('#main_category_inner_div_5');
-		//controller.showDiv('#main_category_inner_div_'+cat_id); 
+			var selected_product;
+			 selected_product=CM_obj.getSelectedProducts(cat_id+1);
+			 console.log(selected_product);
+			 if(CM_obj.getCurrentState()=="#category_accordion_div")
+			 {
+				// controller.hideDiv('#category_accordion_div');
+				 controller.showDiv('#category_accordion_div');
+				 controller.nextAccordion('category_accordion_div',cat_id);
+				 controller.showDiv('#main_category_div');
+				 //controller.hideDiv('#main_category_inner_div_'+(cat_id+1));
+				 //controller.showDiv('#main_category_inner_product_div_'+(cat_id+1));
+				 //main_category_inner_product_div_2
+				 console.log('#main_category_inner_div_'+(cat_id+1));
+				
 			
-		//console.log(cat_id);
-		//console.log('#main_category_inner_div_'+cat_id);
-		
-		
-//		document.getElementById('main_category_inner_div_1').style.display="none";
-//		document.getElementById('main_category_inner_div_2').style.display="none";
-//		document.getElementById('main_category_inner_div_3').style.display="none";
-//		document.getElementById('main_category_inner_div_4').style.display="none";
-//		document.getElementById('main_category_inner_div_5').style.display="none";
-//		document.getElementById('main_category_inner_div_'+cat_id).style.display="block";
-		
-		
-		
-		
-	 }
+        }
+        
+		 else
+		 {
+			 controller.hideDiv(CM_obj.getCurrentState());
+			// controller.hideDiv('#category_accordion_div');
+			 controller.showDiv('#category_accordion_div');
+			 controller.nextAccordion('category_accordion_div',cat_id);
+			 controller.showDiv('#main_category_div');
+			// controller.hideDiv('#main_category_inner_div_'+(cat_id+1));
+			 controller.showDiv('#main_category_inner_product_div_'+(cat_id+1));
+ 		 }		
+	 };
+	 
+	 //SDs for set confirmation page on selected product
+	 	this.updateDiv = function(id)
+		 {
+		   if(id=="confirmation_div")
+			   {
+			      for (var i=1;i<=5;i++)
+			     {	  
+				   var selected=CM_obj.getSelectedProducts(cat_id=i);
+				   if(i==1)
+				   $("#c1").html(selected[0]);
+				   if(i==2)
+				   $("#c2").html(selected[0]);  
+				   if(i==3)
+				   $("#c3").html(selected[0]);
+				   if(i==4)
+				   $("#c4").html(selected[0]); 
+				   if(i==5)
+					$("#c5").html(selected[0]);  
+			     }
+				      
+				   
+				   
+				  
+			   }
+		 
+		 };
+	 
 	
 };

@@ -6,12 +6,14 @@ var Model = function ()
 {
 	var MV_obj;
 	var MC_obj;
-
+    
 	var model;
 	var brands;
 	var address;
 	var brandProducts;
 	var i=0;
+	var currentscreen;
+
 	var selected_product = new Array();
 	for(i=0;i<=5;i++)
 		{
@@ -22,14 +24,13 @@ var Model = function ()
 	this.init = function()
 	{
 		model	= this;
-
-		// MC_obj	= new Controller();
 		MV_obj	= new View();
-
 		model.address	= "ERROR";
+		model.currentscreen = "";
 		model.brands	= new Array();
 		model.brandProducts = new Array();
 	};
+	
 
 	this.setValidatedAddress = function (value)
 	{
@@ -126,6 +127,22 @@ var Model = function ()
 
 	this.getSelectedProducts = function (cat_id)
 	{
-		return selected_product[cat_id];
+		if(cat_id === undefined )
+			return selected_product;
+		else
+			return selected_product[cat_id];
 	};
+	
+	//SDs global storage of currentscrren 
+	this.setCurrentState = function (screen)
+	{
+		this.currentscreen=screen;
+		
+	}
+	
+	this.getCurrentState = function ()
+	{
+	  return this.currentscreen;
+		
+	}
 };
