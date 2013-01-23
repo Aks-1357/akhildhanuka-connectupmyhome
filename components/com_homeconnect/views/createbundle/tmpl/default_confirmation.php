@@ -5,23 +5,23 @@
 	<div id="your_selected_product_div" style="height: 30%; padding:0 0 30px 0; margin: 0 0 30px 0;">
 		your selection
 		<div id="selected_product_inner_div_1" style="display: block;">
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 0px 15px 0px 15px; float: left;">
+			<div id="c1" onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 0px 15px 0px 15px; float: left;">
 			p 1
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 2);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 0px 15px 0px 15px; float: left;">
+			<div  id="c2" onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 2);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 0px 15px 0px 15px; float: left;">
 			p 2
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 3);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 0px 15px 0px 15px; float: left;">
+			<div  id="c3" onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 3);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 0px 15px 0px 15px; float: left;">
 			p 3
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 0px 15px 0px 15px; float: left;">
+			<div  id="c4"onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 0px 15px 0px 15px; float: left;">
 			p 4
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 0px 15px 0px 15px; float: left;">
+			<div  id="c5" onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 0px 15px 0px 15px; float: left;">
 			p 5
 			</div>
 		</div>

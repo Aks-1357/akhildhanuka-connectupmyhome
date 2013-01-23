@@ -23,6 +23,7 @@ $document->addStyleSheet(JURI::base() . 'includes/assets/css/jquery/ui-lightness
 <script src="<?php echo $jsPath; ?>connect_model.js"></script>
 <script src="<?php echo $jsPath; ?>connect_view.js"></script>
 
+
 <!-- landing div -->
 <?php
 echo $this->loadTemplate('landing');
