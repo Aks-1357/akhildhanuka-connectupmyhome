@@ -255,10 +255,13 @@
 				p 5
 				</div>
 			</div>
-
-			<div style="margin: 60px 0 0 0 ; cursor: pointer; float: right;" onclick="javascript:controllerObj.switchInnerDivs('confirmation_div','details_div',0);">
-				=&gt;
-			</div>
+            
 		</div>
 	</div>
+	       <div style="cursor: pointer; float: left;" onclick="javascript:controllerObj.switchInnerDivs('confirmation_div','installation_div',0,0);">
+				&lt;=
+			</div>
+			<div style="cursor: pointer; float: right;" onclick="javascript:controllerObj.switchInnerDivs('confirmation_div','details_div',0,0);">
+				=&gt;
+			</div>
 </div>

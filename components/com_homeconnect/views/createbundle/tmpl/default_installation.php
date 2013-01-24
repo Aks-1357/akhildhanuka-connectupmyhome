@@ -46,7 +46,13 @@
 		<input style="height: 50px;" type="textarea" name="tellusrequirement" rows="5" cols="25"/>
 	</div>
 
-	<div style="cursor: pointer; float: right;" onclick="javascript:controllerObj.switchInnerDivs('installation_div','confirmation_div',0);">
+
+    <div style="cursor: pointer; float: left;" onclick="javascript:controllerObj.switchInnerDivs('installation_div','main_category_div',0,0);">
+		&lt;=
+	</div>
+
+	<div style="cursor: pointer; float: right;" onclick="javascript:controllerObj.switchInnerDivs('installation_div','confirmation_div',0,0);">
 		=&gt;
 	</div>
+	
 </div>

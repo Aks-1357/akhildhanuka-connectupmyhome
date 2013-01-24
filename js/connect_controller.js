@@ -489,15 +489,15 @@ var Controller = function()
 			{
 				var selected=CM_obj.getSelectedProducts(cat_id=i);
 				if(i == 1)
-					$("#c1").html(selected[0]);
+					$("#c1").html(selected.length);
 				if(i == 2)
-					$("#c2").html(selected[0]);
+					$("#c2").html(selected.length);
 				if(i == 3)
-					$("#c3").html(selected[0]);
+					$("#c3").html(selected.length);
 				if(i == 4)
-					$("#c4").html(selected[0]);
+					$("#c4").html(selected.length);
 				if(i == 5)
-					$("#c5").html(selected[0]);
+					$("#c5").html(selected.length);
 			}
 		}
 	};
