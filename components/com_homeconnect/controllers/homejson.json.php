@@ -23,29 +23,35 @@ class HomeconnectControllerHomejson extends HomeconnectController
 	 *
 	 * @since	1.6
 	 */
-	    function send()
-     {
-       
-      $sendto=$_POST['mail'];
-      $data=$_POST['data'];
-      $subject=$_POST['subject'];
-      $mailer =& JFactory::getMailer();
-      $config =& JFactory::getConfig();
-      $sender = array( 
-      $config->getValue( 'config.mailfrom' ),
-      $config->getValue( 'config.fromname' ) );
-      echo $mailer;
-      $mailer->setSender($sender);
-      $mailer->addRecipient($sendto);
-      $mailer->setSubject($subject);
-      $mailer->setBody("hello");
-      $send =& $mailer->Send();
+
+	/*
+	Aks : No need of this file
+	function send()
+	{
+		$sendto=$_POST['mail'];
+		$data=$_POST['data'];
+		$subject=$_POST['subject'];
+		$mailer =& JFactory::getMailer();
+		$config =& JFactory::getConfig();
+		$sender = array( 
+					$config->getValue( 'config.mailfrom' ),
+					$config->getValue( 'config.fromname' ) );
+
+		echo $mailer;
+
+		$mailer->setSender($sender);
+		$mailer->addRecipient($sendto);
+		$mailer->setSubject($subject);
+		$mailer->setBody("hello");
+		$send =& $mailer->Send();
 		if ( $send !== true ) 
-			{
-			    echo 'Error sending email: ' ;
-			} else 
-			{
-			    echo 'Mail sent';
-			}
-     } 
+		{
+			echo 'Error sending email: ';
+		}
+		else
+		{
+			echo 'Mail sent';
+		}
+	}
+	*/
 }

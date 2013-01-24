@@ -58,4 +58,40 @@ class HomeconnectController extends JController
 		}
 		echo json_encode($result);
 	}
+
+	public function sendEmail()
+	{
+		try
+		{
+			$data		= $_POST['data'];
+			$sendto		= $_POST['mail'];
+			$subject	= $_POST['subject'];
+			$mailer		= &JFactory::getMailer();
+			$config		= &JFactory::getConfig();
+			$sender		= array( $config->getValue( 'config.mailfrom' ),
+								$config->getValue( 'config.fromname' ) );
+
+			// echo $mailer;
+
+			$mailer->setSender($sender);
+			$mailer->addRecipient($sendto);
+			$mailer->setSubject($subject);
+			$mailer->setBody("Testing Connect Up My Home");
+
+			$send = &$mailer->Send();
+
+			if ( $send !== true ) 
+			{
+				echo 'ERROR : Sending Email Failed' ;
+			}
+			else
+			{
+				echo 'Message : Mail Sent Successfully !!!';
+			}
+		}
+		catch (Exception $e)
+		{
+			echo 'ERROR : '.$e;
+		}
+	}
 }

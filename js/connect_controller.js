@@ -413,7 +413,7 @@ var Controller = function()
 	// SDs for addto my bundle
 	this.AddToMyBundle = function(category)
 	{
-		console.log(CM_obj.getCurrentState());
+		// console.log(CM_obj.getCurrentState());
 		var cat_product = category.split("_");
 		var selected_product;
 		if(document.getElementById(category).checked)
@@ -470,8 +470,8 @@ var Controller = function()
 			// console.log('#main_category_inner_div_'+(cat_id+1));
         }
 		else
-		{ 
-			console.log('hide this'+CM_obj.getCurrentState());
+		{
+			// console.log('hide this'+CM_obj.getCurrentState());
 			controller.hideDiv(CM_obj.getCurrentState());
 			// controller.hideDiv('#category_accordion_div');
 			controller.showDiv('#category_accordion_div');
@@ -493,7 +493,7 @@ var Controller = function()
 		{
 			for (var i = 1;i <= 5; i++)
 			{
-				var selected=CM_obj.getSelectedProducts(cat_id=i);
+				var selected = CM_obj.getSelectedProducts(cat_id=i);
 				if(i == 1)
 					$("#c1").html(selected.length);
 				if(i == 2)
@@ -506,164 +506,187 @@ var Controller = function()
 					$("#c5").html(selected.length);
 			}
 		}
-		
-		
-		  if(id=="installation_div")
+
+		if(id=="installation_div")
+		{
+			for (var i = 1;i <= 5; i++)
 			{
-			  
-			  for (var i = 1;i <= 5; i++)
+				var selected = CM_obj.getSelectedProducts(cat_id = i);
+				// console.log(selected);
+				if(i == 1 )
 				{
-					var selected=CM_obj.getSelectedProducts(cat_id=i);
-					console.log(selected);
-					if(i == 1 )
-						{
-						if(selected.length!=0)
-							{
-							 $('#tvcheck').attr('checked',true);
-							 $('#nof_tv').attr('disabled',false);
-							}
-					    else
+					if(selected.length!=0)
+					{
+						$('#tvcheck').attr('checked',true);
+						$('#nof_tv').attr('disabled',false);
+					}
+					else
+					{
 						$('#nof_tv').attr('disabled',true);
-						}
-					if(i == 2 )
-						{
-							if( selected.length!=0)
-								{
-								$("#gamingcheck").attr('checked',true);
-								$('#nof_games').attr('disabled',false);
-								}
-							else
-								$('#nof_games').attr('disabled',true);
-						}	
-					if(i == 3) 
-						{
-							if(selected.length!=0)
-								{
-								 $("#music_check").attr('checked',true);
-								 $('#nof_music').attr('disabled',false);
-								}
-							else
-								$('#nof_music').attr('disabled',true);
-						}
-					
-					if(i == 4 && selected.length!=0 )
-						$("#broadbandcheck").attr('checked',true);
-					
+					}
 				}
-			
+				if(i == 2 )
+				{
+					if( selected.length!=0)
+					{
+						$("#gamingcheck").attr('checked',true);
+						$('#nof_games').attr('disabled',false);
+					}
+					else
+					{
+						$('#nof_games').attr('disabled',true);
+					}
+				}
+				if(i == 3)
+				{
+					if(selected.length!=0)
+					{
+						$("#music_check").attr('checked',true);
+						$('#nof_music').attr('disabled',false);
+					}
+					else
+					{
+						$('#nof_music').attr('disabled',true);
+					}
+				}
+				if(i == 4 && selected.length!=0 )
+				{
+					$("#broadbandcheck").attr('checked',true);
+				}
 			}
+		}
 	};
+
 	// SDs for creating thank you page on selected brands
 	this.createThankpage = function()
-	  {
+	{
 		for (var i = 1;i <= 5; i++)
 		{
-			var selected=CM_obj.getSelectedProducts(cat_id=i);
+			var selected = CM_obj.getSelectedProducts(cat_id = i);
 			if(i == 1)
+			{
 				if( selected.length!=0)
-					{
+				{
 					$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;"> B 1 </div>');
-					}
+				}
+			}
 			if(i == 2)
+			{
 				if( selected.length!=0)
 				{
 					$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;">B 2</div>');
 				}
-				
+			}
 			if(i == 3)
+			{
 				if( selected.length!=0)
 				{
 					$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;">B 3 </div>');
 				}
-				
+			}
 			if(i == 4)
+			{
 				if( selected.length!=0)
 				{
 					$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;">B4 </div>');
 				}
-				
+			}
 			if(i == 5)
+			{
 				if( selected.length!=0)
 				{
 				$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;">B 5 </div>');
 				}
-				
-		}
-		
-	  };
-	  //SDs for Details page validation and forward to next
-	  this.ValidateAndForword = function(targetdiv)
-	  {
-		  var name= document.getElementById('d_name').value;
-		  var phone=document.getElementById('d_phone').value;
-		  var email=document.getElementById('d_email').value;
-		  var haddress=document.getElementById('d_haddress').value;
-		  var installaddress=document.getElementById('d_install_address').value;
-		  var error="";
-		  var textfields=["d_name","d_phone","d_email","d_haddress","d_install_address"];
-		  for(var i=0;i<textfields.length;i++)
-					{
-			  
-			          
-						if(controller.emptyCheck(textfields[i]))
-							{
-							document.getElementById(textfields[i]).style.background="#FFFFFF";
-							controller.ErrorMessage("");						
-							}
-						else
-							{
-							
-							document.getElementById(textfields[i]).style.background="#FFA07A";
-							controller.ErrorMessage("field should not empty");
-							}
-					}
-		  
-		if(  $("#errordiv").html()=="")
-		{
-		  if(controller.checkEmail(email))
-			{
-			var selected=CM_obj.getSelectedProducts();
-			var subject="your order is accepted";
-			controller.switchDivs("#thank_div");
- 			 var  message=controller.sendmail(email,selected,subject);
 			}
 		}
-		  
-	  };
-	  //SDs for error message on details page
-	  this.ErrorMessage = function(message)
-	   {
-		  $("#errordiv").html(message);
-		 
-	   };
-	   this.emptyCheck = function(id)
-	   {
-		   if(document.getElementById(id).value=="")
-			   {
-			    return false;
-			   }
-		   else
-			   return true;
-		 
-		 
-	   };
-	   
-	   this.sendmail = function (mailto,data,subject)
-	   {
-		 
-		   $.ajax(
-					{
-						url: 'index.php?option=com_homeconnect&task=homejson.send&format=json',
-						type: 'post',
-						data: {mail:mailto,data:data,subject:subject},
-						datatype: 'json',
-						success: function(data)
-						{
-							
-						}
-					});
-	   };
-	   
-	
-	
+	};
+
+	// SDs for Details page validation and forward to next
+	this.ValidateAndForword = function(targetdiv)
+	{
+		var name			= document.getElementById('d_name').value;
+		var phone			= document.getElementById('d_phone').value;
+		var email			= document.getElementById('d_email').value;
+		var haddress		= document.getElementById('d_haddress').value;
+		var installaddress	= document.getElementById('d_install_address').value;
+		var error			= "";
+		var textfields		= ["d_name","d_phone","d_email","d_haddress","d_install_address"];
+		for(var i=0;i<textfields.length;i++)
+		{
+			if(controller.emptyCheck(textfields[i]))
+			{
+				document.getElementById(textfields[i]).style.background="#FFFFFF";
+				controller.ErrorMessage("");
+			}
+			else
+			{
+				document.getElementById(textfields[i]).style.background="#FFA07A";
+				controller.ErrorMessage("field should not empty");
+			}
+		}
+
+		if(  $("#errordiv").html() == "")
+		{
+			if(controller.checkEmail(email))
+			{
+				var selected	= CM_obj.getSelectedProducts();
+				var subject		= "Your Order Is Accepted";
+				// Aks : Not Here, only after successfull mail is sent
+				// controller.switchDivs("#thank_div");
+				var message		= controller.sendmail(email,selected,subject);
+			}
+		}
+	};
+
+	// SDs for error message on details page
+	this.ErrorMessage = function(message)
+	{
+		$("#errordiv").html(message);
+	};
+
+	this.emptyCheck = function(id)
+	{
+		if(document.getElementById(id).value == "")
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	};
+
+	this.sendmail = function (mailTo, data, subject)
+	{
+		$.ajax(
+		{
+			url: 'index.php?option=com_homeconnect&task=sendEmail&format=raw',
+			type: 'post',
+			data:
+			{
+				data: data,
+				mail: mailTo,
+				subject: subject
+			},
+			datatype: 'json',
+			success: function(data)
+			{
+				// Aks : Check if mail is sent then only switch divs here
+				controller.switchDivs("#thank_div");
+				// console.log(data);
+			}
+		});
+		/* Shyam :
+		$.ajax(
+		{
+			url: 'index.php?option=com_homeconnect&task=homejson.send&format=json',
+			type: 'post',
+			data: {mail:mailto,data:data,subject:subject},
+			datatype: 'json',
+			success: function(data)
+			{
+			}
+		});
+		*/
+   };
 };
