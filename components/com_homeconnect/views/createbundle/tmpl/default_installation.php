@@ -4,12 +4,12 @@
 <div id="installation_div" style="display: none;">
 	<div id="category_product_instalation_div" style="padding: 20px;">
 		<div style="margin: 10px;">
-			<input type="checkbox" name="broadband_connection"> Broadband Connection <br>
+			<input type="checkbox" name="broadband_connection" id="broadbandcheck"> Broadband Connection <br>
 		</div>
 
 		<div style="margin: 10px;">
-			<input type="checkbox" name="tv" checked> TV 
-			<select>
+			<input type="checkbox" name="tv" id="tvcheck"> TV 
+			<select id="nof_tv">
 				<option value="0">How Many</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
@@ -19,8 +19,9 @@
 		</div>
 
 		<div style="margin: 10px;">
-			<input type="checkbox" name="gaming_consoles"> Gaming Consoles
-			<select>
+			<input type="checkbox" name="gaming_consoles" id="gamingcheck"> Gaming Consoles
+			<select id="nof_games">
+			
 				<option value="0">How Many</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
@@ -30,8 +31,8 @@
 		</div>
 
 		<div style="margin: 10px;">
-			<input type="checkbox" name="music_systems"> Music Systems
-			<select>
+			<input type="checkbox" name="music_systems" id="music_check"> Music Systems
+			<select id="nof_music">
 				<option value="0">How Many</option>
 				<option value="1">1</option>
 				<option value="2">2</option>

@@ -147,4 +147,9 @@ class HomeconnectControllerHomeconnect extends HomeconnectController
 			$this->setRedirect(JRoute::_('index.php?option=com_homeconnect&view=homeconnects', false));
         }
     }
+    function sendmail()
+     {
+     	$arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
+     	echo json_encode($arr);
+     } 
 }

@@ -240,6 +240,10 @@ var Controller = function()
 					{
 						controller.showDiv(value);
 					}
+					if(value=="#thank_div")
+					{
+						controller.createThankpage();
+					}
 				});
 			}
 			else
@@ -277,10 +281,11 @@ var Controller = function()
 		{
 			controller.setProductsOfCategory(hide_ids, show_ids,product_id, cat_id);
 		}
-		if(show_ids=="confirmation_div" || show_ids=="recommendation_div")
+		if(show_ids=="confirmation_div" || show_ids=="recommendation_div"  || show_ids=="installation_div")
 		{
 			controller.updateDiv(show_ids);
 		}
+		
 	};
 
 	this.setProductsOfCategory = function (prev_div, div_id,product_id, cat_id)
@@ -465,7 +470,8 @@ var Controller = function()
 			// console.log('#main_category_inner_div_'+(cat_id+1));
         }
 		else
-		{
+		{ 
+			console.log('hide this'+CM_obj.getCurrentState());
 			controller.hideDiv(CM_obj.getCurrentState());
 			// controller.hideDiv('#category_accordion_div');
 			controller.showDiv('#category_accordion_div');
@@ -480,7 +486,7 @@ var Controller = function()
 		}
 	};
 
-	// SDs for set confirmation page on selected product
+	// SDs for set confirmation page on selected product and set installation page also
 	this.updateDiv = function(id)
 	{
 		if(id == "confirmation_div")
@@ -500,5 +506,164 @@ var Controller = function()
 					$("#c5").html(selected.length);
 			}
 		}
+		
+		
+		  if(id=="installation_div")
+			{
+			  
+			  for (var i = 1;i <= 5; i++)
+				{
+					var selected=CM_obj.getSelectedProducts(cat_id=i);
+					console.log(selected);
+					if(i == 1 )
+						{
+						if(selected.length!=0)
+							{
+							 $('#tvcheck').attr('checked',true);
+							 $('#nof_tv').attr('disabled',false);
+							}
+					    else
+						$('#nof_tv').attr('disabled',true);
+						}
+					if(i == 2 )
+						{
+							if( selected.length!=0)
+								{
+								$("#gamingcheck").attr('checked',true);
+								$('#nof_games').attr('disabled',false);
+								}
+							else
+								$('#nof_games').attr('disabled',true);
+						}	
+					if(i == 3) 
+						{
+							if(selected.length!=0)
+								{
+								 $("#music_check").attr('checked',true);
+								 $('#nof_music').attr('disabled',false);
+								}
+							else
+								$('#nof_music').attr('disabled',true);
+						}
+					
+					if(i == 4 && selected.length!=0 )
+						$("#broadbandcheck").attr('checked',true);
+					
+				}
+			
+			}
 	};
+	// SDs for creating thank you page on selected brands
+	this.createThankpage = function()
+	  {
+		for (var i = 1;i <= 5; i++)
+		{
+			var selected=CM_obj.getSelectedProducts(cat_id=i);
+			if(i == 1)
+				if( selected.length!=0)
+					{
+					$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;"> B 1 </div>');
+					}
+			if(i == 2)
+				if( selected.length!=0)
+				{
+					$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;">B 2</div>');
+				}
+				
+			if(i == 3)
+				if( selected.length!=0)
+				{
+					$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;">B 3 </div>');
+				}
+				
+			if(i == 4)
+				if( selected.length!=0)
+				{
+					$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;">B4 </div>');
+				}
+				
+			if(i == 5)
+				if( selected.length!=0)
+				{
+				$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;">B 5 </div>');
+				}
+				
+		}
+		
+	  };
+	  //SDs for Details page validation and forward to next
+	  this.ValidateAndForword = function(targetdiv)
+	  {
+		  var name= document.getElementById('d_name').value;
+		  var phone=document.getElementById('d_phone').value;
+		  var email=document.getElementById('d_email').value;
+		  var haddress=document.getElementById('d_haddress').value;
+		  var installaddress=document.getElementById('d_install_address').value;
+		  var error="";
+		  var textfields=["d_name","d_phone","d_email","d_haddress","d_install_address"];
+		  for(var i=0;i<textfields.length;i++)
+					{
+			  
+			          
+						if(controller.emptyCheck(textfields[i]))
+							{
+							document.getElementById(textfields[i]).style.background="#FFFFFF";
+							controller.ErrorMessage("");						
+							}
+						else
+							{
+							
+							document.getElementById(textfields[i]).style.background="#FFA07A";
+							controller.ErrorMessage("field should not empty");
+							}
+					}
+		  
+		if(  $("#errordiv").html()=="")
+		{
+		  if(controller.checkEmail(email))
+			{
+			var selected=CM_obj.getSelectedProducts();
+			var subject="your order is accepted";
+			controller.switchDivs("#thank_div");
+ 			 var  message=controller.sendmail(email,selected,subject);
+			}
+		}
+		  
+	  };
+	  //SDs for error message on details page
+	  this.ErrorMessage = function(message)
+	   {
+		  $("#errordiv").html(message);
+		 
+	   };
+	   this.emptyCheck = function(id)
+	   {
+		   if(document.getElementById(id).value=="")
+			   {
+			    return false;
+			   }
+		   else
+			   return true;
+		 
+		 
+	   };
+	   
+	   this.sendmail = function (mailto,data,subject)
+	   {
+		 
+		   $.ajax(
+					{
+						url: 'index.php?option=com_homeconnect&task=homejson.send&format=json',
+						type: 'post',
+						data: {mail:mailto,data:data,subject:subject},
+						datatype: 'json',
+						success: function(data)
+						{
+							
+						}
+					});
+	   };
+	   
+	
+	
 };
