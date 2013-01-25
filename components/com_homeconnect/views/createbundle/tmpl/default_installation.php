@@ -11,8 +11,8 @@
 			<input type="checkbox" name="tv" id="tvcheck"> TV 
 			<select id="nof_tv">
 				<option value="0">How Many</option>
-				<option value="1">1</option>
-				<option value="2">2</option>
+				<option value="1" selected>1</option>
+				<option value="2" >2</option>
 				<option value="3">3</option>
 				<option value="4">4</option>
 			</select>
@@ -23,7 +23,7 @@
 			<select id="nof_games">
 			
 				<option value="0">How Many</option>
-				<option value="1">1</option>
+				<option value="1" selected>1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
 				<option value="4">4</option>
@@ -34,7 +34,7 @@
 			<input type="checkbox" name="music_systems" id="music_check"> Music Systems
 			<select id="nof_music">
 				<option value="0">How Many</option>
-				<option value="1">1</option>
+				<option value="1" selected>1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
 				<option value="4">4</option>

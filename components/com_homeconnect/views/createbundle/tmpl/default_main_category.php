@@ -32,6 +32,9 @@
 					<div onClick="javascript:controllerObj.nextAccordion('category_accordion_div',1);" style="cursor: pointer; float: right;">
 					=&gt;
 					</div>
+					<div  style="cursor: pointer; float: left;">
+					<INPUT onClick="javascript:controllerObj.TrayedOutCategory(this.id)" id="cat_1" NAME="cat_1" TYPE="CHECKBOX" VALUE="1">&nbsp I Do not Want Any TV product
+					</div>
 				</div>
 
 				<div id="main_category_inner_product_div_1" style="display: none;">
@@ -67,6 +70,9 @@
 
 					<div onClick="javascript:controllerObj.nextAccordion('category_accordion_div',2);" style="cursor: pointer; float: right;">
 					=&gt;
+					</div>
+					<div  style="cursor: pointer; float: left;">
+					<INPUT onClick="javascript:controllerObj.TrayedOutCategory(this.id)" id="cat_2" NAME="cat_2" TYPE="CHECKBOX" VALUE="1">&nbsp I Do not Want Any Games product
 					</div>
 				</div>
 
@@ -104,6 +110,9 @@
 					<div onClick="javascript:controllerObj.nextAccordion('category_accordion_div',3);" style="cursor: pointer; float: right;">
 					=&gt;
 					</div>
+					<div  style="cursor: pointer; float: left;">
+					<INPUT onClick="javascript:controllerObj.TrayedOutCategory(this.id)" id="cat_3" NAME="cat_3" TYPE="CHECKBOX" VALUE="1">&nbsp I Do not Want Any Music product
+					</div>
 				</div>
 
 				<div id="main_category_inner_product_div_3" style="display: none;">
@@ -140,6 +149,9 @@
 					<div onClick="javascript:controllerObj.nextAccordion('category_accordion_div',4);" style="cursor: pointer; float: right;">
 					=&gt;
 					</div>
+					<div  style="cursor: pointer; float: left;">
+					<INPUT onClick="javascript:controllerObj.TrayedOutCategory(this.id)" id="cat_4" NAME="cat_4" TYPE="CHECKBOX" VALUE="1">&nbsp I Do not Want Any Broadband product
+					</div>
 				</div>	
 
 				<div id="main_category_inner_product_div_4" style="display: none;">
@@ -175,6 +187,9 @@
 
 					<div onClick="javascript:controllerObj.switchInnerDivs('main_category_div','installation_div',0,0);" style="cursor: pointer; float: right;">
 					=&gt;
+					</div>
+					<div  style="cursor: pointer; float: left;">
+					<INPUT onClick="javascript:controllerObj.TrayedOutCategory(this.id)" id="cat_5" NAME="cat_5" TYPE="CHECKBOX" VALUE="1">&nbsp I Do not Want Any connectUp my Homes product
 					</div>
 				</div>
 

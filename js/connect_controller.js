@@ -728,4 +728,79 @@ var Controller = function()
 		});
 		*/
    };
+   
+   this.TrayedOutCategory = function(id)
+   {
+	   switch(id)
+	   {
+	   case 'cat_1': if(document.getElementById("cat_1").checked == true)
+		             {
+			            document.getElementById("tv").style.color = "#99CC00";
+			             controller.nextAccordion('category_accordion_div',1);
+			             
+			          }
+				   else
+						{
+					     
+						  document.getElementById("tv").style.color = "#000000";
+						}
+			
+	               break;
+	   case 'cat_2': if(document.getElementById("cat_2").checked == true)
+				       {
+		   				document.getElementById("gaming").style.color = "#99CC00";
+		   				controller.nextAccordion('category_accordion_div',2);
+		   				
+				        }
+				   else
+						{
+					     
+						  document.getElementById("gaming").style.color = "#000000";
+						}
+			
+	   				break;    
+	   case 'cat_3': if(document.getElementById("cat_3").checked == true)
+				       	{
+		   					document.getElementById("music").style.color = "#99CC00";
+		   					controller.nextAccordion('category_accordion_div',3);
+		   					
+				       	}
+					   else
+							{
+						     
+							  document.getElementById("music").style.color = "#000000";
+							}
+							
+	   					break;   
+	   case 'cat_4': if(document.getElementById("cat_4").checked == true)
+				      	{
+		   						document.getElementById("broadband").style.color = "#99CC00";
+								controller.nextAccordion('category_accordion_div',4);
+								
+								
+				      	}
+					   else
+							{
+						      
+							  document.getElementById("broadband").style.color = "#000000";
+							}
+							
+						break; 
+	   case 'cat_5': if(document.getElementById("cat_5").checked == true)
+				     	{
+		   						document.getElementById("connectupmyhome").style.color = "#99CC00";
+								controller.switchInnerDivs('main_category_div','installation_div',0,0);
+								
+				     	}
+	   				else
+	   					{
+	   					  
+	   					  document.getElementById("connectupmyhome").style.color = "#000000";
+	   					}
+	   					
+						break; 
+		default: break;				
+
+	  }
+   }
 };
