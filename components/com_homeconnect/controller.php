@@ -11,6 +11,7 @@
 defined('_JEXEC') or die;
 
 jimport('joomla.application.component.controller');
+jimport( 'joomla.utilities.utility' );
 
 class HomeconnectController extends JController
 {
@@ -66,32 +67,29 @@ class HomeconnectController extends JController
 			$data		= $_POST['data'];
 			$sendto		= $_POST['mail'];
 			$subject	= $_POST['subject'];
-			$mailer		= &JFactory::getMailer();
-			$config		= &JFactory::getConfig();
-			$sender		= array( $config->getValue( 'config.mailfrom' ),
-								$config->getValue( 'config.fromname' ) );
-
-			// echo $mailer;
-
-			$mailer->setSender($sender);
-			$mailer->addRecipient($sendto);
-			$mailer->setSubject($subject);
-			$mailer->setBody("Testing Connect Up My Home");
-
-			$send = &$mailer->Send();
-
-			if ( $send !== true ) 
-			{
-				echo 'ERROR : Sending Email Failed' ;
-			}
-			else
-			{
-				echo 'Message : Mail Sent Successfully !!!';
-			}
+			
+	    	$body = "Here is the body of your message.";
+			$to = "shyamdeshmukh212@gmail.com";
+			$from = "shyam@anomaly.co.in";
+			$fromname="shyam";
+			
+			
+		$send=JUtility::sendMail($from, $fromname, $to, $subject, $body, $mode=0, $cc=null, $bcc=null, $attachment=null, $replyto=null, $replytoname=null);
+	       if($send=="true")
+	       {
+	       	echo "success";
+	       	
+	       }
+	       else 
+	       {
+	       	echo "error";
+	       }
+		
+		
 		}
 		catch (Exception $e)
 		{
-			echo 'ERROR : '.$e;
+			echo false;
 		}
 	}
 }

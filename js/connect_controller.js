@@ -671,8 +671,14 @@ var Controller = function()
 			datatype: 'json',
 			success: function(data)
 			{
+				console.log(data);
 				// Aks : Check if mail is sent then only switch divs here
+				if(data=="success")
 				controller.switchDivs("#thank_div");
+				else
+				alert("ERROR in SENDING MAIL")
+				
+					
 				// console.log(data);
 			}
 		});
