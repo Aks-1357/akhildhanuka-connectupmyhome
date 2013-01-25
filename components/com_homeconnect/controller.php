@@ -62,34 +62,41 @@ class HomeconnectController extends JController
 
 	public function sendEmail()
 	{
-		try
-		{
-			$data		= $_POST['data'];
-			$sendto		= $_POST['mail'];
-			$subject	= $_POST['subject'];
-			
-	    	$body = "Here is the body of your message.";
-			$to = "shyamdeshmukh212@gmail.com";
-			$from = "shyam@anomaly.co.in";
-			$fromname="shyam";
-			
-			
-		$send=JUtility::sendMail($from, $fromname, $to, $subject, $body, $mode=0, $cc=null, $bcc=null, $attachment=null, $replyto=null, $replytoname=null);
-	       if($send=="true")
-	       {
-	       	echo "success";
-	       	
-	       }
-	       else 
-	       {
-	       	echo "error";
-	       }
 		
-		
-		}
-		catch (Exception $e)
-		{
-			echo false;
-		}
+	
+			// Aks :
+			try 
+			{
+					$app	= JFactory::getApplication();
+					$mailfrom	= $app->getCfg('mailfrom');
+					$fromname	= $app->getCfg('fromname');
+					$sitename	= $app->getCfg('sitename');
+					
+					$name	= 'akshay';
+					$email	= $_POST['mail'];
+					$subject	= $_POST['subject'];
+					$body	= 'Testing Message body';
+					
+					// Prepare email body
+					$body	= $name.' <'.$email.'>'."\r\n\r\n".stripslashes($body);
+					
+					$mail = JFactory::getMailer();
+					$mail->addRecipient($email);
+					$mail->addReplyTo(array($email, $name));
+					$mail->setSender(array($mailfrom, $fromname));
+					$mail->setSubject($sitename.': '.$subject);
+					$mail->setBody($body);
+					
+					$send=$mail->Send();
+					if($send=="true")
+					 echo "success";
+					 else 
+					 echo $send;
+				}
+					catch (Exception $e)
+				{
+					echo false;
+				}
+	}		
+			
 	}
-}
