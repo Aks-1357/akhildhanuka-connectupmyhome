@@ -75,13 +75,11 @@ class HomeconnectController extends JController
 					$name	= 'ConnectUpMyHomeAdmin';
 					$email	= $_POST['mail'];
 					$subject	= $_POST['subject'];
-					$body	= 'Testing Message body';
+					$body	= $_POST['data'];
 					
 					// Prepare email body
 					//$body	= $name.' <'.$email.'>'."\r\n\r\n".stripslashes($body);
-					$body = '<html><body bgcolor="#573A28" topmargin="25">'.
-					             'Put HTML content here with variables from PHP if you like'.
-                                  'Variable display Example: ' .$name. $body . ' </body></html>';
+					
 					
 					$mail = JFactory::getMailer();
 					$mail->addRecipient($email);

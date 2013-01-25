@@ -517,23 +517,27 @@ var Controller = function()
 				{
 					if(selected.length!=0)
 					{
+						$('#tvcheck').attr('disabled',false);
 						$('#tvcheck').attr('checked',true);
 						$('#nof_tv').attr('disabled',false);
 					}
 					else
 					{
+						$('#tvcheck').attr('disabled',true);
 						$('#nof_tv').attr('disabled',true);
 					}
 				}
 				if(i == 2 )
 				{
 					if( selected.length!=0)
-					{
+					{ 
+						$('#gamingcheck').attr('disabled',false);
 						$("#gamingcheck").attr('checked',true);
 						$('#nof_games').attr('disabled',false);
 					}
 					else
 					{
+						$("#gamingcheck").attr('disabled',true);
 						$('#nof_games').attr('disabled',true);
 					}
 				}
@@ -541,18 +545,25 @@ var Controller = function()
 				{
 					if(selected.length!=0)
 					{
+						$('#music_check').attr('disabled',false);
 						$("#music_check").attr('checked',true);
 						$('#nof_music').attr('disabled',false);
 					}
 					else
 					{
+						$("#music_check").attr('disabled',true);
 						$('#nof_music').attr('disabled',true);
 					}
 				}
 				if(i == 4 && selected.length!=0 )
 				{
+					$('#broadbandcheck').attr('disabled',false);
 					$("#broadbandcheck").attr('checked',true);
 				}
+				else
+					{
+					$("#broadbandcheck").attr('disabled',true);
+					}
 			}
 		}
 	};
@@ -627,16 +638,38 @@ var Controller = function()
 
 		if(  $("#errordiv").html() == "")
 		{
+			
 			if(controller.checkEmail(email))
 			{
-				var selected	= CM_obj.getSelectedProducts();
-				var subject		= "Your Order Is Accepted";
-				// Aks : Not Here, only after successfull mail is sent
-				// controller.switchDivs("#thank_div");
-				var message		= controller.sendmail(email,selected,subject);
+				var mailbody;
+				var subject		= "Your Order";
+				mailbody="<html>Thank you for using ConnectupMyHome<br/>Your Order Details Are:<br>"+
+				             "<table border='1'><tr><th>Category</th><th>No of Products</th></tr>";
+						             
+						for (var i = 1;i <= 5; i++)
+						{
+							var selected = CM_obj.getSelectedProducts(cat_id=i);
+							if(i == 1)
+								mailbody=mailbody+"<tr><td>TV</td><td>"+selected.length+"</td></tr>";
+							if(i == 2)
+								mailbody=mailbody+"<tr><td>Games</td><td>"+selected.length+"</td></tr>";
+							if(i == 3)
+								mailbody=mailbody+"<tr><td>Music</td><td>"+selected.length+"</td></tr>";
+							if(i == 4)
+								mailbody=mailbody+"<tr><td>Broadband</td><td>"+selected.length+"</td></tr>";
+							if(i == 5)
+								mailbody=mailbody+"<tr><td>connectUpMyHomepackage</td><td>"+selected.length+"</td></tr>";
+						}
+						mailbody=mailbody+"</table></html>";
+						controller.sendmail(email,mailbody,subject);
+						
 			}
+			    
+		        
+				
 		}
 	};
+	
 
 	// SDs for error message on details page
 	this.ErrorMessage = function(message)
