@@ -265,9 +265,12 @@ var Controller = function()
 	// modified by SDs for switch multiple inner divs
 	this.switchInnerDivs = function (h_ids, s_ids, product_id, cat_id)
 	{
+		console.log(cat_id);
+		
 		CM_obj.setCurrentState(s_ids);
 		hide_ids = h_ids.split(",");
 		show_ids = s_ids.split(",");
+		//document.getElementById('main_category_inner_div_'+parseInt(cat_id+1)).style.display = "block";
 		hide_ids.each(function(value, index)
 		{
 			controller.hideDiv("#"+value);
@@ -319,8 +322,9 @@ var Controller = function()
 	this.showDiv = function (id)
 	{
 		CM_obj.setCurrentState(id);
+		
 
-		// console.log(CM_obj.getCurrentState());
+		console.log(CM_obj.getCurrentState());
 		// get effect type from
 		var selectedEffect = "slide";
 
@@ -405,7 +409,7 @@ var Controller = function()
 	this.switchInnerPrevDivs = function(source_div,prevDiv)
 	{
 		CM_obj.setCurrentState(prevDiv);
-		// console.log(prevDiv);
+		console.log(prevDiv);
 		controller.switchInnerDivs(source_div, prevDiv,0, 0);
 		//console.log(source_div);
 	};
@@ -413,7 +417,7 @@ var Controller = function()
 	// SDs for addto my bundle
 	this.AddToMyBundle = function(category)
 	{
-		// console.log(CM_obj.getCurrentState());
+		 console.log(CM_obj.getCurrentState());
 		var cat_product = category.split("_");
 		var selected_product;
 		if(document.getElementById(category).checked)
@@ -451,11 +455,13 @@ var Controller = function()
 	// SDs for go to respecive selection page from my bundle section view edit
 	this.switchtoSelectionpage = function(cat_id)
 	{
+		 console.log(cat_id);
 		var selected_product;
 		selected_product = CM_obj.getSelectedProducts(cat_id+1);
-		// console.log(selected_product);
-		if(CM_obj.getCurrentState() == "#category_accordion_div")
+		
+		if(CM_obj.getCurrentState() == "#main_accordian_div")
 		{
+			 console.log(cat_id);
 			// controller.hideDiv('#category_accordion_div');
 			controller.showDiv('#category_accordion_div');
 			controller.nextAccordion('category_accordion_div',cat_id);
@@ -471,7 +477,7 @@ var Controller = function()
         }
 		else
 		{
-			// console.log('hide this'+CM_obj.getCurrentState());
+			 console.log('hide this'+CM_obj.getCurrentState());
 			controller.hideDiv(CM_obj.getCurrentState());
 			// controller.hideDiv('#category_accordion_div');
 			controller.showDiv('#category_accordion_div');
