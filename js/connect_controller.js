@@ -12,14 +12,21 @@ var Controller = function()
 	var controller;
 	var prevDiv;
 
-	this.init = function ()
+	this.init = function (trackdata)
 	{
 		controller = this;
-
-		CM_obj	= new Model();
+       	CM_obj	= new Model();
 		CV_obj	= new View();
 		tracker = new Array();
 		main_divs = new Array();
+		
+		tracker.push("Tracker Object");
+		tracker.push("-------------------------------------------------------- ");
+		tracker.push("IP Address:"+CM_obj.getClientIP());
+		tracker.push("Address :"+trackdata.Adress);
+		tracker.push("Email:"+trackdata.Email);
+		tracker.push("decided to:"+trackdata.decidedto);
+		tracker.push(" --------------------------------------------------------");
 
 		if(document.getElementById("geocomplete"))
 		{
@@ -49,6 +56,7 @@ var Controller = function()
 			main_divs.push("#landing_div");
 		}
 		*/
+		
 		if(document.getElementById("main_accordian_div"))
 		{
 			main_divs.push("#main_accordian_div");
@@ -73,9 +81,11 @@ var Controller = function()
 		{
 			main_divs.push("#recommendation_div");
 		}
-
+        
 		controller.switchDivs("#main_accordian_div");
+		
 		CM_obj.setCurrentState("#category_accordion_div");
+		console.log(tracker);
 	};
 
 	/* Aks : Shifted To connect_module.js
@@ -132,7 +142,9 @@ var Controller = function()
 
 	this.nextAccordion = function (main_accordion_id, index)
 	{
+		tracker.push("switch  to category"+ index);
 		// console.log(CM_obj.getCurrentState());
+		
 		$('#ui-accordion-'+main_accordion_id+'-header-'+index).click();
 		/* Aks : Not Needed
 		$('#category_accordion_div').accordion('activate', 2);
@@ -221,6 +233,7 @@ var Controller = function()
 
 	this.switchDivs = function (id)
 	{
+		tracker.push("swich to view :"+id);
 		CM_obj.setCurrentState(id);
 
 		// console.log('switch to_'+CM_obj.getCurrentState());
@@ -266,6 +279,7 @@ var Controller = function()
 	// modified by SDs for switch multiple inner divs
 	this.switchInnerDivs = function (h_ids, s_ids, product_id, cat_id)
 	{
+		tracker.push("switched from view "+h_ids+"to "+s_ids );
 		CM_obj.setCurrentState(s_ids);
 		hide_ids = h_ids.split(",");
 		show_ids = s_ids.split(",");
@@ -292,6 +306,7 @@ var Controller = function()
 	this.setProductsOfCategory = function (prev_div, div_id,product_id, cat_id)
 	{
 		// console.log(cat_id);
+		tracker.push("brands under each category display created");
 		var html = "";
 		html += '<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; width: 20px;">B '+product_id+'</div>'+
 				'<div style="margin-top: 15px;"><div  style="cursor: pointer; border: 1px solid #ccc; padding: 16px; margin: 0 20px 0 0; float: left;"><INPUT onClick="javascript:controllerObj.AddToMyBundle(this.id)" id="'+cat_id+'_1" NAME="p" TYPE="CHECKBOX" VALUE="1"></div>'+
@@ -405,6 +420,7 @@ var Controller = function()
 	// SDs for back navigation from details page
 	this.switchInnerPrevDivs = function(source_div,prevDiv)
 	{
+		tracker.push("swich  from one view to another inner category "); 
 		CM_obj.setCurrentState(prevDiv);
 		// console.log(prevDiv);
 		controller.switchInnerDivs(source_div, prevDiv,0, 0);
@@ -414,17 +430,20 @@ var Controller = function()
 	// SDs for addto my bundle
 	this.AddToMyBundle = function(category)
 	{
+		
 		// console.log(CM_obj.getCurrentState());
 		var cat_product = category.split("_");
 		var selected_product;
 		if(document.getElementById(category).checked)
 		{
+			tracker.push("product added to my bundle"+cat_product[1]);
 			CM_obj.setAddToMyBundleResult(cat_product[0], cat_product[1]);
 		    selected_product = CM_obj.getSelectedProducts(cat_product[0]);
 			controller.viewtoMybundle(cat_product[0], selected_product);
 		}
 		else
 		{
+			tracker.push("product deleted to my bundle"+cat_product[1]);
 			CM_obj.deleteAddedMyBundleResult(cat_product[0],cat_product[1]);
 			// console.log(CM_obj.getSelectedProducts(cat_product[0]));
 		    selected_product = CM_obj.getSelectedProducts(cat_product[0]);
@@ -452,6 +471,7 @@ var Controller = function()
 	// SDs for go to respecive selection page from my bundle section view edit
 	this.switchtoSelectionpage = function(cat_id)
 	{
+		tracker.push("selected product under category"+cat_id+"edited");
 		var selected_product;
 		selected_product = CM_obj.getSelectedProducts(cat_id+1);
 		// console.log(selected_product);
@@ -490,8 +510,10 @@ var Controller = function()
 	// SDs for set confirmation page on selected product and set installation page also
 	this.updateDiv = function(id)
 	{
+		
 		if(id == "confirmation_div")
 		{
+			tracker.push("selected product displayed confirmation page");
 			for (var i = 1;i <= 5; i++)
 			{
 				var selected = CM_obj.getSelectedProducts(cat_id=i);
@@ -510,6 +532,7 @@ var Controller = function()
 
 		if(id=="installation_div")
 		{
+			tracker.push("selected product displayed installation page");
 			for (var i = 1;i <= 5; i++)
 			{
 				var selected = CM_obj.getSelectedProducts(cat_id = i);
@@ -572,8 +595,9 @@ var Controller = function()
 	// SDs for creating thank you page on selected brands
 	this.createThankpage = function()
 	{
+		tracker.push("create thank page");
 		for (var i = 1;i <= 5; i++)
-		{
+			{
 			var selected = CM_obj.getSelectedProducts(cat_id = i);
 			if(i == 1)
 			{
@@ -616,6 +640,7 @@ var Controller = function()
 	// SDs for Details page validation and forward to next
 	this.ValidateAndForword = function(targetdiv)
 	{
+		tracker.push("validating user details ");
 		var name			= document.getElementById('d_name').value;
 		var phone			= document.getElementById('d_phone').value;
 		var email			= document.getElementById('d_email').value;
@@ -642,6 +667,7 @@ var Controller = function()
 			
 			if(controller.checkEmail(email))
 			{
+				tracker.push("preapring mail for customer");
 				var mailbody;
 				var subject		= "Your Order";
 				mailbody="<html>Thank you for using ConnectupMyHome<br/>Your Order Details Are:<br>"+
@@ -662,7 +688,9 @@ var Controller = function()
 								mailbody=mailbody+"<tr><td>connectUpMyHomepackage</td><td>"+selected.length+"</td></tr>";
 						}
 						mailbody=mailbody+"</table></html>";
+						tracker.push("sending mail");
 						controller.sendmail(email,mailbody,subject);
+						
 						
 			}
 			    
@@ -705,12 +733,24 @@ var Controller = function()
 			datatype: 'json',
 			success: function(data)
 			{
-				console.log(data);
+				
+				
 				// Aks : Check if mail is sent then only switch divs here
 				if(data=="success")
-				controller.switchDivs("#thank_div");
+					{
+						tracker.push("mail sent successfully");
+						controller.switchDivs("#thank_div");
+						tracker.push("swiched to thank u page ");
+						console.log(tracker);
+						
+					}
 				else
-				alert("ERROR in SENDING MAIL")
+					{
+					alert("ERROR in SENDING MAIL")
+					tracker.push("error in sending mail error message displayed");
+					console.log(tracker);
+					}
+				
 				
 					
 				// console.log(data);
@@ -732,6 +772,8 @@ var Controller = function()
    
    this.TrayedOutCategory = function(id)
    {
+	   tracker.push("user dont want any product under catgory"+id);
+	   tracker.push("trayed out category from my bundle");
 	   switch(id)
 	   {
 	   case 'cat_1': if(document.getElementById("cat_1").checked == true)

@@ -27,6 +27,7 @@ $document->addStyleSheet(JURI::base() . 'includes/assets/css/jquery/ui-lightness
 <!-- landing div -->
 <?php
 echo $this->loadTemplate('landing');
+$trackdata=array('Adress'=>$this->userAddress,'Email'=>$this->userEmail,'decidedto'=>JRequest::getVar('bundle_type'));
 ?>
 <!-- landing div -->
 
@@ -89,7 +90,8 @@ echo $this->loadTemplate('landing');
 <script>
 //$(document).ready(function()
 //{
+	var trackobj = JSON.parse('<?php echo json_encode($trackdata) ?>');
 	var controllerObj = new Controller();
-	controllerObj.init();
+	controllerObj.init(trackobj);
 //});
 </script>
