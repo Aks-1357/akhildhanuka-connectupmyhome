@@ -1,6 +1,6 @@
 CREATE TABLE IF NOT EXISTS `#__homeconnect` (
 `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT,
-
+`home_text` varchar(255) NOT NULL,
 `ordering` INT(11)  NOT NULL ,
 `state` TINYINT(1)  NOT NULL DEFAULT '1',
 `checked_out` INT(11)  NOT NULL ,
@@ -8,4 +8,3 @@ CREATE TABLE IF NOT EXISTS `#__homeconnect` (
 `created_by` INT(11)  NOT NULL ,
 PRIMARY KEY (`id`)
 ) DEFAULT COLLATE=utf8_general_ci;
-

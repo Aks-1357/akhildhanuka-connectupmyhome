@@ -4,7 +4,7 @@
  * @package     com_homeconnect
  * @copyright   Copyright (C) 2013. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
- * @author      vinayak <vinayakbardale@gmail.com> - http://
+ * @author      akshay <akshay1357agarwal@gmail.com> - http://
  */
  
 // No direct access

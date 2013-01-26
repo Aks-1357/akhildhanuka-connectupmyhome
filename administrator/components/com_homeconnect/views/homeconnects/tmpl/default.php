@@ -4,7 +4,7 @@
  * @package     com_homeconnect
  * @copyright   Copyright (C) 2013. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
- * @author      vinayak <vinayakbardale@gmail.com> - http://
+ * @author      akshay <akshay1357agarwal@gmail.com> - http://
  */
 
 
@@ -57,6 +57,9 @@ $saveOrder	= $listOrder == 'a.ordering';
 				<?php echo JHtml::_('grid.sort',  'COM_HOMECONNECT_HOMECONNECTS_CREATED_BY', 'a.created_by', $listDirn, $listOrder); ?>
 				</th>
 
+				<th class='left'>
+				<?php echo JHtml::_('grid.sort',  'Home Text', 'a.home_text', $listDirn, $listOrder); ?>
+				</th>
 
                 <?php if (isset($this->items[0]->state)) { ?>
 				<th width="5%">
@@ -102,6 +105,14 @@ $saveOrder	= $listOrder == 'a.ordering';
 					<?php echo $item->created_by; ?>
 				</td>
 
+				<td>
+					<?php if ($canEdit) : ?>
+					<a href="<?php echo JRoute::_('index.php?option=com_homeconnect&task=homeconnect.edit&id='.(int) $item->id); ?>" title="<?php echo JText::sprintf('Edit Home Page Text', $this->escape($item->home_text)); ?>">
+						<?php echo $this->escape($item->home_text); ?></a>
+					<?php else : ?>
+						<?php echo $this->escape($item->home_text); ?>
+					<?php endif; ?>
+				</td>
 
                 <?php if (isset($this->items[0]->state)) { ?>
 				    <td class="center">

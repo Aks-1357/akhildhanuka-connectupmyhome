@@ -1146,6 +1146,7 @@ CREATE TABLE IF NOT EXISTS `cnn_finder_types` (
 DROP TABLE IF EXISTS `cnn_homeconnect`;
 CREATE TABLE IF NOT EXISTS `cnn_homeconnect` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `home_text` varchar(255) NOT NULL,
   `ordering` int(11) NOT NULL,
   `state` tinyint(1) NOT NULL DEFAULT '1',
   `checked_out` int(11) NOT NULL,

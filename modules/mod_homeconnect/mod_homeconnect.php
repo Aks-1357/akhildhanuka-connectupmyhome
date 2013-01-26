@@ -12,6 +12,9 @@ defined('_JEXEC') or die;
 // Include the syndicate functions only once
 require_once( dirname(__FILE__).DS.'helper.php' );
 
-$hello = modHomeconnectHelper::getHello( $params );
+// $hello = modHomeconnectHelper::getHello( $params );
+
+$homeText = modHomeconnectHelper::getHomePageText();
+
 require( JModuleHelper::getLayoutPath( 'mod_homeconnect' ) );
 ?>

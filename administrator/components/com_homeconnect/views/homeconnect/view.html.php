@@ -4,7 +4,7 @@
  * @package     com_homeconnect
  * @copyright   Copyright (C) 2013. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
- * @author      vinayak <vinayakbardale@gmail.com> - http://
+ * @author      akshay <akshay1357agarwal@gmail.com> - http://
  */
 
 // No direct access
@@ -60,10 +60,10 @@ class HomeconnectViewHomeconnect extends JView
 		// If not checked out, can save the item.
 		if (!$checkedOut && ($canDo->get('core.edit')||($canDo->get('core.create'))))
 		{
-
 			JToolBarHelper::apply('homeconnect.apply', 'JTOOLBAR_APPLY');
 			JToolBarHelper::save('homeconnect.save', 'JTOOLBAR_SAVE');
 		}
+		/* Aks : No need to create a new and to copy
 		if (!$checkedOut && ($canDo->get('core.create'))){
 			JToolBarHelper::custom('homeconnect.save2new', 'save-new.png', 'save-new_f2.png', 'JTOOLBAR_SAVE_AND_NEW', false);
 		}
@@ -71,6 +71,7 @@ class HomeconnectViewHomeconnect extends JView
 		if (!$isNew && $canDo->get('core.create')) {
 			JToolBarHelper::custom('homeconnect.save2copy', 'save-copy.png', 'save-copy_f2.png', 'JTOOLBAR_SAVE_AS_COPY', false);
 		}
+		*/
 		if (empty($this->item->id)) {
 			JToolBarHelper::cancel('homeconnect.cancel', 'JTOOLBAR_CANCEL');
 		}

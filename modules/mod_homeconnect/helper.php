@@ -11,9 +11,22 @@ defined('_JEXEC') or die;
 
 class modHomeconnectHelper
 {
+	/* Aks : Example
 	function getHello( $params )
 	{
 		return 'Your helper text';
+	}
+	*/
+
+	public function getHomePageText()
+	{
+		$db = JFactory::getDbo();
+
+		$query = " SELECT `home_text` FROM `#__homeconnect` LIMIT 0,1 ";
+
+		$db->setQuery($query);
+
+		return $db->loadResult();
 	}
 }
 ?>
