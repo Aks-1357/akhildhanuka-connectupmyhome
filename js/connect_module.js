@@ -7,7 +7,8 @@ var Module = function ()
 	var thisObj = this;
 	var address;
     var prevDiv;
-	this.init = function ()
+
+    this.init = function (closeImg)
 	{
 		thisObj.address = "ERROR";
 
@@ -17,11 +18,13 @@ var Module = function ()
 		}
 		if(document.getElementById("tool_tip_1"))
 		{
-			this.toolTip("#tool_tip_1");
+			this.clueTip("tool_tip_1", closeImg);
+			// this.toolTip("#tool_tip_1");
 		}
 		if(document.getElementById("tool_tip_2"))
 		{
-			this.toolTip("#tool_tip_2");
+			this.clueTip("tool_tip_2", closeImg);
+			// this.toolTip("#tool_tip_2");
 		}
 	};
 
@@ -56,6 +59,19 @@ var Module = function ()
 			$( id ).trigger("geocode");
 		});
 		*/
+	};
+
+	this.clueTip = function (className, closeImg)
+	{
+		$('a.'+className).cluetip(
+		{
+			local: true,
+			sticky: true,
+			showTitle: false,
+			cursor: 'pointer',
+			mouseOutClose: true,
+			closeText: '<img style="float: right; margin: 5px 5px 5px 250px;" src="'+closeImg+'" alt="Close">'
+		});
 	};
 
 	this.toolTip = function (id)
