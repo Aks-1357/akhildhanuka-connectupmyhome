@@ -538,7 +538,7 @@ var Controller = function()
 	// SDs for creating thank you page on selected brands [* reviewed]
 	this.createThankpage = function()
 	{
-		tracker.push("create thank page");
+		
 		for (var i = 1;i <= 5; i++)
 		{
 			var selected = CM_obj.getSelectedProducts(cat_id = i);
@@ -560,7 +560,7 @@ var Controller = function()
 		var installaddress	= document.getElementById('d_install_address').value;
 		var error			= "";
 		var textfields		= ["d_name","d_phone","d_email","d_haddress","d_install_address"];
-		for(var i=0;i<textfields.length;i++)
+		for(var i=0;i<textfields.length-1;i++)
 		{
 			if(controller.emptyCheck(textfields[i]))
 			{
@@ -569,6 +569,7 @@ var Controller = function()
 			}
 			else
 			{
+				
 				document.getElementById(textfields[i]).style.background="#FFA07A";
 				controller.ErrorMessage("field should not empty");
 			}
@@ -616,6 +617,7 @@ var Controller = function()
 			return true;
 		}
 	};
+	//SDs phone number validati
 
 	this.sendmail = function (mailTo, data, subject)
 	{
