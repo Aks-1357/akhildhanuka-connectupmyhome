@@ -9,73 +9,73 @@
 			+
 			</div>
 
-			<div  onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div   style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 1
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 2);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 2
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 3);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 3
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 4
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 5
 			</div>
 		</div>
 
 		<div id="rec_lower_2" style="display:none;height:10%">
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer;  padding: 5px; margin:30px 18px 15px 15px; float: left;">
+			<div  style="cursor: pointer;  padding: 5px; margin:30px 18px 15px 15px; float: left;">
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 1
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 2);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 2
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 3);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 3
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 4
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 5
 			</div>
 		</div>
 
 		<div id="rec_lower_3" style="display: none; height: 10%;">
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer;  padding: 5px; margin: 30px 18px 15px 15px; float: left;">
+			<div  style="cursor: pointer;  padding: 5px; margin: 30px 18px 15px 15px; float: left;">
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 1
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 2);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 2
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 3);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 3
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 4
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 5
 			</div>
 		</div>
@@ -85,75 +85,75 @@
 			+
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 1
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 2);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 2
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 3);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 3
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 4
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 5
 			</div>
 		</div>
 
 		<div id="rec_closest_2" style="display: none; height: 10%;">
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer;  padding: 5px; margin:30px 18px 15px 15px; float: left;">
+			<div  style="cursor: pointer;  padding: 5px; margin:30px 18px 15px 15px; float: left;">
 			
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 1
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 2);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 2
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 3);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 3
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 4
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 5
 			</div>
 		</div>
 
 		<div id="rec_closest_3" style="display: none; height: 10%;">
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer;  padding: 5px; margin: 30px 18px 15px 15px; float: left;">
+			<div  style="cursor: pointer;  padding: 5px; margin: 30px 18px 15px 15px; float: left;">
 			
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 1
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 2);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 2
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 3);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 3
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 4
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 5
 			</div>
 		</div>
@@ -163,73 +163,73 @@
 			+
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 1
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 2);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 2
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 3);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 3
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 4
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 5
 			</div>
 		</div>
 
 		<div id="rec_popular_2" style="display: none; height: 10%;">
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer;  padding: 5px; margin:30px 18px 15px 15px; float: left;">
+			<div  style="cursor: pointer;  padding: 5px; margin:30px 18px 15px 15px; float: left;">
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 1
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 2);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 2
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 3);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 3
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 4
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 5
 			</div>
 		</div>
 
 		<div id="rec_popular_3" style="display: none; height: 10%;">
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer;  padding: 5px; margin: 30px 18px 15px 15px; float: left;">
+			<div  style="cursor: pointer;  padding: 5px; margin: 30px 18px 15px 15px; float: left;">
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 1
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 2);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 2
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 3);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 3
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 4
 			</div>
 
-			<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 4);" style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 5px; margin: 15px; float: left;">
 			p 5
 			</div>
 		</div>

@@ -456,16 +456,17 @@ var Controller = function()
 	{
 		var nofselection = selected_product.length;
 		// console.log(nofselection);
+		$(cat_id ).html(nofselection);
 		if(cat_id == 1)
-			$("#tv").html(nofselection);
+			$("#cat_1_1").html(nofselection);
 		if(cat_id == 2)
-			$("#gaming").html(nofselection);
+			$("#cat_2_2").html(nofselection);
 		if(cat_id == 3)
-			$("#music").html(nofselection);
+			$("#cat_3_3").html(nofselection);
 		if(cat_id == 4)
-			$("#broadband").html(nofselection);
+			$("#cat_4_4").html(nofselection);
 		if(cat_id == 5)
-			$("#connectupmyhome").html(nofselection);
+			$("#cat_5_5").html(nofselection);
 	};
 
 	// SDs for go to respecive selection page from my bundle section view edit
@@ -507,7 +508,7 @@ var Controller = function()
 		}
 	};
 
-	// SDs for set confirmation page on selected product and set installation page also
+	// SDs for set confirmation page on selected product and set installation page also [* reviewed ]
 	this.updateDiv = function(id)
 	{
 		
@@ -517,16 +518,8 @@ var Controller = function()
 			for (var i = 1;i <= 5; i++)
 			{
 				var selected = CM_obj.getSelectedProducts(cat_id=i);
-				if(i == 1)
-					$("#c1").html(selected.length);
-				if(i == 2)
-					$("#c2").html(selected.length);
-				if(i == 3)
-					$("#c3").html(selected.length);
-				if(i == 4)
-					$("#c4").html(selected.length);
-				if(i == 5)
-					$("#c5").html(selected.length);
+     			$("#c"+i).html(selected.length);
+				
 			}
 		}
 
@@ -537,108 +530,44 @@ var Controller = function()
 			{
 				var selected = CM_obj.getSelectedProducts(cat_id = i);
 				// console.log(selected);
-				if(i == 1 )
-				{
+				
 					if(selected.length!=0)
 					{
-						$('#tvcheck').attr('disabled',false);
-						$('#tvcheck').attr('checked',true);
-						$('#nof_tv').attr('disabled',false);
+						$('#category_check_'+i).attr('disabled',false);
+						$('#category_check_'+i).attr('checked',true);
+						if(i!=4)
+						$('#nof_installation_cat_'+i).attr('disabled',false);
 					}
 					else
 					{
-						$('#tvcheck').attr('disabled',true);
-						$('#nof_tv').attr('disabled',true);
+						$('#category_check_'+i).attr('disabled',true);
+						if(i!=4)
+						$('#nof_installation_cat_'+i).attr('disabled',true);
 					}
-				}
-				if(i == 2 )
-				{
-					if( selected.length!=0)
-					{ 
-						$('#gamingcheck').attr('disabled',false);
-						$("#gamingcheck").attr('checked',true);
-						$('#nof_games').attr('disabled',false);
-					}
-					else
-					{
-						$("#gamingcheck").attr('disabled',true);
-						$('#nof_games').attr('disabled',true);
-					}
-				}
-				if(i == 3)
-				{
-					if(selected.length!=0)
-					{
-						$('#music_check').attr('disabled',false);
-						$("#music_check").attr('checked',true);
-						$('#nof_music').attr('disabled',false);
-					}
-					else
-					{
-						$("#music_check").attr('disabled',true);
-						$('#nof_music').attr('disabled',true);
-					}
-				}
-				if(i == 4 && selected.length!=0 )
-				{
-					$('#broadbandcheck').attr('disabled',false);
-					$("#broadbandcheck").attr('checked',true);
-				}
-				else
-					{
-					$("#broadbandcheck").attr('disabled',true);
-					}
+				
+				
 			}
 		}
 	};
 
-	// SDs for creating thank you page on selected brands
+	// SDs for creating thank you page on selected brands [* reviewed]
 	this.createThankpage = function()
 	{
 		tracker.push("create thank page");
 		for (var i = 1;i <= 5; i++)
 			{
 			var selected = CM_obj.getSelectedProducts(cat_id = i);
-			if(i == 1)
-			{
+			
 				if( selected.length!=0)
 				{
-					$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;"> B 1 </div>');
+					$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;"> B '+i+' </div>');
 				}
-			}
-			if(i == 2)
-			{
-				if( selected.length!=0)
-				{
-					$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;">B 2</div>');
-				}
-			}
-			if(i == 3)
-			{
-				if( selected.length!=0)
-				{
-					$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;">B 3 </div>');
-				}
-			}
-			if(i == 4)
-			{
-				if( selected.length!=0)
-				{
-					$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;">B4 </div>');
-				}
-			}
-			if(i == 5)
-			{
-				if( selected.length!=0)
-				{
-				$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;">B 5 </div>');
-				}
-			}
-		}
+			
+		     }
 	};
 
-	// SDs for Details page validation and forward to next
-	this.ValidateAndForword = function(targetdiv)
+	// SDs for Details page validation and forward to next //[reviewed * ]
+	this.ValidateAndForword = function(targetdiv)  
 	{
 		tracker.push("validating user details ");
 		var name			= document.getElementById('d_name').value;
@@ -676,16 +605,9 @@ var Controller = function()
 						for (var i = 1;i <= 5; i++)
 						{
 							var selected = CM_obj.getSelectedProducts(cat_id=i);
-							if(i == 1)
-								mailbody=mailbody+"<tr><td>TV</td><td>"+selected.length+"</td></tr>";
-							if(i == 2)
-								mailbody=mailbody+"<tr><td>Games</td><td>"+selected.length+"</td></tr>";
-							if(i == 3)
-								mailbody=mailbody+"<tr><td>Music</td><td>"+selected.length+"</td></tr>";
-							if(i == 4)
-								mailbody=mailbody+"<tr><td>Broadband</td><td>"+selected.length+"</td></tr>";
-							if(i == 5)
-								mailbody=mailbody+"<tr><td>connectUpMyHomepackage</td><td>"+selected.length+"</td></tr>";
+							
+							mailbody=mailbody+"<tr><td>Category_"+i+"</td><td>"+selected.length+"</td></tr>";
+							
 						}
 						mailbody=mailbody+"</table></html>";
 						tracker.push("sending mail");
@@ -758,94 +680,30 @@ var Controller = function()
 				// console.log(data);
 			}
 		});
-		/* Shyam :
-		$.ajax(
-		{
-			url: 'index.php?option=com_homeconnect&task=homejson.send&format=json',
-			type: 'post',
-			data: {mail:mailto,data:data,subject:subject},
-			datatype: 'json',
-			success: function(data)
-			{
-			}
-		});
-		*/
+		
    };
-   
-   this.TrayedOutCategory = function(id)
+   //SDs for category greyed out  
+   this.greyedoutCategory = function(cat_id,id)
    {
+	  
 	   tracker.push("user dont want any product under catgory"+id);
 	   tracker.push("trayed out category from my bundle");
-	   switch(id)
-	   {
-	   case 'cat_1': if(document.getElementById("cat_1").checked == true)
-		             {
-			            document.getElementById("tv").style.color = "#99CC00";
-			             controller.nextAccordion('category_accordion_div',1);
-			             
-			          }
-				   else
-						{
-					     
-						  document.getElementById("tv").style.color = "#000000";
-						}
-			
-	               break;
-	   case 'cat_2': if(document.getElementById("cat_2").checked == true)
-				       {
-		   				document.getElementById("gaming").style.color = "#99CC00";
-		   				controller.nextAccordion('category_accordion_div',2);
-		   				
-				        }
-				   else
-						{
-					     
-						  document.getElementById("gaming").style.color = "#000000";
-						}
-			
-	   				break;    
-	   case 'cat_3': if(document.getElementById("cat_3").checked == true)
-				       	{
-		   					document.getElementById("music").style.color = "#99CC00";
-		   					controller.nextAccordion('category_accordion_div',3);
-		   					
-				       	}
-					   else
-							{
-						     
-							  document.getElementById("music").style.color = "#000000";
-							}
-							
-	   					break;   
-	   case 'cat_4': if(document.getElementById("cat_4").checked == true)
-				      	{
-		   						document.getElementById("broadband").style.color = "#99CC00";
-								controller.nextAccordion('category_accordion_div',4);
-								
-								
-				      	}
-					   else
-							{
-						      
-							  document.getElementById("broadband").style.color = "#000000";
-							}
-							
-						break; 
-	   case 'cat_5': if(document.getElementById("cat_5").checked == true)
-				     	{
-		   						document.getElementById("connectupmyhome").style.color = "#99CC00";
-								controller.switchInnerDivs('main_category_div','installation_div',0,0);
-								
-				     	}
-	   				else
-	   					{
-	   					  
-	   					  document.getElementById("connectupmyhome").style.color = "#000000";
-	   					}
-	   					
-						break; 
-		default: break;				
+	  
+	   if(document.getElementById(cat_id).checked == true)
+       {
+		   document.getElementById(cat_id+'_'+id).style.color = "#99CC00";
+		  if(id!=5)
+           controller.nextAccordion('category_accordion_div',id);
+		  else
+		   controller.switchInnerDivs('main_category_div','installation_div',0,0);
+           
+        }
+	   else
+		{
+		     
+		  document.getElementById(cat_id+'_'+id).style.color = "#000000";
+		}
 
-	  }
-   }
+	   
+   };
 };

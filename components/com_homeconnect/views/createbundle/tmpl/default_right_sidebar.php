@@ -13,7 +13,7 @@
 			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: left;">
 				C 1
 			</div> 
-			<div id="tv" onClick="javascript:controllerObj.switchtoSelectionpage(0);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
+			<div id="cat_1_1" onClick="javascript:controllerObj.switchtoSelectionpage(0);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
 				0
 			</div>
 		</li>
@@ -22,7 +22,7 @@
  			<div style="cursor: pointer; border: 1px solid #ccc; padding:  0px; margin: 0px; float: left;">
 				C 2
 			</div>
-			<div id="gaming" onClick="javascript:controllerObj.switchtoSelectionpage(1);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
+			<div id="cat_2_2" onClick="javascript:controllerObj.switchtoSelectionpage(1);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
 				0
 			</div>
 		</li>
@@ -31,7 +31,7 @@
 			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: left;">
 				C 3
 			</div>
-			<div id="music" onClick="javascript:controllerObj.switchtoSelectionpage(2);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
+			<div id="cat_3_3" onClick="javascript:controllerObj.switchtoSelectionpage(2);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
 				0
 			</div>
 		</li>
@@ -40,7 +40,7 @@
 		 	<div  style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: left;">
 				C 4
 			</div>
-			<div id="broadband" onClick="javascript:controllerObj.switchtoSelectionpage(3);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
+			<div id="cat_4_4" onClick="javascript:controllerObj.switchtoSelectionpage(3);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
 				0
 			</div>
 		</li>
@@ -49,7 +49,7 @@
 			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: left;">
 				C 5
 			</div>
-			<div id="connectupmyhome" onClick="javascript:controllerObj.switchtoSelectionpage(4);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
+			<div id="cat_5_5" onClick="javascript:controllerObj.switchtoSelectionpage(4);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
 				0
 			</div>
 		</li>

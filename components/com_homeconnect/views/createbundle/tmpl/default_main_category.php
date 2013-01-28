@@ -33,7 +33,7 @@
 					=&gt;
 					</div>
 					<div  style="cursor: pointer; float: left;">
-					<INPUT onClick="javascript:controllerObj.TrayedOutCategory(this.id)" id="cat_1" NAME="cat_1" TYPE="CHECKBOX" VALUE="1">&nbsp I Do not Want Any TV product
+					<INPUT onClick="javascript:controllerObj.greyedoutCategory(this.id,1)" id="cat_1" NAME="cat_1" TYPE="CHECKBOX" VALUE="1">&nbsp I Do not Want Any TV product
 					</div>
 				</div>
 
@@ -72,7 +72,7 @@
 					=&gt;
 					</div>
 					<div  style="cursor: pointer; float: left;">
-					<INPUT onClick="javascript:controllerObj.TrayedOutCategory(this.id)" id="cat_2" NAME="cat_2" TYPE="CHECKBOX" VALUE="1">&nbsp I Do not Want Any Games product
+					<INPUT onClick="javascript:controllerObj.greyedoutCategory(this.id,2)" id="cat_2" NAME="cat_2" TYPE="CHECKBOX" VALUE="1">&nbsp I Do not Want Any Games product
 					</div>
 				</div>
 
@@ -111,7 +111,7 @@
 					=&gt;
 					</div>
 					<div  style="cursor: pointer; float: left;">
-					<INPUT onClick="javascript:controllerObj.TrayedOutCategory(this.id)" id="cat_3" NAME="cat_3" TYPE="CHECKBOX" VALUE="1">&nbsp I Do not Want Any Music product
+					<INPUT onClick="javascript:controllerObj.greyedoutCategory(this.id,3)" id="cat_3" NAME="cat_3" TYPE="CHECKBOX" VALUE="1">&nbsp I Do not Want Any Music product
 					</div>
 				</div>
 
@@ -150,7 +150,7 @@
 					=&gt;
 					</div>
 					<div  style="cursor: pointer; float: left;">
-					<INPUT onClick="javascript:controllerObj.TrayedOutCategory(this.id)" id="cat_4" NAME="cat_4" TYPE="CHECKBOX" VALUE="1">&nbsp I Do not Want Any Broadband product
+					<INPUT onClick="javascript:controllerObj.greyedoutCategory(this.id,4)" id="cat_4" NAME="cat_4" TYPE="CHECKBOX" VALUE="1">&nbsp I Do not Want Any Broadband product
 					</div>
 				</div>	
 
@@ -189,7 +189,7 @@
 					=&gt;
 					</div>
 					<div  style="cursor: pointer; float: left;">
-					<INPUT onClick="javascript:controllerObj.TrayedOutCategory(this.id)" id="cat_5" NAME="cat_5" TYPE="CHECKBOX" VALUE="1">&nbsp I Do not Want Any connectUp my Homes product
+					<INPUT onClick="javascript:controllerObj.greyedoutCategory(this.id,5)" id="cat_5" NAME="cat_5" TYPE="CHECKBOX" VALUE="1">&nbsp I Do not Want Any connectUp my Homes product
 					</div>
 				</div>
 
