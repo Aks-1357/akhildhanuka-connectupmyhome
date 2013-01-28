@@ -583,7 +583,7 @@ var Controller = function()
 				tracker.push("preapring mail for customer");
 				var mailbody;
 				var subject		= "Your Order";
-				mailbody="<html>Thank you for using ConnectupMyHome<br/>Your Order Details Are:<br>"+
+				mailbody="<html><body>Thank you for using ConnectupMyHome<br/>Your Order Details Are:<br>"+
 				             "<table border='1'><tr><th>Category</th><th>No of Products</th></tr>";
 						             
 				for (var i = 1;i <= 5; i++)
@@ -593,8 +593,9 @@ var Controller = function()
 					mailbody=mailbody+"<tr><td>Category_"+i+"</td><td>"+selected.length+"</td></tr>";
 					
 				}
-				mailbody=mailbody+"</table></html>";
+				mailbody=mailbody+"</table></body></html>";
 				tracker.push("sending mail");
+				
 				controller.sendmail(email,mailbody,subject);
 			}
 		}
@@ -625,7 +626,7 @@ var Controller = function()
 		var email=CM_obj.getEmail();
 		$.ajax(
 		{
-			url: 'index.php?option=com_homeconnect&task=createLog_SendEmail&format=raw',
+			url: 'index.php?option=com_homeconnect&task=createlogsendemail&format=raw',
 			type: 'post',
 			data:
 			{

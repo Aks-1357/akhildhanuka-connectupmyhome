@@ -60,13 +60,13 @@ class HomeconnectController extends JController
 		echo json_encode($result);
 	}
 
-	       public function createLog_SendEmail()
+	       public function createlogsendemail()
 	       {
 	       	    $log = JRequest::getVar("log");
 	       	   
 	        	$res=$this->createCSV($log);
 	        	$result=$this->sendEmail();
-	        	echo result;
+	        	echo $result;
 	       	
 	       	
 	       }
