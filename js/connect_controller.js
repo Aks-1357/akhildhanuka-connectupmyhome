@@ -19,9 +19,9 @@ var Controller = function()
 		CV_obj	= new View();
 		tracker = new Array();
 		main_divs = new Array();
-		
-		tracker.push("Tracker Object");
-		tracker.push("-------------------------------------------------------- ");
+
+		// tracker.push("Tracker Object");
+		// tracker.push("-------------------------------------------------------- ");
 		tracker.push("IP Address:"+CM_obj.getClientIP());
 		tracker.push("Address :"+trackdata.Adress);
 		tracker.push("Email:"+trackdata.Email);
@@ -56,7 +56,7 @@ var Controller = function()
 			main_divs.push("#landing_div");
 		}
 		*/
-		
+
 		if(document.getElementById("main_accordian_div"))
 		{
 			main_divs.push("#main_accordian_div");
@@ -81,11 +81,10 @@ var Controller = function()
 		{
 			main_divs.push("#recommendation_div");
 		}
-        
+
 		controller.switchDivs("#main_accordian_div");
-		
+
 		CM_obj.setCurrentState("#category_accordion_div");
-		console.log(tracker);
 	};
 
 	/* Aks : Shifted To connect_module.js
@@ -143,7 +142,6 @@ var Controller = function()
 	this.nextAccordion = function (main_accordion_id, index)
 	{
 		tracker.push("switch  to category"+ index);
-		// console.log(CM_obj.getCurrentState());
 		
 		$('#ui-accordion-'+main_accordion_id+'-header-'+index).click();
 		/* Aks : Not Needed
@@ -236,7 +234,6 @@ var Controller = function()
 		tracker.push("swich to view :"+id);
 		CM_obj.setCurrentState(id);
 
-		// console.log('switch to_'+CM_obj.getCurrentState());
 		if(document.getElementById("geocomplete"))
 		{
 			// $( "#geocomplete" ).trigger("geocode");
@@ -281,8 +278,10 @@ var Controller = function()
 	{
 		tracker.push("switched from view "+h_ids+"to "+s_ids );
 		CM_obj.setCurrentState(s_ids);
+
 		hide_ids = h_ids.split(",");
 		show_ids = s_ids.split(",");
+
 		hide_ids.each(function(value, index)
 		{
 			controller.hideDiv("#"+value);
@@ -300,31 +299,32 @@ var Controller = function()
 		{
 			controller.updateDiv(show_ids);
 		}
-		
 	};
 
-	this.setProductsOfCategory = function (prev_div, div_id,product_id, cat_id)
+	this.setProductsOfCategory = function (prev_div, div_id, product_id, cat_id)
 	{
-		// console.log(cat_id);
 		tracker.push("brands under each category display created");
-		var html = "";
-		html += '<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; width: 20px;">B '+product_id+'</div>'+
-				'<div style="margin-top: 15px;"><div  style="cursor: pointer; border: 1px solid #ccc; padding: 16px; margin: 0 20px 0 0; float: left;"><INPUT onClick="javascript:controllerObj.AddToMyBundle(this.id)" id="'+cat_id+'_1" NAME="p" TYPE="CHECKBOX" VALUE="1"></div>'+
-				'<div >Product A : </div>'+
-				'<div>Main Features : ABC</div>'+
-				'<div>Cost : $ pcm</div></div>'+
-				'<div  style="margin-top: 15px;"><div  style="cursor: pointer; border: 1px solid #ccc; padding: 16px; margin: 0 20px 0 0; float: left;"><INPUT onClick="javascript:controllerObj.AddToMyBundle(this.id)" id="'+cat_id+'_2"NAME="p" TYPE="CHECKBOX" VALUE="1"></div>'+
-				'<div>Product B : </div>'+
-				'<div>Main Features : XYZ</div>'+
-				'<div>Cost : $ pcm</div></div>'+
-				'<div   style="margin-top: 15px;"><div  style="cursor: pointer; border: 1px solid #ccc; padding: 16px; margin: 0 20px 0 0; float: left;"><INPUT onClick="javascript:controllerObj.AddToMyBundle(this.id)" id="'+cat_id+'_3"  NAME="p" TYPE="CHECKBOX" VALUE="1"></div>'+
-				'<div>Product C : </div>'+
-				'<div>Main Features : DEF</div>'+
-				'<div>Cost : $ pcm</div></div>'+
-				'<div onClick="javascript:controllerObj.switchInnerDivs(\''+div_id+'\', \''+prev_div+'\', 0);" style="cursor: pointer; float: right;">'+
-				'<=</div>'+
-				'<div onClick="javascript:controllerObj.switchInnerDivs(\''+div_id+'\', \''+prev_div+'\', 0);" style="cursor: pointer; float: right;">'+
-				'=></div>';
+		if(html == "" || !html)
+		{
+			var html = "";
+			html += '<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; width: 20px;">B '+product_id+'</div>'+
+					'<div style="margin-top: 15px;"><div  style="cursor: pointer; border: 1px solid #ccc; padding: 16px; margin: 0 20px 0 0; float: left;"><INPUT onClick="javascript:controllerObj.AddToMyBundle(this.id)" id="'+cat_id+'_1" NAME="p" TYPE="CHECKBOX" VALUE="1"></div>'+
+					'<div >Product A : </div>'+
+					'<div>Main Features : ABC</div>'+
+					'<div>Cost : $ pcm</div></div>'+
+					'<div  style="margin-top: 15px;"><div  style="cursor: pointer; border: 1px solid #ccc; padding: 16px; margin: 0 20px 0 0; float: left;"><INPUT onClick="javascript:controllerObj.AddToMyBundle(this.id)" id="'+cat_id+'_2"NAME="p" TYPE="CHECKBOX" VALUE="1"></div>'+
+					'<div>Product B : </div>'+
+					'<div>Main Features : XYZ</div>'+
+					'<div>Cost : $ pcm</div></div>'+
+					'<div   style="margin-top: 15px;"><div  style="cursor: pointer; border: 1px solid #ccc; padding: 16px; margin: 0 20px 0 0; float: left;"><INPUT onClick="javascript:controllerObj.AddToMyBundle(this.id)" id="'+cat_id+'_3"  NAME="p" TYPE="CHECKBOX" VALUE="1"></div>'+
+					'<div>Product C : </div>'+
+					'<div>Main Features : DEF</div>'+
+					'<div>Cost : $ pcm</div></div>'+
+					'<div onClick="javascript:controllerObj.switchInnerDivs(\''+div_id+'\', \''+prev_div+'\', 0);" style="cursor: pointer; float: right;">'+
+					'<=</div>'+
+					'<div onClick="javascript:controllerObj.switchInnerDivs(\''+div_id+'\', \''+prev_div+'\', 0);" style="cursor: pointer; float: right;">'+
+					'=></div>';
+		}
 
 		if(document.getElementById(div_id))
 		{
@@ -336,7 +336,6 @@ var Controller = function()
 	{
 		CM_obj.setCurrentState(id);
 
-		// console.log(CM_obj.getCurrentState());
 		// get effect type from
 		var selectedEffect = "slide";
 
@@ -370,7 +369,7 @@ var Controller = function()
 
 	this.hideDiv = function (id)
 	{
-		// get effect type from 
+		// get effect type from
 		var selectedEffect = "slide";
 
 		// most effect types need no options passed by default
@@ -422,32 +421,33 @@ var Controller = function()
 	{
 		tracker.push("swich  from one view to another inner category "); 
 		CM_obj.setCurrentState(prevDiv);
-		// console.log(prevDiv);
-		controller.switchInnerDivs(source_div, prevDiv,0, 0);
-		//console.log(source_div);
+
+		controller.switchInnerDivs(source_div, prevDiv, 0, 0);
 	};
 
 	// SDs for addto my bundle
 	this.AddToMyBundle = function(category)
 	{
-		
-		// console.log(CM_obj.getCurrentState());
 		var cat_product = category.split("_");
 		var selected_product;
+
 		if(document.getElementById(category).checked)
 		{
 			tracker.push("product added to my bundle"+cat_product[1]);
+
 			CM_obj.setAddToMyBundleResult(cat_product[0], cat_product[1]);
 		    selected_product = CM_obj.getSelectedProducts(cat_product[0]);
-			controller.viewtoMybundle(cat_product[0], selected_product);
+
+		    controller.viewtoMybundle(cat_product[0], selected_product);
 		}
 		else
 		{
 			tracker.push("product deleted to my bundle"+cat_product[1]);
+
 			CM_obj.deleteAddedMyBundleResult(cat_product[0],cat_product[1]);
-			// console.log(CM_obj.getSelectedProducts(cat_product[0]));
 		    selected_product = CM_obj.getSelectedProducts(cat_product[0]);
-			controller.viewtoMybundle(cat_product[0],selected_product)
+
+		    controller.viewtoMybundle(cat_product[0],selected_product)
 		}
 	};
 
@@ -455,18 +455,8 @@ var Controller = function()
 	this.viewtoMybundle = function(cat_id, selected_product)
 	{
 		var nofselection = selected_product.length;
-		// console.log(nofselection);
 		$(cat_id ).html(nofselection);
-		if(cat_id == 1)
-			$("#cat_1_1").html(nofselection);
-		if(cat_id == 2)
-			$("#cat_2_2").html(nofselection);
-		if(cat_id == 3)
-			$("#cat_3_3").html(nofselection);
-		if(cat_id == 4)
-			$("#cat_4_4").html(nofselection);
-		if(cat_id == 5)
-			$("#cat_5_5").html(nofselection);
+		$("#cat_"+cat_id+"_"+cat_id).html(nofselection);
 	};
 
 	// SDs for go to respecive selection page from my bundle section view edit
@@ -475,7 +465,7 @@ var Controller = function()
 		tracker.push("selected product under category"+cat_id+"edited");
 		var selected_product;
 		selected_product = CM_obj.getSelectedProducts(cat_id+1);
-		// console.log(selected_product);
+
 		if(CM_obj.getCurrentState() == "#category_accordion_div")
 		{
 			// controller.hideDiv('#category_accordion_div');
@@ -489,11 +479,9 @@ var Controller = function()
 
 			controller.showDiv('#main_category_inner_product_div_'+(cat_id+1));
 			// main_category_inner_product_div_2
-			// console.log('#main_category_inner_div_'+(cat_id+1));
         }
 		else
 		{
-			// console.log('hide this'+CM_obj.getCurrentState());
 			controller.hideDiv(CM_obj.getCurrentState());
 			// controller.hideDiv('#category_accordion_div');
 			controller.showDiv('#category_accordion_div');
@@ -529,23 +517,20 @@ var Controller = function()
 			for (var i = 1;i <= 5; i++)
 			{
 				var selected = CM_obj.getSelectedProducts(cat_id = i);
-				// console.log(selected);
-				
-					if(selected.length!=0)
-					{
-						$('#category_check_'+i).attr('disabled',false);
-						$('#category_check_'+i).attr('checked',true);
-						if(i!=4)
-						$('#nof_installation_cat_'+i).attr('disabled',false);
-					}
-					else
-					{
-						$('#category_check_'+i).attr('disabled',true);
-						if(i!=4)
-						$('#nof_installation_cat_'+i).attr('disabled',true);
-					}
-				
-				
+
+				if(selected.length!=0)
+				{
+					$('#category_check_'+i).attr('disabled',false);
+					$('#category_check_'+i).attr('checked',true);
+					if(i!=4)
+					$('#nof_installation_cat_'+i).attr('disabled',false);
+				}
+				else
+				{
+					$('#category_check_'+i).attr('disabled',true);
+					if(i!=4)
+					$('#nof_installation_cat_'+i).attr('disabled',true);
+				}
 			}
 		}
 	};
@@ -555,19 +540,17 @@ var Controller = function()
 	{
 		tracker.push("create thank page");
 		for (var i = 1;i <= 5; i++)
-			{
+		{
 			var selected = CM_obj.getSelectedProducts(cat_id = i);
-			
-				if( selected.length!=0)
-				{
-					$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;"> B '+i+' </div>');
-				}
-			
-		     }
+			if( selected.length!=0)
+			{
+				$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;"> B '+i+' </div>');
+			}
+	     }
 	};
 
 	// SDs for Details page validation and forward to next //[reviewed * ]
-	this.ValidateAndForword = function(targetdiv)  
+	this.ValidateAndForword = function(targetdiv)
 	{
 		tracker.push("validating user details ");
 		var name			= document.getElementById('d_name').value;
@@ -593,7 +576,6 @@ var Controller = function()
 
 		if(  $("#errordiv").html() == "")
 		{
-			
 			if(controller.checkEmail(email))
 			{
 				tracker.push("preapring mail for customer");
@@ -602,25 +584,19 @@ var Controller = function()
 				mailbody="<html>Thank you for using ConnectupMyHome<br/>Your Order Details Are:<br>"+
 				             "<table border='1'><tr><th>Category</th><th>No of Products</th></tr>";
 						             
-						for (var i = 1;i <= 5; i++)
-						{
-							var selected = CM_obj.getSelectedProducts(cat_id=i);
-							
-							mailbody=mailbody+"<tr><td>Category_"+i+"</td><td>"+selected.length+"</td></tr>";
-							
-						}
-						mailbody=mailbody+"</table></html>";
-						tracker.push("sending mail");
-						controller.sendmail(email,mailbody,subject);
-						
-						
+				for (var i = 1;i <= 5; i++)
+				{
+					var selected = CM_obj.getSelectedProducts(cat_id=i);
+					
+					mailbody=mailbody+"<tr><td>Category_"+i+"</td><td>"+selected.length+"</td></tr>";
+					
+				}
+				mailbody=mailbody+"</table></html>";
+				tracker.push("sending mail");
+				controller.sendmail(email,mailbody,subject);
 			}
-			    
-		        
-				
 		}
 	};
-	
 
 	// SDs for error message on details page
 	this.ErrorMessage = function(message)
@@ -642,7 +618,6 @@ var Controller = function()
 
 	this.sendmail = function (mailTo, data, subject)
 	{
-		
 		$.ajax(
 		{
 			url: 'index.php?option=com_homeconnect&task=createLog_SendEmail&format=raw',
@@ -657,53 +632,43 @@ var Controller = function()
 			datatype: 'json',
 			success: function(data)
 			{
-				
-				
 				// Aks : Check if mail is sent then only switch divs here
 				if(data=="success")
-					{
-						tracker.push("mail sent successfully");
-						controller.switchDivs("#thank_div");
-						tracker.push("swiched to thank u page ");
-						console.log(tracker);
-						
-					}
+				{
+					tracker.push("mail sent successfully");
+					controller.switchDivs("#thank_div");
+					tracker.push("swiched to thank u page ");
+				}
 				else
-					{
+				{
 					alert("ERROR in SENDING MAIL")
 					tracker.push("error in sending mail error message displayed");
-					console.log(tracker);
-					}
-				
-				
-					
-				// console.log(data);
+				}
 			}
 		});
-		
-   };
-   //SDs for category greyed out  
-   this.greyedoutCategory = function(cat_id,id)
-   {
-	  
-	   tracker.push("user dont want any product under catgory"+id);
-	   tracker.push("trayed out category from my bundle");
-	  
-	   if(document.getElementById(cat_id).checked == true)
-       {
-		   document.getElementById(cat_id+'_'+id).style.color = "#99CC00";
-		  if(id!=5)
-           controller.nextAccordion('category_accordion_div',id);
-		  else
-		   controller.switchInnerDivs('main_category_div','installation_div',0,0);
-           
-        }
-	   else
-		{
-		     
-		  document.getElementById(cat_id+'_'+id).style.color = "#000000";
-		}
+	};
 
-	   
-   };
+	// SDs for category greyed out  
+	this.greyedoutCategory = function(cat_id,id)
+	{
+		tracker.push("user dont want any product under catgory"+id);
+		tracker.push("trayed out category from my bundle");
+
+		if(document.getElementById(cat_id).checked == true)
+		{
+			document.getElementById(cat_id+'_'+id).style.color = "#99CC00";
+			if(id!=5)
+			{
+				controller.nextAccordion('category_accordion_div',id);
+			}
+			else
+			{
+				controller.switchInnerDivs('main_category_div','installation_div',0,0);
+			}
+		}
+		else
+		{
+			document.getElementById(cat_id+'_'+id).style.color = "#000000";
+		}
+	};
 };

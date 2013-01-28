@@ -105,12 +105,9 @@ var Model = function ()
 		{
 			category_wise_selected[category]=0;
 		}
-		// console.log(category);
 
 		category_wise_selected[category]++;
 		selected_product[category].push(product_id);
-		// console.log(selected_product[category]);
-		// console.log(selected_product);
 	};
 
 	this.deleteAddedMyBundleResult=function(category, product_id)
