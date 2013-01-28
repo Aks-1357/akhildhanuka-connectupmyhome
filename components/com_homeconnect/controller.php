@@ -74,12 +74,12 @@ class HomeconnectController extends JController
 			{
 				$csv_fields=$log;
 								
-				$csv_folder = 'C:/xampp/htdocs/connecthome/trunk/csv';
-				$filename = explode(":", $csv_fields[2]);
+				$csv_folder = JPATH_ROOT.'/csv';
+			    $filename = explode(":", $csv_fields[2]);
 				$email	= $_POST['mail'];
 				$email	= explode("@", $email);
-				$CSVFileName = $csv_folder.'/'.$filename[1].$email[0].'.csv';
-				$TextFileName = $csv_folder.'/'.$filename[1].$email[0].'.text';
+				$CSVFileName = $csv_folder.'/'.$filename[1].'_'.$email[0].'.csv';
+				$TextFileName = $csv_folder.'/'.$filename[1].'_'.$email[0].'.text';
 				$FileHandle = fopen($CSVFileName, 'w') or die("can't open file");
 				$FileHandle = fopen($TextFileName, 'w') or die("can't open file");
 				fclose($FileHandle);
