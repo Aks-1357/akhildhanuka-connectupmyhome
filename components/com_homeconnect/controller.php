@@ -60,46 +60,92 @@ class HomeconnectController extends JController
 		echo json_encode($result);
 	}
 
-	public function sendEmail()
-	{
-		
-	
-			// Aks :
-			try 
+	       public function createLog_SendEmail()
+	       {
+	       	    $log = $_POST['log'];
+	       	   
+	        	$res=$this->createCSV($log);
+	        	$result=$this->sendEmail();
+	        	echo result;
+	       	
+	       	
+	       }
+        function createCSV($log)
 			{
-					$app	= JFactory::getApplication();
-					$mailfrom	= $app->getCfg('mailfrom');
-					$fromname	= $app->getCfg('fromname');
-					$sitename	= $app->getCfg('sitename');
-					
-					$name	= 'ConnectUpMyHomeAdmin';
-					$email	= $_POST['mail'];
-					$subject	= $_POST['subject'];
-					$body	= $_POST['data'];
-					
-					// Prepare email body
-					//$body	= $name.' <'.$email.'>'."\r\n\r\n".stripslashes($body);
-					
-					
-					$mail = JFactory::getMailer();
-					$mail->addRecipient($email);
-					$mail->AddCC($mailfrom);
-					 $mail->IsHTML(true);
-					$mail->addReplyTo(array($email, $name));
-					$mail->setSender(array($mailfrom, $fromname));
-					$mail->setSubject($sitename.': '.$subject);
-					$mail->setBody($body);
-					
-					$send=$mail->Send();
-					if($send=="true")
-					 echo "success";
-					 else 
-					 echo $send;
-				}
-					catch (Exception $e)
+				$csv_fields=$log;
+								
+				$csv_folder = 'C:/xampp/htdocs/connecthome/trunk/csv';
+				$filename = explode(":", $csv_fields[2]);
+				$email	= $_POST['mail'];
+				$email	= explode("@", $email);
+				$CSVFileName = $csv_folder.'/'.$filename[1].$email[0].'.csv';
+				$TextFileName = $csv_folder.'/'.$filename[1].$email[0].'.text';
+				$FileHandle = fopen($CSVFileName, 'w') or die("can't open file");
+				$FileHandle = fopen($TextFileName, 'w') or die("can't open file");
+				fclose($FileHandle);
+				$fp = fopen($CSVFileName, 'w');
+				$fp1 = fopen($TextFileName, 'w');
+				
+				fputcsv($fp, $csv_fields);
+				
+				foreach ($csv_fields as $fields) 
 				{
-					echo false;
+					fwrite($fp1,$fields);
+					fwrite($fp1,PHP_EOL);
+					
 				}
-	}		
+				fclose($fp);
+				fclose($fp1);
+								
+			}
+	
+			public function sendEmail()
+			{
+				
 			
-	}
+					// Aks :
+					try 
+					{
+							$app	= JFactory::getApplication();
+							$mailfrom	= $app->getCfg('mailfrom');
+							$fromname	= $app->getCfg('fromname');
+							$sitename	= $app->getCfg('sitename');
+							
+							$name	= 'ConnectUpMyHomeAdmin';
+							$email	= $_POST['mail'];
+							$subject	= $_POST['subject'];
+							$body	= $_POST['data'];
+							
+							// Prepare email body
+							//$body	= $name.' <'.$email.'>'."\r\n\r\n".stripslashes($body);
+							
+							
+							$mail = JFactory::getMailer();
+							$mail->addRecipient($email);
+							$mail->AddCC($mailfrom);
+							 $mail->IsHTML(true);
+							$mail->addReplyTo(array($email, $name));
+							$mail->setSender(array($mailfrom, $fromname));
+							$mail->setSubject($sitename.': '.$subject);
+							$mail->setBody($body);
+							
+							$send=$mail->Send();
+							if($send=="true")
+							return "success";
+							 else 
+							 return $send;
+					}
+					catch (Exception $e)
+					{
+						return false;
+					}
+			}	
+
+			
+			
+			
+
+			
+}
+			
+	

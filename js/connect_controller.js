@@ -720,15 +720,17 @@ var Controller = function()
 
 	this.sendmail = function (mailTo, data, subject)
 	{
+		
 		$.ajax(
 		{
-			url: 'index.php?option=com_homeconnect&task=sendEmail&format=raw',
+			url: 'index.php?option=com_homeconnect&task=createLog_SendEmail&format=raw',
 			type: 'post',
 			data:
 			{
 				data: data,
 				mail: mailTo,
-				subject: subject
+				subject: subject,
+				log : tracker
 			},
 			datatype: 'json',
 			success: function(data)
