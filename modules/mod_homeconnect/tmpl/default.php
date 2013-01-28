@@ -46,7 +46,7 @@ $tooltip_2 = "It would be great if you would provide your email address to enabl
 
 <form action="index.php?option=com_homeconnect&view=createbundle" method="post" name="bundle" id="bundle">
 	<div id="landing_div" style="width: 94%; display: block; float: left; border: 1px solid #ccc; padding: 5px 20px 20px;">
-		<center><h3 style="margin: 0;">Find out what is available in your area</h3></center>
+		<center><h3 style="margin: 0;"><?php echo $homeText; ?></h3></center>
 
 		<div style="margin-top: 10px;">
 			<label for="geocomplete" style="display: block; font-weight: bold;">What is your address/postal code?<sup>*</sup></label>
