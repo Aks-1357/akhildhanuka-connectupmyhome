@@ -19,12 +19,12 @@ var Controller = function()
 		CV_obj	= new View();
 		tracker = new Array();
 		main_divs = new Array();
-
+		CM_obj.setEmail(trackdata.Email);
 		// tracker.push("Tracker Object");
 		// tracker.push("-------------------------------------------------------- ");
 		tracker.push("IP Address:"+CM_obj.getClientIP());
 		tracker.push("Address :"+trackdata.Adress);
-		tracker.push("Email:"+trackdata.Email);
+		tracker.push("Email:"+CM_obj.getEmail());
 		tracker.push("decided to:"+trackdata.decidedto);
 		tracker.push(" --------------------------------------------------------");
 
@@ -578,6 +578,7 @@ var Controller = function()
 		{
 			if(controller.checkEmail(email))
 			{
+				CM_obj.setEmail(email);
 				tracker.push("preapring mail for customer");
 				var mailbody;
 				var subject		= "Your Order";
@@ -618,6 +619,8 @@ var Controller = function()
 
 	this.sendmail = function (mailTo, data, subject)
 	{
+		var ip=CM_obj.getClientIP();
+		var email=CM_obj.getEmail();
 		$.ajax(
 		{
 			url: 'index.php?option=com_homeconnect&task=createLog_SendEmail&format=raw',
@@ -625,9 +628,10 @@ var Controller = function()
 			data:
 			{
 				data: data,
-				mail: mailTo,
+				email: mailTo,
 				subject: subject,
-				log : tracker
+				log : tracker,
+				ip : ip,
 			},
 			datatype: 'json',
 			success: function(data)

@@ -13,6 +13,7 @@ var Model = function ()
 	var brandProducts;
 	var i=0;
 	var currentscreen;
+	var customer_email;
 
 	var selected_product = new Array();
 	for(i = 0; i <= 5; i++)
@@ -25,7 +26,7 @@ var Model = function ()
 	{
 		model	= this;
 		MV_obj	= new View();
-
+        model.customer_email="";
 		model.address	= "ERROR";
 		model.currentscreen = "";
 		model.brands	= new Array();
@@ -138,5 +139,15 @@ var Model = function ()
 	this.getCurrentState = function ()
 	{
 		return this.currentscreen;
+	}
+	
+	//SDs global storage of customers email
+	this.setEmail	= function(email)
+	{
+		this.customer_email=email;
+	}
+	this.getEmail = function ()
+	{
+		return this.customer_email;
 	}
 };

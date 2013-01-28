@@ -62,7 +62,7 @@ class HomeconnectController extends JController
 
 	       public function createLog_SendEmail()
 	       {
-	       	    $log = $_POST['log'];
+	       	    $log = JRequest::getVar("log");
 	       	   
 	        	$res=$this->createCSV($log);
 	        	$result=$this->sendEmail();
@@ -75,11 +75,11 @@ class HomeconnectController extends JController
 				$csv_fields=$log;
 								
 				$csv_folder = JPATH_ROOT.'/csv';
-			    $filename = explode(":", $csv_fields[2]);
-				$email	= $_POST['mail'];
+			    $filename = JRequest::getVar("ip");
+				$email	= JRequest::getVar("email");
 				$email	= explode("@", $email);
-				$CSVFileName = $csv_folder.'/'.$filename[1].'_'.$email[0].'.csv';
-				$TextFileName = $csv_folder.'/'.$filename[1].'_'.$email[0].'.text';
+				$CSVFileName = $csv_folder.'/'.$filename.'_'.$email[0].'.csv';
+				$TextFileName = $csv_folder.'/'.$filename.'_'.$email[0].'.text';
 				$FileHandle = fopen($CSVFileName, 'w') or die("can't open file");
 				$FileHandle = fopen($TextFileName, 'w') or die("can't open file");
 				fclose($FileHandle);
@@ -112,9 +112,9 @@ class HomeconnectController extends JController
 							$sitename	= $app->getCfg('sitename');
 							
 							$name	= 'ConnectUpMyHomeAdmin';
-							$email	= $_POST['mail'];
-							$subject	= $_POST['subject'];
-							$body	= $_POST['data'];
+							$email	= JRequest::getVar("email");
+							$subject	= JRequest::getVar("subject");
+							$body	= JRequest::getVar("data");
 							
 							// Prepare email body
 							//$body	= $name.' <'.$email.'>'."\r\n\r\n".stripslashes($body);
