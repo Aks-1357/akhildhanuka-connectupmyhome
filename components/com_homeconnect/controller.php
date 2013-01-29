@@ -62,16 +62,17 @@ class HomeconnectController extends JController
 
 	       public function createlogsendemail()
 	       {
-	       	    $log = JRequest::getVar("log");
+	       	    
 	       	   
-	        	$res=$this->createCSV($log);
+	        	$res=$this->createcsv();
 	        	$result=$this->sendEmail();
 	        	echo $result;
 	       	
 	       	
 	       }
-        function createCSV($log)
+        function createcsv()
 			{
+				$log = JRequest::getVar("log");
 				$csv_fields=$log;
 								
 				$csv_folder = JPATH_ROOT.'/csv';
@@ -79,23 +80,31 @@ class HomeconnectController extends JController
 				$email	= JRequest::getVar("email");
 				$email	= explode("@", $email);
 				$CSVFileName = $csv_folder.'/'.$filename.'_'.$email[0].'.csv';
-				$TextFileName = $csv_folder.'/'.$filename.'_'.$email[0].'.text';
+				$i=1;
+				while(file_exists($CSVFileName))
+				{
+				   $CSVFileName=$csv_folder.'/'.$filename.'_'.$email[0].'('.$i.').csv';
+				   $i++;
+				   
+                }
+				//$TextFileName = $csv_folder.'/'.$filename.'_'.$email[0].'.text';
 				$FileHandle = fopen($CSVFileName, 'w') or die("can't open file");
-				$FileHandle = fopen($TextFileName, 'w') or die("can't open file");
+				//$FileHandle = fopen($TextFileName, 'w') or die("can't open file");
 				fclose($FileHandle);
 				$fp = fopen($CSVFileName, 'w');
-				$fp1 = fopen($TextFileName, 'w');
+				//$fp1 = fopen($TextFileName, 'w');
 				
 				fputcsv($fp, $csv_fields);
 				
-				foreach ($csv_fields as $fields) 
+				/*foreach ($csv_fields as $fields) 
 				{
 					fwrite($fp1,$fields);
 					fwrite($fp1,PHP_EOL);
 					
-				}
+				}*/
 				fclose($fp);
-				fclose($fp1);
+				//fclose($fp1);
+				
 								
 			}
 	

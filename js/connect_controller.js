@@ -48,6 +48,33 @@ var Controller = function()
 		this.initScreenDivs();
 	};
 
+
+	$(window).bind('beforeunload', function(event) {
+		
+		$.ajax(
+				{
+					url: 'index.php?option=com_homeconnect&task=createcsv&format=raw',
+					type: 'post',
+					async: false,
+					data:
+					{
+						
+						email: CM_obj.getEmail(),
+						log : tracker,
+						ip : CM_obj.getClientIP()
+					},
+					datatype: 'json',
+					success: function(data)
+					{
+						// Aks : Check if mail is sent then only switch divs here
+						console.log(data);
+					}
+				});
+		
+	});
+
+
+
 	this.initScreenDivs = function()
 	{
 		/* Aks : No need as Landing Div is now a separate Module
