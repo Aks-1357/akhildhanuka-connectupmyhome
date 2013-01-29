@@ -48,32 +48,25 @@ var Controller = function()
 		this.initScreenDivs();
 	};
 
-
-	$(window).bind('beforeunload', function(event) {
-		
+	$(window).bind('beforeunload', function(event)
+	{
 		$.ajax(
-				{
-					url: 'index.php?option=com_homeconnect&task=createcsv&format=raw',
-					type: 'post',
-					async: false,
-					data:
-					{
-						
-						email: CM_obj.getEmail(),
-						log : tracker,
-						ip : CM_obj.getClientIP()
-					},
-					datatype: 'json',
-					success: function(data)
-					{
-						// Aks : Check if mail is sent then only switch divs here
-						console.log(data);
-					}
-				});
-		
+		{
+			url: 'index.php?option=com_homeconnect&task=createcsv&format=raw',
+			type: 'post',
+			async: false,
+			data:
+			{
+				ip : CM_obj.getClientIP(),
+				log : tracker,
+				email: CM_obj.getEmail()
+			},
+			datatype: 'json',
+			success: function(data)
+			{
+			}
+		});
 	});
-
-
 
 	this.initScreenDivs = function()
 	{
@@ -589,34 +582,26 @@ var Controller = function()
 		var textfields		= ["d_name","d_phone","d_email","d_haddress","d_install_address"];
 		
 		if(controller.isstring("d_name") && controller.isnumber("d_phone") && controller.isEmail("d_email") && controller.emptyCheck ("d_haddress"))
-			{
-			      controller.ErrorMessage("");
-			      CM_obj.setEmail(email);
-			      tracker.push("preparing mail for customer");
-			      var mailbody;
-			      var subject		= "Your Order";
-			      mailbody="<html><body>Thank you for using ConnectupMyHome<br/>Your Order Details Are:<br>"+
-					       "<table border='1'><tr><th>Category</th><th>No of Products</th></tr>";
-							             
-					for (var i = 1;i <= 5; i++)
-					{
-						var selected = CM_obj.getSelectedProducts(cat_id=i);
-						
-						mailbody=mailbody+"<tr><td>Category_"+i+"</td><td>"+selected.length+"</td></tr>";
-						
-					}
-					mailbody=mailbody+"</table></body></html>";
-					tracker.push("sending mail");
-					
-					controller.sendmail(email,mailbody,subject);
-				
-			  
-			
-			}
-		   
-		
+		{
+			controller.ErrorMessage("");
+			CM_obj.setEmail(email);
+			tracker.push("preparing mail for customer");
+			var mailbody;
+			var subject	= "Your Order";
+			mailbody = "<html><body>Thank you for using ConnectupMyHome<br/>Your Order Details Are:<br>"+
+			       "<table border='1'><tr><th>Category</th><th>No of Products</th></tr>";
 
-		
+			for (var i = 1;i <= 5; i++)
+			{
+				var selected = CM_obj.getSelectedProducts(cat_id=i);
+
+				mailbody = mailbody+"<tr><td>Category_"+i+"</td><td>"+selected.length+"</td></tr>";
+			}
+			mailbody = mailbody+"</table></body></html>";
+			tracker.push("sending mail");
+
+			controller.sendmail(email, mailbody, subject);
+		}
 	};
 
 	// SDs for error message on details page
@@ -625,94 +610,83 @@ var Controller = function()
 		$("#errordiv").html(message);
 	};
 	
-	//SDs for string validation date:29/1/13\
-	
+	// SDs for string validation date:29/1/13
 	this.isstring = function(id)
 	{
 		if(controller.emptyCheck(id))
-		 {
-			 var letters = /^[A-Za-z]+$/;  
-			 if(document.getElementById(id).value.match(letters))  
-			 	{  
-				 
-					 document.getElementById(id).style.background="#FFFFFF";
-					 return true;
-			 	}  
-			 else  
-			    {  
-					 controller.ErrorMessage("name must have alphabet characters only");
-					 document.getElementById(id).style.background="#FFA07A";
-					 return false;
-			
-			    }
-		 }
-		
-	 };
-	 
-	 //SDs for email check  callsemptycheck and  TLD email vaildation 
-	 this.isEmail = function(id)
 		{
-			  
-		 if(controller.emptyCheck(id))
-			 {
-				 if(controller.checkEmail(document.getElementById(id).value))  
-				 	{  
-					 
-						 document.getElementById(id).style.background="#FFFFFF";
-						 return true;
-				 	}  
-				 else  
-				    {  
-						 controller.ErrorMessage("Please enter valid Email ID");
-						 document.getElementById(id).style.background="#FFA07A";
-						 return false;
-				
-				    }
-			 } 
-			
-		 };
-	
-	 //SDs for  number validation date:29/1/13
-	 
-		this.isnumber = function(id)
-		{
-			if(controller.emptyCheck(id))
-			 {
-				var numbers = /^[0-9]+$/;  
-				 if(document.getElementById(id).value.match(numbers))  
-				   {  
-					 document.getElementById(id).style.background="#FFFFFF";
-					 return true;
-				    }  
-				 else    
-				 	{  
-						 controller.ErrorMessage("phone number must have numeric characters only");
-						 document.getElementById(id).style.background="#FFA07A";
-						 return false;
-					
-					}
-			 }
-			
-		 };
-	
-	
-  // SDs for empty check  
-		this.emptyCheck = function(id)
-		{
-			if(document.getElementById(id).value == "")
-			{
-				controller.ErrorMessage("Field should not empty");
-				document.getElementById(id).style.background="#FFA07A";
-				return false;
-			}
-			else
+			var letters = /^[A-Za-z]+$/;
+			if(document.getElementById(id).value.match(letters))
 			{
 				document.getElementById(id).style.background="#FFFFFF";
 				return true;
 			}
-		}; 
-	//SDs phone number validati
+			else
+			{
+				controller.ErrorMessage("name must have alphabet characters only");
+				document.getElementById(id).style.background="#FFA07A";
+				return false;
+			}
+		}
+	};
+	 
+	// SDs for email check  callsemptycheck and  TLD email vaildation
+	this.isEmail = function(id)
+	{
+		if(controller.emptyCheck(id))
+		{
+			if(controller.checkEmail(document.getElementById(id).value))
+			{
+				document.getElementById(id).style.background="#FFFFFF";
+				return true;
+			}
+			else
+			{
+				controller.ErrorMessage("Please enter valid Email ID");
+				document.getElementById(id).style.background="#FFA07A";
+				return false;
+			}
+		}
+	};
+	
+	 // SDs for  number validation date:29/1/13
+	this.isnumber = function(id)
+	{
+		if(controller.emptyCheck(id))
+		{
+			var numbers = /^[0-9]+$/;
+			if(document.getElementById(id).value.match(numbers))
+			{
+				document.getElementById(id).style.background = "#FFFFFF";
+				return true;
+			}
+			else
+			{
+				controller.ErrorMessage("phone number must have numeric characters only");
+				document.getElementById(id).style.background="#FFA07A";
+				return false;
+			}
+		}
+	};
 
+
+	// SDs for empty check
+	this.emptyCheck = function(id)
+	{
+		if(document.getElementById(id).value == "")
+		{
+			controller.ErrorMessage("Field should not empty");
+			document.getElementById(id).style.background="#FFA07A";
+			return false;
+		}
+		else
+		{
+			document.getElementById(id).style.background="#FFFFFF";
+			return true;
+		}
+	};
+
+	//SDs phone number validati
 	this.sendmail = function (mailTo, data, subject)
 	{
 		var ip=CM_obj.getClientIP();

@@ -60,101 +60,92 @@ class HomeconnectController extends JController
 		echo json_encode($result);
 	}
 
-	       public function createlogsendemail()
-	       {
-	       	    
-	       	   
-	        	$res=$this->createcsv();
-	        	$result=$this->sendEmail();
-	        	echo $result;
-	       	
-	       	
-	       }
-        function createcsv()
+	public function createlogsendemail()
+	{
+		$this->createcsv();
+		echo $this->sendEmail();
+	}
+
+	public function createcsv()
+	{
+		$log = JRequest::getVar("log");
+		$csv_fields = $log;
+
+		$csv_folder = JPATH_ROOT.'/csv';
+
+		$filename = JRequest::getVar("ip");
+
+		$email	= explode("@", JRequest::getVar("email"));
+
+		$CSVFileName = $csv_folder.'/'.$filename.'_'.$email[0].'.csv';
+		$i = 1;
+
+		while(file_exists($CSVFileName))
+		{
+			$CSVFileName=$csv_folder.'/'.$filename.'_'.$email[0].'('.$i.').csv';
+			$i++;
+		}
+
+		// $TextFileName = $csv_folder.'/'.$filename.'_'.$email[0].'.text';
+		$FileHandle = fopen($CSVFileName, 'w') or die("can't open file");
+
+		// $FileHandle = fopen($TextFileName, 'w') or die("can't open file");
+		fclose($FileHandle);
+
+		$fp = fopen($CSVFileName, 'w');
+		// $fp1 = fopen($TextFileName, 'w');
+
+		fputcsv($fp, $csv_fields);
+
+		/* foreach ($csv_fields as $fields)
+		{
+			fwrite($fp1,$fields);
+			fwrite($fp1,PHP_EOL);
+		} */
+		fclose($fp);
+		// fclose($fp1);
+	}
+
+	public function sendEmail()
+	{
+		// Aks :
+		try
+		{
+			$app	= JFactory::getApplication();
+			$mailfrom	= $app->getCfg('mailfrom');
+			$fromname	= $app->getCfg('fromname');
+			$sitename	= $app->getCfg('sitename');
+
+			$name	= 'ConnectUpMyHomeAdmin';
+			$email	= JRequest::getVar("email");
+			$subject	= JRequest::getVar("subject");
+			$body	= JRequest::getVar("data");
+
+			// Prepare email body
+			//$body	= $name.' <'.$email.'>'."\r\n\r\n".stripslashes($body);
+
+			$mail = JFactory::getMailer();
+			$mail->addRecipient($email);
+			$mail->AddCC($mailfrom);
+			$mail->IsHTML(true);
+			$mail->addReplyTo(array($email, $name));
+			$mail->setSender(array($mailfrom, $fromname));
+			$mail->setSubject($sitename.': '.$subject);
+			$mail->setBody($body);
+
+			$send = $mail->Send();
+			if($send=="true")
 			{
-				$log = JRequest::getVar("log");
-				$csv_fields=$log;
-								
-				$csv_folder = JPATH_ROOT.'/csv';
-			    $filename = JRequest::getVar("ip");
-				$email	= JRequest::getVar("email");
-				$email	= explode("@", $email);
-				$CSVFileName = $csv_folder.'/'.$filename.'_'.$email[0].'.csv';
-				$i=1;
-				while(file_exists($CSVFileName))
-				{
-				   $CSVFileName=$csv_folder.'/'.$filename.'_'.$email[0].'('.$i.').csv';
-				   $i++;
-				   
-                }
-				//$TextFileName = $csv_folder.'/'.$filename.'_'.$email[0].'.text';
-				$FileHandle = fopen($CSVFileName, 'w') or die("can't open file");
-				//$FileHandle = fopen($TextFileName, 'w') or die("can't open file");
-				fclose($FileHandle);
-				$fp = fopen($CSVFileName, 'w');
-				//$fp1 = fopen($TextFileName, 'w');
-				
-				fputcsv($fp, $csv_fields);
-				
-				/*foreach ($csv_fields as $fields) 
-				{
-					fwrite($fp1,$fields);
-					fwrite($fp1,PHP_EOL);
-					
-				}*/
-				fclose($fp);
-				//fclose($fp1);
-				
-								
+				return "success";
 			}
-	
-			public function sendEmail()
+			else 
 			{
-				
-			
-					// Aks :
-					try 
-					{
-							$app	= JFactory::getApplication();
-							$mailfrom	= $app->getCfg('mailfrom');
-							$fromname	= $app->getCfg('fromname');
-							$sitename	= $app->getCfg('sitename');
-							
-							$name	= 'ConnectUpMyHomeAdmin';
-							$email	= JRequest::getVar("email");
-							$subject	= JRequest::getVar("subject");
-							$body	= JRequest::getVar("data");
-							
-							// Prepare email body
-							//$body	= $name.' <'.$email.'>'."\r\n\r\n".stripslashes($body);
-							
-							
-							$mail = JFactory::getMailer();
-							$mail->addRecipient($email);
-							$mail->AddCC($mailfrom);
-							 $mail->IsHTML(true);
-							$mail->addReplyTo(array($email, $name));
-							$mail->setSender(array($mailfrom, $fromname));
-							$mail->setSubject($sitename.': '.$subject);
-							$mail->setBody($body);
-							
-							$send=$mail->Send();
-							if($send=="true")
-							return "success";
-							 else 
-							 return $send;
-					}
-					catch (Exception $e)
-					{
-						return false;
-					}
-			}	
-
-			
-			
-			
-
-			
+				return $send;
+			}
+		}
+		catch (Exception $e)
+		{
+			return false;
+		}
+	}
 }
-			
-	
