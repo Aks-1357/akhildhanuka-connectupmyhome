@@ -30,8 +30,12 @@
 
 	<positions>
 		<position>debug</position>
-		<position>position-0</position>
-		<position>position-1</position>
+		<position>sitelogo</position>
+		<position>callus</position>
+		<position>homeleftmodule</position>
+		<position>homerightmodule</position>
+		<position>navigation_module</position>
+		<position>search_module</position>
 		<position>position-2</position>
 		<position>position-3</position>
 		<position>position-4</position>

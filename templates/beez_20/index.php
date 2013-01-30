@@ -109,19 +109,7 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
 <div id="all">
         <div id="back">
                 <div id="header">
-                                <div class="logoheader">
-                                        <h1 id="logo">
-
-                                        <?php if ($logo): ?>
-                                        <img src="<?php echo $this->baseurl ?>/<?php echo htmlspecialchars($logo); ?>"  alt="<?php echo htmlspecialchars($templateparams->get('sitetitle'));?>" />
-                                        <?php endif;?>
-                                        <?php if (!$logo ): ?>
-                                        <?php echo htmlspecialchars($templateparams->get('sitetitle'));?>
-                                        <?php endif; ?>
-                                        <span class="header1">
-                                        <?php echo htmlspecialchars($templateparams->get('sitedescription'));?>
-                                        </span></h1>
-                                </div><!-- end logoheader -->
+                                <!-- end logoheader -->
                                         <ul class="skiplinks">
                                                 <li><a href="#main" class="u2"><?php echo JText::_('TPL_BEEZ2_SKIP_TO_CONTENT'); ?></a></li>
                                                 <li><a href="#nav" class="u2"><?php echo JText::_('TPL_BEEZ2_JUMP_TO_NAV'); ?></a></li>
@@ -131,12 +119,22 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
                                         </ul>
                                         <h2 class="unseen"><?php echo JText::_('TPL_BEEZ2_NAV_VIEW_SEARCH'); ?></h2>
                                         <h3 class="unseen"><?php echo JText::_('TPL_BEEZ2_NAVIGATION'); ?></h3>
-                                        <jdoc:include type="modules" name="position-1" />
-                                        <div id="line">
+                                        
+                                        <div id="line" style="width:100%">
                                         <div id="fontsize"></div>
                                         <h3 class="unseen"><?php echo JText::_('TPL_BEEZ2_SEARCH'); ?></h3>
-                                        <jdoc:include type="modules" name="position-0" />
+                                        <div id="sitelogo" style="width:48% ;float:left">
+                                        <jdoc:include type="modules" name="sitelogo" />
+                                        </div>
+                                        <div id="callus" style="width:48% ;float:right">
+                                        <jdoc:include type="modules" name="callus" />
+                                        </div>
                                         </div> <!-- end line -->
+                                        <div id="ja-mainnav" class="clearfix">
+											<jdoc:include type="modules" name="navigation_module" />
+											<div id="search_mod" style="float:right;width:40%;position:relative;margin: -35px 0 0 20px">
+											<jdoc:include type="modules" name="search_module" />
+											</div></div>
 
 
                         </div><!-- end header -->
@@ -145,6 +143,14 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
 
                                                         <jdoc:include type="modules" name="position-2" />
 
+                                        </div>
+                                        <div id="Homemodules">
+												<div id="home_left_module" style="width:48% ;float:left">
+		                                        <jdoc:include type="modules" name="homeleftmodule" />
+		                                        </div>
+		                                        <div id="home_right_module" style="width:48% ;float:right">
+		                                        <jdoc:include type="modules" name="homerightmodule" />
+		                                        </div>
                                         </div>
 
                                         <?php if ($navposition=='left' and $showleft) : ?>
@@ -195,7 +201,7 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
                                         <?php endif; ?>
 
                         <?php if ($navposition=='center' and $showleft) : ?>
-
+                            
                                         <div class="left <?php if ($showRightColumn==NULL){ echo 'leftbigger';} ?>" id="nav" >
 
                                                 <jdoc:include type="modules" name="position-7"  style="beezDivision" headerLevel="3" />

@@ -15,6 +15,7 @@ jimport( 'joomla.utilities.utility' );
 
 class HomeconnectController extends JController
 {
+	
 	public function callWebService()
 	{
 		// create curl resource
@@ -63,6 +64,7 @@ class HomeconnectController extends JController
 	public function createlogsendemail()
 	{
 		$this->createcsv();
+		
 		echo $this->sendEmail();
 	}
 

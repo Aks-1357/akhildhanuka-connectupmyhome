@@ -595,7 +595,7 @@ var Controller = function()
 			{
 				var selected = CM_obj.getSelectedProducts(cat_id=i);
 
-				mailbody = mailbody+"<tr><td>Category_"+i+"</td><td>"+selected.length+"</td></tr>";
+				mailbody = mailbody+'<tr><td>Category'+i+'</td><td>'+selected.length+'</td></tr>';
 			}
 			mailbody = mailbody+"</table></body></html>";
 			tracker.push("sending mail");
