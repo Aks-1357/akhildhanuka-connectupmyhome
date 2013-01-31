@@ -11,6 +11,11 @@ var Controller = function()
 	var main_divs;
 	var controller;
 	var prevDiv;
+	var ip_add;
+	var email_add;
+	var screen;
+	var track_info;
+	
 
 	this.init = function (trackdata)
 	{
@@ -20,13 +25,14 @@ var Controller = function()
 		tracker = new Array();
 		main_divs = new Array();
 		CM_obj.setEmail(trackdata.Email);
-		// tracker.push("Tracker Object");
-		// tracker.push("-------------------------------------------------------- ");
-		tracker.push("IP Address:"+CM_obj.getClientIP());
-		tracker.push("Address :"+trackdata.Adress);
-		tracker.push("Email:"+CM_obj.getEmail());
-		tracker.push("decided to:"+trackdata.decidedto);
-		tracker.push(" --------------------------------------------------------");
+		ip_add = CM_obj.getClientIP();
+		email_add = CM_obj.getEmail();
+		screen ="HOME_CONTENT_SCREEN";
+		track_info = new Array(ip_add,email_add,screen,"FILLED ADRESS","VALIDATION OF ADRESS FIELD");
+		tracker.push(track_info);
+		track_info = new Array(ip_add,email_add,screen,"CLICKED_"+trackdata.decidedto,"ENTER INTO MAIN ACCORDIAN");
+		tracker.push(track_info);
+		
 
 		if(document.getElementById("geocomplete"))
 		{
@@ -161,8 +167,9 @@ var Controller = function()
 
 	this.nextAccordion = function (main_accordion_id, index)
 	{
-		tracker.push("switch  to category"+ index);
 		
+		track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","ENTER TO CATEGORY '' FROM CATEGORY ''");
+		tracker.push(track_info);
 		$('#ui-accordion-'+main_accordion_id+'-header-'+index).click();
 		/* Aks : Not Needed
 		$('#category_accordion_div').accordion('activate', 2);
@@ -251,7 +258,9 @@ var Controller = function()
 
 	this.switchDivs = function (id)
 	{
-		tracker.push("swich to view :"+id);
+		
+		track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","ENTER TO SCREEN '' FROM SCREEN ''");
+		tracker.push(track_info);
 		CM_obj.setCurrentState(id);
 
 		if(document.getElementById("geocomplete"))
@@ -296,7 +305,9 @@ var Controller = function()
 	// modified by SDs for switch multiple inner divs
 	this.switchInnerDivs = function (h_ids, s_ids, product_id, cat_id)
 	{
-		tracker.push("switched from view "+h_ids+"to "+s_ids );
+		
+		track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","ENTER TO CATEGORY "+h_ids+" FROM CATEGORY "+s_ids);
+		tracker.push(track_info);
 		CM_obj.setCurrentState(s_ids);
 
 		hide_ids = h_ids.split(",");
@@ -323,7 +334,8 @@ var Controller = function()
 
 	this.setProductsOfCategory = function (prev_div, div_id, product_id, cat_id)
 	{
-		tracker.push("brands under each category display created");
+		track_info = new Array(ip_add,email_add,screen,"_CLICK","BRANDS DISPLAYED");
+		tracker.push(track_info);
 		if(html == "" || !html)
 		{
 			var html = "";
@@ -439,7 +451,8 @@ var Controller = function()
 	// SDs for back navigation from details page
 	this.switchInnerPrevDivs = function(source_div,prevDiv)
 	{
-		tracker.push("swich  from one view to another inner category "); 
+		track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","ENTER TO CATEGORY "+source_div+" FROM CATEGORY "+prevDiv);
+		tracker.push(track_info);
 		CM_obj.setCurrentState(prevDiv);
 
 		controller.switchInnerDivs(source_div, prevDiv, 0, 0);
@@ -453,7 +466,9 @@ var Controller = function()
 
 		if(document.getElementById(category).checked)
 		{
-			tracker.push("product added to my bundle"+cat_product[1]);
+			
+			track_info = new Array(ip_add,email_add,screen,"CHECK_PRODUCT","PRODUCT SELECTED UNDER CATEGORY");
+			tracker.push(track_info);
 
 			CM_obj.setAddToMyBundleResult(cat_product[0], cat_product[1]);
 		    selected_product = CM_obj.getSelectedProducts(cat_product[0]);
@@ -462,7 +477,8 @@ var Controller = function()
 		}
 		else
 		{
-			tracker.push("product deleted to my bundle"+cat_product[1]);
+			track_info = new Array(ip_add,email_add,screen,"UNCHECK_PRODUCT","PRODUCT REJECTED UNDER CATEGORY");
+			tracker.push(track_info);
 
 			CM_obj.deleteAddedMyBundleResult(cat_product[0],cat_product[1]);
 		    selected_product = CM_obj.getSelectedProducts(cat_product[0]);
@@ -482,7 +498,8 @@ var Controller = function()
 	// SDs for go to respecive selection page from my bundle section view edit
 	this.switchtoSelectionpage = function(cat_id)
 	{
-		tracker.push("selected product under category"+cat_id+"edited");
+		track_info = new Array(ip_add,email_add,screen,"EDIT_CATEGORY","PRODUCT SELECTION EDITED UNDER CATEGORY");
+		tracker.push(track_info);		
 		var selected_product;
 		selected_product = CM_obj.getSelectedProducts(cat_id+1);
 
@@ -522,7 +539,8 @@ var Controller = function()
 		
 		if(id == "confirmation_div")
 		{
-			tracker.push("selected product displayed confirmation page");
+			track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","ENTER TO CONFIRMATION PAGE");
+			tracker.push(track_info);	
 			for (var i = 1;i <= 5; i++)
 			{
 				var selected = CM_obj.getSelectedProducts(cat_id=i);
@@ -533,7 +551,8 @@ var Controller = function()
 
 		if(id=="installation_div")
 		{
-			tracker.push("selected product displayed installation page");
+			track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","ENTER TO INSTALLATION PAGE");
+			tracker.push(track_info);
 			for (var i = 1;i <= 5; i++)
 			{
 				var selected = CM_obj.getSelectedProducts(cat_id = i);
@@ -585,7 +604,8 @@ var Controller = function()
 		{
 			controller.ErrorMessage("");
 			CM_obj.setEmail(email);
-			tracker.push("preparing mail for customer");
+			track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","VALIDATED FIELDS AND PREPARING MAIL");
+			tracker.push(track_info);
 			var mailbody;
 			var subject	= "Your Order";
 			mailbody = "<html><body>Thank you for using ConnectupMyHome<br/>Your Order Details Are:<br>"+
@@ -598,7 +618,7 @@ var Controller = function()
 				mailbody = mailbody+'<tr><td>Category'+i+'</td><td>'+selected.length+'</td></tr>';
 			}
 			mailbody = mailbody+"</table></body></html>";
-			tracker.push("sending mail");
+			
 
 			controller.sendmail(email, mailbody, subject);
 		}
@@ -709,14 +729,16 @@ var Controller = function()
 				// Aks : Check if mail is sent then only switch divs here
 				if(data=="success")
 				{
-					tracker.push("mail sent successfully");
+					track_info = new Array(ip_add,email_add,screen,"WAITING","MAIL SENT");
+					tracker.push(track_info);
 					controller.switchDivs("#thank_div");
 					tracker.push("swiched to thank u page ");
 				}
 				else
 				{
 					alert("ERROR in SENDING MAIL")
-					tracker.push("error in sending mail error message displayed");
+					track_info = new Array(ip_add,email_add,screen,"WAITING","MAIL SENT ERROR");
+					tracker.push(track_info);
 				}
 			}
 		});
@@ -725,8 +747,10 @@ var Controller = function()
 	// SDs for category greyed out  
 	this.greyedoutCategory = function(cat_id,id)
 	{
-		tracker.push("user dont want any product under catgory"+id);
-		tracker.push("trayed out category from my bundle");
+		track_info = new Array(ip_add,email_add,screen,"CHECK_IGNORE_CATEGORY","USER DONT WANT CATEGORY AND SCREEN CHANGED WITH OTHER CATEGORY");
+		tracker.push(track_info);
+		track_info = new Array(ip_add,email_add,screen,"WAITING","IGNORED CATEGORY GREYED OUT FROM MY BUNDLE");
+		tracker.push(track_info);
 
 		if(document.getElementById(cat_id).checked == true)
 		{
