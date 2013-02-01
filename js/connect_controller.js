@@ -305,9 +305,38 @@ var Controller = function()
 	// modified by SDs for switch multiple inner divs
 	this.switchInnerDivs = function (h_ids, s_ids, product_id, cat_id)
 	{
+		console.log(s_ids);
+		if(s_ids=="confirmation_div")
+		{
+			var empty_flag=0;
+			selected_product = CM_obj.getSelectedProducts();
+			for(var i=0;i<selected_product.length;i++)
+				{
+					if(selected_product[i].length!=0)
+					{
+						empty_flag=1;
+					}
+				}
+			if(empty_flag==0)
+			{
+				document.getElementById('error_message').style.display="block";
+				var  err_html="<h1 style='color:red'>Please Make Selection First!!!</h1>";
+			    document.getElementById('error_message').innerHTML =err_html;
+				$("#error_message").delay(3200).fadeOut(1000);
+				err_html="";
+				console.log("please select some product first");
+				s_ids="main_category_div";
+			}
+			track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","ENTER TO CATEGORY "+h_ids+" FROM CATEGORY "+s_ids+"AS EMPTY SELECTION");
+			tracker.push(track_info);
+			
+		}
+		else
+		{
+			track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","ENTER TO CATEGORY "+h_ids+" FROM CATEGORY "+s_ids);
+			tracker.push(track_info);
+		}
 		
-		track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","ENTER TO CATEGORY "+h_ids+" FROM CATEGORY "+s_ids);
-		tracker.push(track_info);
 		CM_obj.setCurrentState(s_ids);
 
 		hide_ids = h_ids.split(",");

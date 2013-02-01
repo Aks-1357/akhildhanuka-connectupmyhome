@@ -106,10 +106,11 @@ if ($this->params->get('highContrast')) {
 
 	<jdoc:include type="modules" name="footer" style="none"  />
 	<div id="footer">
+	<!--   SDs changes for :hide joomla copyright at admin site
 		<p class="copyright">
-			<?php $joomla= '<a href="http://www.joomla.org">Joomla!&#174;</a>';
-				echo JText::sprintf('JGLOBAL_ISFREESOFTWARE', $joomla) ?>
-		</p>
+			<?php //$joomla= '<a href="http://www.joomla.org">Joomla!&#174;</a>';
+				//echo JText::sprintf('JGLOBAL_ISFREESOFTWARE', $joomla) ?>
+		</p> -->
 	</div>
 </body>
 </html>

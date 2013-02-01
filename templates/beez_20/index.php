@@ -75,6 +75,7 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
 #header ul.menu {
 	display:block !important;
 	width:98.2% ;
+	margin-top:72px;
 }
 </style>
 <?php endif; ?>
@@ -108,7 +109,7 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
 
 <div id="all">
         <div id="back">
-                <div id="header">
+                <div id="header" style="height:75px;">
                                 <!-- end logoheader -->
                                         <ul class="skiplinks">
                                                 <li><a href="#main" class="u2"><?php echo JText::_('TPL_BEEZ2_SKIP_TO_CONTENT'); ?></a></li>
@@ -120,19 +121,19 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
                                         <h2 class="unseen"><?php echo JText::_('TPL_BEEZ2_NAV_VIEW_SEARCH'); ?></h2>
                                         <h3 class="unseen"><?php echo JText::_('TPL_BEEZ2_NAVIGATION'); ?></h3>
                                         
-                                        <div id="line" style="width:100%">
-                                        <div id="fontsize"></div>
+                                        <div id="line" style="width:100%;height:30px" >
+                                        <div id="fontsize" style="display:none"></div>
                                         <h3 class="unseen"><?php echo JText::_('TPL_BEEZ2_SEARCH'); ?></h3>
-                                        <div id="sitelogo" style="width:48% ;float:left">
+                                        <div id="sitelogo" style="width:25% ;float:left">
                                         <jdoc:include type="modules" name="sitelogo" />
                                         </div>
-                                        <div id="callus" style="width:48% ;float:right">
+                                        <div id="callus" style="width:45% ;margin-right:30px;float:right">
                                         <jdoc:include type="modules" name="callus" />
                                         </div>
                                         </div> <!-- end line -->
-                                        <div id="ja-mainnav" class="clearfix">
+                                        <div id="ja-mainnav" class="clearfix" style="margin-top: 77px;">
 											<jdoc:include type="modules" name="navigation_module" />
-											<div id="search_mod" style="float:right;width:40%;position:relative;margin: -35px 0 0 20px">
+											<div id="search_mod" style="float:right;width:30%;position:relative;margin: -35px 0 0 20px">
 											<jdoc:include type="modules" name="search_module" />
 											</div></div>
 
@@ -240,9 +241,10 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
                                 <div id="footer">
 
                                         <jdoc:include type="modules" name="position-14" />
-                                        <p>
-                                                <?php echo JText::_('TPL_BEEZ2_POWERED_BY');?> <a href="http://www.joomla.org/">Joomla!&#174;</a>
-                                        </p>
+                                       <!-- SDs : commented this div  to hide powered by joomla label in the footer -->
+                                         <p>
+                                                <?php echo 'Copyright';?> &copy;<?php echo '2013 .Connect up my home.All Rights Reserved';?> <a href="#"></a>
+                                        </p> 
 
 
                                 </div><!-- end footer -->

@@ -2,11 +2,13 @@
 ?>
 
 <div id="main_category_div" style="<?php echo $this->mainCategoryDisplay; ?>">
+    <div id="error_message" style="font-color:red""></div>
 	<div id="category_accordion_div">
 		<div class="group">
 			<h3 style="margin: 0;">TV</h3>
 			<div>
 				<div id="main_category_inner_div_1">
+				    
 					<div style="display: block; float: left;">
 						<div onClick="javascript:controllerObj.switchInnerDivs('main_category_inner_div_1', 'main_category_inner_product_div_1', 1,1);" style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;">
 						B 1

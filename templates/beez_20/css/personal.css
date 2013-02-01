@@ -151,7 +151,7 @@ h1#logo
 	text-align:left;
 	left:0px;
 	 display:block;
-	 margin:0px 10px 0 10px;
+	 margin: 73px 10px 0 10px;
 	 border-top:solid 1px #ddd;
 
 }
@@ -1312,12 +1312,12 @@ body.contentpane
 
 
 /* ##########################  footer   ########################### */
-
+/* SDs changed color of footer text */
 #footer
 {
 	  /*  background:url(../images/footer_bg.gif) repeat-x;*/
 	background:#333333 url(../images/personal/tabs_back.png) repeat-x;
-	color:#fff;
+	color:#A0A0A0;
 	border-top:solid 0px #ccc;
 }
 
