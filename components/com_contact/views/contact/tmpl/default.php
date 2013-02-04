@@ -22,9 +22,9 @@ $cparams = JComponentHelper::getParams ('com_media');
 		</h2>
 	<?php endif;  ?>
 	<?php if ($this->params->get('show_contact_category') == 'show_no_link') : ?>
-		<h3>
+	<h3>
 			<span class="contact-category"><?php echo $this->contact->category_title; ?></span>
-		</h3>
+		</h3> 
 	<?php endif; ?>
 	<?php if ($this->params->get('show_contact_category') == 'show_with_link') : ?>
 		<?php $contactLink = ContactHelperRoute::getCategoryRoute($this->contact->catid);?>

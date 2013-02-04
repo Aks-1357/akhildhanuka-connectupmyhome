@@ -100,7 +100,7 @@ endif; ?>
 <?php endif; ?>
 <?php if ($params->get('show_category')) : ?>
 	<dd class="category-name">
-	<?php 	$title = $this->escape($this->item->category_title);
+	Posted in<?php 	$title = $this->escape($this->item->category_title); 
 	$url = '<a href="'.JRoute::_(ContentHelperRoute::getCategoryRoute($this->item->catslug)).'">'.$title.'</a>';?>
 	<?php if ($params->get('link_category') and $this->item->catslug) : ?>
 		<?php echo JText::sprintf('COM_CONTENT_CATEGORY', $url); ?>
