@@ -78,7 +78,7 @@ em
 #header form .inputbox { margin: 2px 13px 2px 2px;}
 #header form .inputbox:focus { margin: 1px 11px 0 1px; }
 
-#header ul
+/*#header ul
 {
         display:block;
         margin:0px 0px 1px 0px;
@@ -180,7 +180,7 @@ em
 {
         padding:0 0 0 0px;
         text-align:left;
-        margin:15px 20px 15px 0px;
+        margin:8px 0px 8px 0px;
         font-size:0.85em
 }
 
@@ -300,106 +300,6 @@ h3.js_heading a
         margin:0;
         padding:0
 }
-
- ul.menu
-{
-        list-style-type:none !important;
-        margin:0 0 0px 0px ;
-        padding: 0px 5px 20px 5px;
-
-}
-
- .module_content ul.menu
-{
-        margin-left:-5px;
-        padding:10px 0 0 0 ;
-}
-
- ul.menu li
-{
-        margin:0;
-}
-
-ul.menu li a:link,
- ul.menu li a:visited
-{
-        display:block;
-        padding:7px 4px 7px 15px;
-        text-decoration:none;
-}
-
- ul.menu li.active a:link,
- ul.menu li.active a:visited
-{
-        font-weight:bold;
-}
-
- ul.menu li a:hover,
- ul.menu li a:active,
- ul li a:focus
-{
-
-}
-
-
-
-/* ++++++++++++++  second level  ++++++++++++++ */
- ul.menu li ul
-{
-        margin:0 ;
-        padding:0 ;
-}
- ul.menu li ul li
-{
-        margin:0;
-        padding:0
-}
-
- ul.menu li.active ul li a:link,
- ul.menu li.active ul li a:visited
-{
-        padding:5px 10px 5px 20px ;
-        font-weight:normal;
-}
-
-
- ul.menu li.active ul li a.active:link,
- ul.menu li.active ul li a.active:visited
-{
-        padding:7px 10px 7px 20px ;
-}
-
- ul li.active ul li.active a:link,
- ul li.active ul li.active a:visited
-{
-        font-weight:bold ;
-}
-
-/* ++++++++++++++  third level  ++++++++++++++ */
-
- ul.menu li ul li ul
-{
-        padding:5px 0 5px 0px;
-}
-
- ul.menu li ul li ul li
-{
-
-}
-
-ul.menu li.active ul li.active ul li a:link,
- ul.menu li.active ul li.active ul li a:visited
-{
-        padding:5px 4px 5px 30px;
-        font-weight:normal;
-}
-
- ul.menu li.active ul li.active ul li.active a:link,
- ul.menu li.active ul li.active ul li.active a:visited
-{
-        font-weight:bold;
-}
-
 
 
 /* ##########################  main  ########################### */

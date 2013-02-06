@@ -1,5 +1,5 @@
 /*
- * @author ( Angie Radtke )
+ * @author ( Anomaly Solutions )
 */
 
 /* not ready */
@@ -8,31 +8,31 @@
 
 
 @font-face {
-	font-family: 'Titillium Maps';
-	src: url("../fonts/TitilliumMaps29L002.eot");
-	src: local('Titillium Maps'), local('TitilliumMaps'),
-		url("../fonts/TitilliumMaps29L002.otf") format("opentype"),
-		url("../fonts/TitilliumMaps29L002.woff") format("woff");
+	font-family: 'MyriadPro';
+	src:
+		url("../fonts/MyriadPro-Cond.otf") format("opentype");
+
+	font-family: 'arial';
+	src:url("../fonts/arial.ttf") format("truetype");
 }
 
 body
 {
-	background: #e0dedf  url(../images/personal/bg2.png) repeat-x;
-	color: #333;
+	background: #e0dedf  url(../images/bg.png) repeat-x;
+	color: #fff;
 	font-family: arial, helvetica, sans-serif;
 }
 
 #all
 {
-	color: #333;
+	color: #4d4c4c;
 	border:solid 0px ;
 	padding-top:0px;
-	background:#fff
 }
 
 #header
 {
-	padding-top:10em
+	padding-top:0em
 }
 
 a:link,
@@ -89,7 +89,7 @@ fieldset
 	font-family:arial, sans-serif
 }
 #all #header
-{padding-top:8.0em ;
+{padding-top:0em ;
 }
 .logoheader
 {
@@ -119,10 +119,102 @@ h1#logo
 	max-width:100% ;
 	top:0px;
 	left:0px;
-	padding:5px 10px !important;
-	margin-right:10px;
 	text-align:right;
 
+}
+
+#sitelogo
+{
+	width:265px;
+	height:117px;
+	margin:0 20px 15px 12px;
+	float:left;
+	background:none;
+	}
+
+ .navigation{position:relative; clear:both; font-size:14px; z-index:1000;margin-top:20px;
+ background: url("../images/menuBG.png") repeat-x scroll 0 0 transparent; height:47px;
+ -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+ }
+
+.NaviRadious
+{
+-webkit-border-top-left-radius: 5px;
+-webkit-border-bottom-left-radius: 5px;
+-moz-border-radius-topleft: 5px;
+-moz-border-radius-bottomleft: 5px;
+border-top-left-radius: 5px;
+border-bottom-left-radius: 5px;
+}
+
+.navigation ul ul {
+	display: none;
+	line-height:0px;
+}
+
+	.navigation ul li:hover > ul {
+		display: block;
+	}
+	
+	.navigation ul {
+	padding: 0px;
+   line-height:0px;
+	list-style: none;
+	position: relative;
+	display: inline-table;
+   
+}
+	.navigation ul:after {
+		content: ""; clear: both; display: block;
+	}
+	
+	.navigation ul li {
+	float: left;
+	height:47px;
+}
+	.navigation ul li:hover {
+		 background: url("../images/menu_over.png") repeat-x scroll 0 0 transparent;
+		 color:#fff;
+	}
+		.navigation ul li:hover a {
+    		font-weight: normal;
+			color:#fff;
+		}
+	
+	.navigation ul li a {
+		display: block; padding: 23px 12px;
+		color: #454545; text-decoration: none;
+    font-weight: normal;
+	}
+	
+	.navigation li a:hover{  background:none;}
+	
+	.navigation ul ul {
+	background: #0090c8; border-radius: 0px; padding: 0;
+	position: absolute; top: 100%;
+}
+	.navigation ul ul li {
+		float: none; 
+		position: relative;
+	}
+		.navigation ul ul li a {
+			padding: 25px 20px 8px 10px;
+			color: #454545;
+			height:10px;
+
+			}
+				
+			.navigation ul ul li a:hover {
+			padding-top:-10px;		
+			height:10px;
+			color:#fff;
+
+			}
+			
+			.navigation ul ul ul {
+	position: absolute; left: 100%; top:0;
 }
 
 
@@ -130,19 +222,71 @@ h1#logo
 
 #header
 {
-	background:#fff;
-	font-size:1em;
-	position:relative
 
+	font-size:1em;
+	position:relative;
+	min-height:179px;
 
 }
 
+#tagLine
+{ 	font-family: 'MyriadPro';
+	font-size:1.8em;
+	color:#b70000;
+	font-weight:bold;
+	line-height:33px;
+	position:relative;
+	}
+
+#tagLine1
+{ 	font-family: 'MyriadPro';
+	font-size:1.8em;
+	color:#00709a;
+	font-weight:bold;
+	line-height:33px;
+	float:left;
+	width:100%;
+	margin-bottom:10px;
+	}
+	
+#or
+{	color:#282828;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	padding:8px 5px;
+	float: left;
+	font-weight:bold;
+	}
+
+.HomeForm
+{
+	border:1px solid #c7c7c7;
+	 -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding:7px;
+	height:15px;
+	color:#686666;
+	width:300px;
+	font-family:'Arial';
+	font-size:10px;
+}
+
+.tooltip1
+{
+	font-family:'Arial'; 
+	font-size:12px; 
+	background:#0097cc; 
+	color:#fff; 
+	padding:10px}
+
+
 /* ++++++++++++++  lists, skiplinks  ++++++++++++++ */
-#header ul.menu
+/*#header ul.menu
 {
 
 
-   /* top:62px; */
+   /* top:62px;
    top:5em;
 
 	padding: 0px 0px 0px 0 ;
@@ -299,7 +443,7 @@ padding-right:1px ;
 #contentarea,
 #contentarea2
 {
-	background:#fff
+/*	background:#000*/
 }
 
 
@@ -442,10 +586,10 @@ h3.js_heading a:focus
 	border:0;
 }
 
-ul.menu
+/*ul.menu
 {
 	border:0;
-	background:#fff /* url(../images/nature/nav_level_1.gif) repeat-x */;
+	background:#fff ;
 	border:solid 0px #eee;
 }
 
@@ -487,124 +631,6 @@ ul.menu li.active a:focus
 
 /* ++++++++++++++  second level  ++++++++++++++ */
 
-ul.menu li ul
-{
-	border:solid 0px #eee;
-}
-
- ul.menu li ul li
-{
-	border:solid 0px #000;
-	background:#fff;
-}
-
- ul.menu li.active ul li a:link,
- ul.menu li.active ul li a:visited
-{
-	color:#444;
-	border:0;
-	border-bottom:solid 1px #fff;
-	background: #e8e8e8
-}
-
- ul.menu li.active ul li.active a:link,
- ul.menu li.active ul li.active a:visited
-{
-	border:0;
-	color:#333;
-	border-bottom:solid 1px #fff;
-}
-
- ul.menu li.active ul li a:hover,
- ul.menu li.active ul li a:active,
- ul.menu li.active ul li a:focus
-{
-	background:#666 !important;
-	color:#fff !important;
-}
-
-
-/* ++++++++++++++  third level  ++++++++++++++ */
-
-ul.menu li ul li ul
-{
-	border:0 !important;
-	background:#f5f5f5 !important;
-	padding-bottom:0
-}
-
-ul.menu li.active ul li.active ul li a:link,
-ul.menu li.active ul li.active ul li a:visited
-{
-	background:#f5f5f5 ;
-	border-bottom:solid 1px #fff;
-	color:#444
-}
-
-ul.menu li.active ul li.active ul li.active a:link,
-ul.menu li.active ul li.active ul li.active a:visited
-{
-	color:#333;
-}
-
-
-
-/* ++++++++++++++  fourth level  ++++++++++++++ */
-
-ul.menu li ul li ul li ul
-{
-	border:solid 1px #eee !important;
-	padding-top:10px !important;
-	padding-bottom:10px !important;
-	background:#fff url(../images/nature/level4.png) repeat-x !important;
-}
-
-
-ul.menu li.active  ul li.active  ul li.active  ul li  a:link,
-ul.menu li.active  ul li.active  ul li.active  ul li a:visited
-{
-	font-weight:normal;
-	padding: 3px 2px 3px 40px;
-	font-size:0.9em;
-	background:#fff url(../images/nature/arrow_small.png) no-repeat  30px 5px;
-	color:#444
-}
-
-
-ul.menu li.active  ul li.active  ul li.active  ul li.active  a:link,
-ul.menu li.active  ul li.active  ul li.active  ul li.active a:visited
-{font-weight:bold;
-color:#333 }
-
-
-
-/* ++++++++++++++  fifth level  ++++++++++++++ */
-
-ul.menu li ul li ul li ul li ul
-{
-	border:solid 0px #eee !important;
-	padding-top:5px !important;
-	padding-bottom:10px !important;
-	background:#fff !important;
-}
-
-
-ul.menu li.active  ul li.active  ul li.active  ul li.active	ul li  a:link,
-ul.menu li.active  ul li.active  ul li.active  ul li.active	ul li a:visited
-{
-	font-weight:normal;
-	padding: 3px 2px 3px 5px;
-	font-size:0.9em;
-	background:#fff ;
-	color:#444;
-	margin:0 10px  0 35px;
-	border-bottom:solid 1px #ddd
-}
-
-
-ul.menu li.active  ul li.active  ul li.active  ul li.active  ul li.active  a:link,
-ul.menu li.active  ul li.active  ul li.active  ul li.active  ul li.active a:visited
-{font-weight:bold; color:#333}
 
 /* ##########################  content - main   ########################### */
 
@@ -1323,8 +1349,8 @@ body.contentpane
 
 #footer-inner
 {
-	background:#f5f5f5 url(../images/personal/footer.jpg) repeat-x left bottom;
-	border-top:solid 1px #ddd
+/*	background:#f5f5f5 url(../images/personal/footer.jpg) repeat-x left bottom;
+	border-top:solid 1px #ddd*/
 }
 
 #footer a
@@ -1339,8 +1365,9 @@ body.contentpane
 
 .box h3
 {
-	font-family: 'Titillium Maps', Arial;
-	font-size:1.2em
+	font-family: 'MyriadPro';
+	font-size:1.7em;
+	color:#000
 }
 .box ul
 {padding-left:0}
@@ -1536,3 +1563,43 @@ div.sample-module {
     padding: 10px;
     background-color: #f5f5f5;
 }
+
+/* ########################## bundle CSS########################### */
+
+.recomended
+{	background: url(../images/RedBundle.png) repeat-x;
+	height:25px;
+	padding-top:7px;
+	width:150px;
+	text-align:center;
+	cursor:pointer;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FFF;
+	font-size:12px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border-right:2px solid #ff001a;
+	border-left:2px solid #ff001a;
+float:left;
+	}
+
+.create
+{	background: url(../images/BlueBundle.png) repeat-x;
+	height:25px;
+	padding-top:7px;
+	width:150px;
+	text-align:center;
+	cursor:pointer;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FFF;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border-right:1px solid #00afff;
+	border-left:1px solid #00afff;
+	font-size:12px;
+		float:left;
+	}

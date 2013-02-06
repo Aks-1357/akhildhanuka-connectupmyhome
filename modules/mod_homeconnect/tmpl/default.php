@@ -34,25 +34,31 @@ $document->addStyleSheet(JURI::base() . 'includes/assets/css/jquery/ui-lightness
 // echo $hello;
 ?>
 
-<div id="tool_tip_1">It would be great if you would provide your full address to enable us
+<div id="tool_tip_1" class="tooltip1">It would be great if you would provide your full address to enable us
 				to make the best possible recommendation. However, if you choose to
 				just pass on your postcode we can still provide you with a recommendation.
 				< link to privacy policy here ></div>
 
-<div id="tool_tip_2">It would be great if you would provide your email address to enable us
+<div id="tool_tip_2" class="tooltip1">It would be great if you would provide your email address to enable us
 				to send you the recommendation that we give you on connecting up your
 				home < link to privacy policy here ></div>
 
 <form action="index.php?option=com_homeconnect&view=createbundle" method="post" name="bundle" id="bundle">
-	<div id="landing_div" style="width: 94%; display: block; float: left; border: 1px solid #ccc; padding: 5px 20px 20px;">
-		<center><h3 style="margin: 0;"><?php echo $homeText; ?></h3></center>
+	<div id="landing_div" style="display: block; float: left; padding: 5px; width:90%">
+    
+    <div>
+    	<span id="tagLine"><?php echo 'Find out' ?></span>
+		<span id="tagLine1"><?php echo 'what is available is your area...' ?></span>
+        </div>
 
-		<div style="margin-top: 10px;">
-			<label for="geocomplete" style="display: block; font-weight: bold;">What is your address/postal code?<sup>*</sup></label>
-			<input id="geocomplete" name="geocomplete" type="text" placeholder="Type in an address" size="35" />
-			<a class="tool_tip_1" rel="#tool_tip_1" href="javascript:void(0);">
+		<div>
+			
+			<input id="geocomplete" name="geocomplete" type="text" placeholder="Type in an address / postcode" class="HomeForm"/>
+            <a class="tool_tip_1" rel="#tool_tip_1" href="javascript:void(0);">
 				<img id="tool_tip_1_inner" alt="More Info" src="<?php echo JURI::base().'images/Information.png'; ?>">
 			</a>
+            <label for="geocomplete" style="font-size:10px;"><strong>Examples:</strong> Sydney, Australia Victoria 3841 Melbourne &nbsp;<sup>*</sup></label>
+			
 			<div id="address_error_div" style="color:red;"> </div>
 			<!-- Aks : Not Required
 			<input id="find" type="button" value="find" />
@@ -60,8 +66,7 @@ $document->addStyleSheet(JURI::base() . 'includes/assets/css/jquery/ui-lightness
 		</div>
 
 		<div style="margin-top: 10px;">
-			<label for="email" style="display: block; font-weight: bold;">What is your email address?</label>
-			<input id="email" name="email" type="text" placeholder="Type in an email address" size="35" />
+			<input id="email" name="email" type="text" placeholder="Type in  your email address" class="HomeForm" />
 			<a class="tool_tip_2" rel="#tool_tip_2" href="javascript:void(0);">
 				<img id="tool_tip_2_inner" alt="More Info" src="<?php echo JURI::base().'images/Information.png'; ?>">
 			</a>
@@ -69,16 +74,16 @@ $document->addStyleSheet(JURI::base() . 'includes/assets/css/jquery/ui-lightness
 		</div>
 
 		<div style="width: 100%; margin-top: 15px; text-align: center;">
-			<div id="create_bundle" onClick="javascript:moduleObj.showBundle('create');" style="cursor: pointer; border: 1px solid #ccc; padding: 15px 0; width: 40%; float: left;">Create your Own Bundle</div>
-			<div style="margin: 0 8px; padding: 15px 0; width: 10%; float: left;"> - OR - </div>
-			<div id="recommended_bundle" onClick="javascript:moduleObj.showBundle('recommend');" style="cursor: pointer; border: 1px solid #ccc; padding: 15px 0; width: 40%; float: left;">Recommended Bundle</div>
+			<div id="recommended_bundle" onClick="javascript:moduleObj.showBundle('create');" class="create" >Recommended Bundle</div>
+			<div id="or"> - OR - </div>
+			<div id="create_bundle" onClick="javascript:moduleObj.showBundle('recommend');" class="recomended">Create your Own Bundle</div>
 		</div>
 
 		<input type="hidden" id="bundle_type" name="bundle_type">
 		<!-- Aks : No need
 		<pre id="logger">Log:</pre>
 		-->
-		<p style="float: left;">* Minimum of Postcode Required</p>
+		
 	</div>
 </form>
 

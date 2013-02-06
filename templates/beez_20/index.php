@@ -109,31 +109,21 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
 
 <div id="all">
         <div id="back">
-                <div id="header" style="height:75px;">
+                <div id="header">
                                 <!-- end logoheader -->
-                                        <ul class="skiplinks">
-                                                <li><a href="#main" class="u2"><?php echo JText::_('TPL_BEEZ2_SKIP_TO_CONTENT'); ?></a></li>
-                                                <li><a href="#nav" class="u2"><?php echo JText::_('TPL_BEEZ2_JUMP_TO_NAV'); ?></a></li>
-                                            <?php if($showRightColumn ):?>
-                                            <li><a href="#additional" class="u2"><?php echo JText::_('TPL_BEEZ2_JUMP_TO_INFO'); ?></a></li>
-                                           <?php endif; ?>
-                                        </ul>
-                                        <h2 class="unseen"><?php echo JText::_('TPL_BEEZ2_NAV_VIEW_SEARCH'); ?></h2>
-                                        <h3 class="unseen"><?php echo JText::_('TPL_BEEZ2_NAVIGATION'); ?></h3>
-                                        
-                                        <div id="line" style="width:100%;height:30px" >
-                                        <div id="fontsize" style="display:none"></div>
-                                        <h3 class="unseen"><?php echo JText::_('TPL_BEEZ2_SEARCH'); ?></h3>
-                                        <div id="sitelogo" style="width:25% ;float:left">
-                                        <jdoc:include type="modules" name="sitelogo" />
+                                
+                                                                               
+                                        <div id="line">
+                                        <div id="sitelogo">
+                                        <img src="images/logo.png" alt="Connect Up My Home" />
                                         </div>
-                                        <div id="callus" style="width:45% ;margin-right:30px;float:right">
+                                        <div id="callus" style="float:right;height:132px;">
                                         <jdoc:include type="modules" name="callus" />
                                         </div>
                                         </div> <!-- end line -->
-                                        <div id="ja-mainnav" class="clearfix" style="margin-top: 77px;">
+                                        <div id="ja-mainnav" class="navigation">
 											<jdoc:include type="modules" name="navigation_module" />
-											<div id="search_mod" style="float:right;width:30%;position:relative;margin: -35px 0 0 20px">
+											<div id="search_mod" style="float:right;min-width:30%;margin-right:5px; height:39px; padding-top:7px;">
 											<jdoc:include type="modules" name="search_module" />
 											</div></div>
 
@@ -146,10 +136,10 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
 
                                         </div>
                                         <div id="Homemodules">
-												<div id="home_left_module" style="width:48% ;float:left">
+												<div id="home_left_module" style="width:388px; margin-right:5px">
 		                                        <jdoc:include type="modules" name="homeleftmodule" />
 		                                        </div>
-		                                        <div id="home_right_module" style="width:48% ;float:right">
+		                                        <div id="home_right_module" style="width:595px;;float:right">
 		                                        <jdoc:include type="modules" name="homerightmodule" />
 		                                        </div>
                                         </div>
