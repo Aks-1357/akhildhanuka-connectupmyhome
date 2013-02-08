@@ -173,14 +173,7 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
                                         </div><!-- end wrapper -->
 
                                 <?php if ($showRightColumn) : ?>
-                                        <h2 class="unseen">
-                                                <?php echo JText::_('TPL_BEEZ2_ADDITIONAL_INFORMATION'); ?>
-                                        </h2>
-                                        <div id="close">
-                                                <a href="#" onclick="auf('right')">
-                                                        <span id="bild">
-                                                                <?php echo JText::_('TPL_BEEZ2_TEXTRIGHTCLOSE'); ?></span></a>
-                                        </div>
+                                       
 
 
                                         <div id="right">
@@ -225,7 +218,10 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
                         </div>
                                 <?php endif ; ?>
 
-                        <div id="footer-sub">
+                        
+
+                </div>
+                <div id="footer-sub">
 
 
                                 <div id="footer">
@@ -240,8 +236,7 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
                                 </div><!-- end footer -->
 
                         </div>
-
-                </div>
+                
 				<jdoc:include type="modules" name="debug" />
         </body>
 </html>
