@@ -125,29 +125,34 @@ var Model = function ()
 	this.getSelectedProducts = function (cat_id)
 	{
 		if(cat_id === undefined )
+		{
 			return selected_product;
+		}
 		else
+		{
 			return selected_product[cat_id];
+		}
 	};
 
 	// SDs global storage of currentscrren
 	this.setCurrentState = function (screen)
 	{
 		this.currentscreen = screen;
-	}
+	};
 
 	this.getCurrentState = function ()
 	{
 		return this.currentscreen;
-	}
-	
+	};
+
 	//SDs global storage of customers email
 	this.setEmail	= function(email)
 	{
 		this.customer_email=email;
-	}
+	};
+
 	this.getEmail = function ()
 	{
 		return this.customer_email;
-	}
+	};
 };

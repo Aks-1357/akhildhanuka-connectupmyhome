@@ -258,8 +258,7 @@ var Controller = function()
 
 	this.switchDivs = function (id)
 	{
-		
-		track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","ENTER TO SCREEN '' FROM SCREEN ''");
+		track_info = new Array(ip_add, email_add, screen, "FORWORD_CLICK","ENTER TO SCREEN '' FROM SCREEN ''");
 		tracker.push(track_info);
 		CM_obj.setCurrentState(id);
 
@@ -305,38 +304,38 @@ var Controller = function()
 	// modified by SDs for switch multiple inner divs
 	this.switchInnerDivs = function (h_ids, s_ids, product_id, cat_id)
 	{
-		console.log(s_ids);
 		if(s_ids=="confirmation_div")
 		{
-			var empty_flag=0;
+			var empty_flag = 0;
+
 			selected_product = CM_obj.getSelectedProducts();
-			for(var i=0;i<selected_product.length;i++)
+			var selected_product_length = selected_product.length;
+
+			for(var i = 0; i < selected_product_length; i++)
+			{
+				if(selected_product[i].length!=0)
 				{
-					if(selected_product[i].length!=0)
-					{
-						empty_flag=1;
-					}
+					empty_flag = 1;
 				}
-			if(empty_flag==0)
+			}
+			if(empty_flag == 0)
 			{
 				document.getElementById('error_message').style.display="block";
 				var  err_html="<h1 style='color:red'>Please Make Selection First!!!</h1>";
 			    document.getElementById('error_message').innerHTML =err_html;
 				$("#error_message").delay(3200).fadeOut(1000);
 				err_html="";
-				console.log("please select some product first");
 				s_ids="main_category_div";
 			}
-			track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","ENTER TO CATEGORY "+h_ids+" FROM CATEGORY "+s_ids+"AS EMPTY SELECTION");
+			track_info = new Array(ip_add, email_add, screen, "FORWORD_CLICK", "ENTER TO CATEGORY "+h_ids+" FROM CATEGORY "+s_ids+"AS EMPTY SELECTION");
 			tracker.push(track_info);
-			
 		}
 		else
 		{
-			track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","ENTER TO CATEGORY "+h_ids+" FROM CATEGORY "+s_ids);
+			track_info = new Array(ip_add, email_add, screen, "FORWORD_CLICK", "ENTER TO CATEGORY "+h_ids+" FROM CATEGORY "+s_ids);
 			tracker.push(track_info);
 		}
-		
+
 		CM_obj.setCurrentState(s_ids);
 
 		hide_ids = h_ids.split(",");
@@ -478,9 +477,9 @@ var Controller = function()
 	}; */
 
 	// SDs for back navigation from details page
-	this.switchInnerPrevDivs = function(source_div,prevDiv)
+	this.switchInnerPrevDivs = function(source_div, prevDiv)
 	{
-		track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","ENTER TO CATEGORY "+source_div+" FROM CATEGORY "+prevDiv);
+		track_info = new Array(ip_add, email_add, screen, "FORWORD_CLICK", "ENTER TO CATEGORY "+source_div+" FROM CATEGORY "+prevDiv);
 		tracker.push(track_info);
 		CM_obj.setCurrentState(prevDiv);
 
@@ -495,8 +494,7 @@ var Controller = function()
 
 		if(document.getElementById(category).checked)
 		{
-			
-			track_info = new Array(ip_add,email_add,screen,"CHECK_PRODUCT","PRODUCT SELECTED UNDER CATEGORY");
+			track_info = new Array(ip_add, email_add, screen, "CHECK_PRODUCT", "PRODUCT SELECTED UNDER CATEGORY");
 			tracker.push(track_info);
 
 			CM_obj.setAddToMyBundleResult(cat_product[0], cat_product[1]);
@@ -506,7 +504,7 @@ var Controller = function()
 		}
 		else
 		{
-			track_info = new Array(ip_add,email_add,screen,"UNCHECK_PRODUCT","PRODUCT REJECTED UNDER CATEGORY");
+			track_info = new Array(ip_add, email_add, screen, "UNCHECK_PRODUCT", "PRODUCT REJECTED UNDER CATEGORY");
 			tracker.push(track_info);
 
 			CM_obj.deleteAddedMyBundleResult(cat_product[0],cat_product[1]);
@@ -527,10 +525,10 @@ var Controller = function()
 	// SDs for go to respecive selection page from my bundle section view edit
 	this.switchtoSelectionpage = function(cat_id)
 	{
-		track_info = new Array(ip_add,email_add,screen,"EDIT_CATEGORY","PRODUCT SELECTION EDITED UNDER CATEGORY");
-		tracker.push(track_info);		
-		var selected_product;
-		selected_product = CM_obj.getSelectedProducts(cat_id+1);
+		track_info = new Array(ip_add, email_add, screen, "EDIT_CATEGORY", "PRODUCT SELECTION EDITED UNDER CATEGORY");
+		tracker.push(track_info);
+
+		var selected_product = CM_obj.getSelectedProducts(cat_id + 1);
 
 		if(CM_obj.getCurrentState() == "#category_accordion_div")
 		{
@@ -540,10 +538,10 @@ var Controller = function()
 			controller.showDiv('#main_category_div');
 
 			// Aks : Added as Temporary solution
-			document.getElementById('main_category_inner_div_'+parseInt(cat_id+1)).style.display = "none";
+			document.getElementById('main_category_inner_div_'+parseInt(cat_id + 1)).style.display = "none";
 			// controller.hideDiv('#main_category_inner_div_'+parseInt(cat_id+1));
 
-			controller.showDiv('#main_category_inner_product_div_'+(cat_id+1));
+			controller.showDiv('#main_category_inner_product_div_'+(cat_id + 1));
 			// main_category_inner_product_div_2
         }
 		else
@@ -555,34 +553,32 @@ var Controller = function()
 			controller.showDiv('#main_category_div');
 
 			// Aks : Added as Temporary solution
-			document.getElementById('main_category_inner_div_'+parseInt(cat_id+1)).style.display = "none";
+			document.getElementById('main_category_inner_div_'+parseInt(cat_id + 1)).style.display = "none";
 			// controller.hideDiv('#main_category_inner_div_'+parseInt(cat_id+1));
 
-			controller.showDiv('#main_category_inner_product_div_'+parseInt(cat_id+1));
+			controller.showDiv('#main_category_inner_product_div_'+parseInt(cat_id + 1));
 		}
 	};
 
 	// SDs for set confirmation page on selected product and set installation page also [* reviewed ]
 	this.updateDiv = function(id)
 	{
-		
 		if(id == "confirmation_div")
 		{
-			track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","ENTER TO CONFIRMATION PAGE");
-			tracker.push(track_info);	
-			for (var i = 1;i <= 5; i++)
+			track_info = new Array(ip_add, email_add, screen, "FORWORD_CLICK", "ENTER TO CONFIRMATION PAGE");
+			tracker.push(track_info);
+			for (var i = 1; i <= 5; i++)
 			{
 				var selected = CM_obj.getSelectedProducts(cat_id=i);
      			$("#c"+i).html(selected.length);
-				
 			}
 		}
 
 		if(id=="installation_div")
 		{
-			track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","ENTER TO INSTALLATION PAGE");
+			track_info = new Array(ip_add, email_add, screen, "FORWORD_CLICK", "ENTER TO INSTALLATION PAGE");
 			tracker.push(track_info);
-			for (var i = 1;i <= 5; i++)
+			for (var i = 1; i <= 5; i++)
 			{
 				var selected = CM_obj.getSelectedProducts(cat_id = i);
 
@@ -590,14 +586,18 @@ var Controller = function()
 				{
 					$('#category_check_'+i).attr('disabled',false);
 					$('#category_check_'+i).attr('checked',true);
-					if(i!=4)
-					$('#nof_installation_cat_'+i).attr('disabled',false);
+					if(i != 4)
+					{
+						$('#nof_installation_cat_'+i).attr('disabled',false);
+					}
 				}
 				else
 				{
 					$('#category_check_'+i).attr('disabled',true);
-					if(i!=4)
-					$('#nof_installation_cat_'+i).attr('disabled',true);
+					if(i != 4)
+					{
+						$('#nof_installation_cat_'+i).attr('disabled',true);
+					}
 				}
 			}
 		}
@@ -606,11 +606,10 @@ var Controller = function()
 	// SDs for creating thank you page on selected brands [* reviewed]
 	this.createThankpage = function()
 	{
-		
-		for (var i = 1;i <= 5; i++)
+		for (var i = 1; i <= 5; i++)
 		{
 			var selected = CM_obj.getSelectedProducts(cat_id = i);
-			if( selected.length!=0)
+			if( selected.length != 0)
 			{
 				$("#thank_div").append('<div  style="cursor: pointer; border: 1px solid #ccc; padding: 25px; margin: 15px; float: left;"> B '+i+' </div>');
 			}
@@ -628,26 +627,25 @@ var Controller = function()
 		var installaddress	= document.getElementById('d_install_address').value;
 		var error			= "";
 		var textfields		= ["d_name","d_phone","d_email","d_haddress","d_install_address"];
-		
+
 		if(controller.isstring("d_name") && controller.isnumber("d_phone") && controller.isEmail("d_email") && controller.emptyCheck ("d_haddress"))
 		{
 			controller.ErrorMessage("");
 			CM_obj.setEmail(email);
-			track_info = new Array(ip_add,email_add,screen,"FORWORD_CLICK","VALIDATED FIELDS AND PREPARING MAIL");
+			track_info = new Array(ip_add, email_add, screen, "FORWORD_CLICK", "VALIDATED FIELDS AND PREPARING MAIL");
 			tracker.push(track_info);
-			var mailbody;
+
 			var subject	= "Your Order";
-			mailbody = "<html><body>Thank you for using ConnectupMyHome<br/>Your Order Details Are:<br>"+
+			var mailbody = "<html><body>Thank you for using ConnectupMyHome<br/>Your Order Details Are:<br>"+
 			       "<table border='1'><tr><th>Category</th><th>No of Products</th></tr>";
 
-			for (var i = 1;i <= 5; i++)
+			for (var i = 1; i <= 5; i++)
 			{
 				var selected = CM_obj.getSelectedProducts(cat_id=i);
 
 				mailbody = mailbody+'<tr><td>Category'+i+'</td><td>'+selected.length+'</td></tr>';
 			}
 			mailbody = mailbody+"</table></body></html>";
-			
 
 			controller.sendmail(email, mailbody, subject);
 		}
@@ -658,7 +656,7 @@ var Controller = function()
 	{
 		$("#errordiv").html(message);
 	};
-	
+
 	// SDs for string validation date:29/1/13
 	this.isstring = function(id)
 	{
@@ -667,18 +665,18 @@ var Controller = function()
 			var letters = /^[A-Za-z]+$/;
 			if(document.getElementById(id).value.match(letters))
 			{
-				document.getElementById(id).style.background="#FFFFFF";
+				document.getElementById(id).style.background = "#FFFFFF";
 				return true;
 			}
 			else
 			{
 				controller.ErrorMessage("name must have alphabet characters only");
-				document.getElementById(id).style.background="#FFA07A";
+				document.getElementById(id).style.background = "#FFA07A";
 				return false;
 			}
 		}
 	};
-	 
+
 	// SDs for email check  callsemptycheck and  TLD email vaildation
 	this.isEmail = function(id)
 	{
@@ -686,19 +684,19 @@ var Controller = function()
 		{
 			if(controller.checkEmail(document.getElementById(id).value))
 			{
-				document.getElementById(id).style.background="#FFFFFF";
+				document.getElementById(id).style.background = "#FFFFFF";
 				return true;
 			}
 			else
 			{
 				controller.ErrorMessage("Please enter valid Email ID");
-				document.getElementById(id).style.background="#FFA07A";
+				document.getElementById(id).style.background = "#FFA07A";
 				return false;
 			}
 		}
 	};
-	
-	 // SDs for  number validation date:29/1/13
+
+	// SDs for  number validation date:29/1/13
 	this.isnumber = function(id)
 	{
 		if(controller.emptyCheck(id))
@@ -712,12 +710,11 @@ var Controller = function()
 			else
 			{
 				controller.ErrorMessage("phone number must have numeric characters only");
-				document.getElementById(id).style.background="#FFA07A";
+				document.getElementById(id).style.background = "#FFA07A";
 				return false;
 			}
 		}
 	};
-
 
 	// SDs for empty check
 	this.emptyCheck = function(id)
@@ -725,40 +722,40 @@ var Controller = function()
 		if(document.getElementById(id).value == "")
 		{
 			controller.ErrorMessage("Field should not empty");
-			document.getElementById(id).style.background="#FFA07A";
+			document.getElementById(id).style.background = "#FFA07A";
 			return false;
 		}
 		else
 		{
-			document.getElementById(id).style.background="#FFFFFF";
+			document.getElementById(id).style.background = "#FFFFFF";
 			return true;
 		}
 	};
 
-	//SDs phone number validati
+	//SDs phone number validation
 	this.sendmail = function (mailTo, data, subject)
 	{
-		var ip=CM_obj.getClientIP();
-		var email=CM_obj.getEmail();
+		var ip		= CM_obj.getClientIP();
+		var email	= CM_obj.getEmail();
 		$.ajax(
 		{
 			url: 'index.php?option=com_homeconnect&task=createlogsendemail&format=raw',
 			type: 'post',
 			data:
 			{
-				data: data,
-				email: mailTo,
-				subject: subject,
-				log : tracker,
-				ip : ip,
+				ip		: ip,
+				log		: tracker,
+				data	: data,
+				email	: mailTo,
+				subject	: subject
 			},
 			datatype: 'json',
 			success: function(data)
 			{
 				// Aks : Check if mail is sent then only switch divs here
-				if(data=="success")
+				if(data == "success")
 				{
-					track_info = new Array(ip_add,email_add,screen,"WAITING","MAIL SENT");
+					track_info = new Array(ip_add, email_add, screen, "WAITING", "MAIL SENT");
 					tracker.push(track_info);
 					controller.switchDivs("#thank_div");
 					tracker.push("swiched to thank u page ");
@@ -766,7 +763,7 @@ var Controller = function()
 				else
 				{
 					alert("ERROR in SENDING MAIL")
-					track_info = new Array(ip_add,email_add,screen,"WAITING","MAIL SENT ERROR");
+					track_info = new Array(ip_add, email_add, screen, "WAITING", "MAIL SENT ERROR");
 					tracker.push(track_info);
 				}
 			}
@@ -774,23 +771,24 @@ var Controller = function()
 	};
 
 	// SDs for category greyed out  
-	this.greyedoutCategory = function(cat_id,id)
+	this.greyedoutCategory = function(cat_id, id)
 	{
-		track_info = new Array(ip_add,email_add,screen,"CHECK_IGNORE_CATEGORY","USER DONT WANT CATEGORY AND SCREEN CHANGED WITH OTHER CATEGORY");
+		track_info = new Array(ip_add, email_add, screen, "CHECK_IGNORE_CATEGORY", "USER DONT WANT CATEGORY AND SCREEN CHANGED WITH OTHER CATEGORY");
 		tracker.push(track_info);
-		track_info = new Array(ip_add,email_add,screen,"WAITING","IGNORED CATEGORY GREYED OUT FROM MY BUNDLE");
+
+		track_info = new Array(ip_add, email_add, screen, "WAITING", "IGNORED CATEGORY GREYED OUT FROM MY BUNDLE");
 		tracker.push(track_info);
 
 		if(document.getElementById(cat_id).checked == true)
 		{
 			document.getElementById(cat_id+'_'+id).style.color = "#99CC00";
-			if(id!=5)
+			if(id != 5)
 			{
-				controller.nextAccordion('category_accordion_div',id);
+				controller.nextAccordion('category_accordion_div', id);
 			}
 			else
 			{
-				controller.switchInnerDivs('main_category_div','installation_div',0,0);
+				controller.switchInnerDivs('main_category_div', 'installation_div', 0, 0);
 			}
 		}
 		else
