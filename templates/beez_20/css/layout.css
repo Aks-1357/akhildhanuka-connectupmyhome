@@ -1301,7 +1301,8 @@ legend.element-invisible
 #footer-sub
 {
 
-    padding:0px
+    padding:0px;
+	background:#e1e1e1;
 }
 
 /* ######## SDs changed footer copyright text align center ######## */

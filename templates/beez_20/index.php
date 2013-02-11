@@ -117,7 +117,7 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
                                         <div id="sitelogo">
                                         <img src="images/logo.png" alt="Connect Up My Home" />
                                         </div>
-                                        <div id="callus" style="float:right;height:132px;">
+                                        <div id="callus">
                                         <jdoc:include type="modules" name="callus" />
                                         </div>
                                         </div> <!-- end line -->

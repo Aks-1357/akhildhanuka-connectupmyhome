@@ -47,7 +47,7 @@ $document->addStyleSheet(JURI::base() . 'includes/assets/css/jquery/ui-lightness
 	<?php  $module = JModuleHelper::getModule( 'homeconnect' );
 	if($module->position == 'homeleftmodule')
 	{ ?>
-		<div id="landing_div" style="display: block; float: left; padding: 5px; width:90%">
+		<div id="landing_div">
 
 	    <div>
 	    	<span id="tagLine"><?php echo 'Find out' ?></span>
@@ -89,15 +89,15 @@ $document->addStyleSheet(JURI::base() . 'includes/assets/css/jquery/ui-lightness
 	<?php }
 	else
 	{ ?>
-		<div id="landing_div" style="display: block; float: left; padding: 5px; width:90%">
+		<div id="landing_div">
 
 	    <div>
-	    	<span id="tagLine"><?php echo 'Inner : Find out' ?></span>
-			<span id="tagLine1"><?php echo 'what is available is your area...' ?></span>
+	    	<span id="InnertagLine"><?php echo 'Find out' ?></span>
+			<span id="InnertagLine1"><?php echo 'what is available is your area...' ?></span>
 	        </div>
 
 			<div>
-				<input id="geocomplete" name="geocomplete" type="text" placeholder="Type in an address / postcode" class="HomeForm"/>
+				<input id="geocomplete" name="geocomplete" type="text" placeholder="Type in an address / postcode" class="InnerHomeForm"/>
 	            <a class="tool_tip_1" rel="#tool_tip_1" href="javascript:void(0);">
 					<img id="tool_tip_1_inner" alt="More Info" src="<?php echo JURI::base().'images/Information.png'; ?>">
 				</a>
@@ -110,17 +110,19 @@ $document->addStyleSheet(JURI::base() . 'includes/assets/css/jquery/ui-lightness
 			</div>
 
 			<div style="margin-top: 10px;">
-				<input id="email" name="email" type="text" placeholder="Type in  your email address" class="HomeForm" />
+				<input id="email" name="email" type="text" placeholder="Type in  your email address" class="InnerHomeForm" />
 				<a class="tool_tip_2" rel="#tool_tip_2" href="javascript:void(0);">
 					<img id="tool_tip_2_inner" alt="More Info" src="<?php echo JURI::base().'images/Information.png'; ?>">
 				</a>
 				<div id="email_error_div" style="color:red;"> </div>
 			</div>
 
-			<div style="width: 100%; margin-top: 15px; text-align: center;">
-				<div id="recommended_bundle" onClick="javascript:moduleObj.showBundle('recommend');" class="create" >Recommended Bundle</div>
-				<div id="or"> - OR - </div>
-				<div id="create_bundle" onClick="javascript:moduleObj.showBundle('create');" class="recomended">Create your Own Bundle</div>
+			<div>
+            <center>
+				<div id="recommended_bundle" onClick="javascript:moduleObj.showBundle('recommend');" class="Inner_create" >Recommended Bundle</div>
+				<div id="Inneror"> - OR - </div>
+				<div id="create_bundle" onClick="javascript:moduleObj.showBundle('create');" class="Inner_recomended">Create your Own Bundle</div>
+                </center>
 			</div>
 
 			<input type="hidden" id="bundle_type" name="bundle_type">

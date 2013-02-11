@@ -19,8 +19,9 @@
 body
 {
 	background: #fff  url(../images/bg.png) repeat-x;
-	color: #fff;
+	color: #686666;
 	font-family: arial, helvetica, sans-serif;
+	text-align:left;
 }
 
 #all
@@ -45,13 +46,13 @@ a:hover,
 a:active,
 a:focus
 {
-	background:#095197;
+	background:;
 	color:#FFF;
 }
 
 input:focus
 {
-	border:solid 2px;
+	border:1px solid #C7C7C7;
 }
 
 fieldset
@@ -270,9 +271,70 @@ border-bottom-left-radius: 5px;
 	width:300px;
 	font-family:'Arial';
 	font-size:10px;
+	margin-bottom:10px;
 }
 
 .tooltip1
+{
+	font-family:'Arial'; 
+	font-size:12px; 
+	background:#0097cc; 
+	color:#fff; 
+	padding:10px}
+
+#landing_div
+{
+	display: block; float: left; padding: 5px; width:90%;
+	}
+
+/*Inner page*/
+
+#InnertagLine
+{ 	font-family: 'MyriadPro';
+	font-size:1.4em;
+	color:#b70000;
+	font-weight:bold;
+	line-height:19px;
+	position:relative;
+	}
+
+#InnertagLine1
+{ 	font-family: 'MyriadPro';
+	font-size:1.3em;
+	color:#00709a;
+	font-weight:bold;
+	line-height:19px;
+	float:left;
+	width:100%;
+	margin-bottom:10px;
+	}
+	
+#Inneror
+{	color:#282828;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:10px;
+	padding:2px 5px;
+	float: left;
+	font-weight:bold;
+	margin-left:70px;
+	}
+
+.InnerHomeForm
+{
+	border:1px solid #c7c7c7;
+	 -webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	padding:7px;
+	height:15px;
+	color:#686666;
+	width:178px;
+	font-family:'Arial';
+	font-size:10px;
+	margin-bottom:5px;
+}
+
+.Innertooltip1
 {
 	font-family:'Arial'; 
 	font-size:12px; 
@@ -417,17 +479,24 @@ padding-right:1px ;
 
 #header form .inputbox
 {
-	background:url(../images/header-bg.gif) repeat-x;
+	background:#fff;
 	border:solid 1px #ccc;
 	border-bottom:0;
 	border-right:0;
-	padding:5px
+	padding:5px;
+	-webkit-border-radius: 8px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	font-size:10px;
+	height:12px;
+	width:400px;
+
 
 }
 
 #header form .inputbox:focus
 {
-	border:solid 2px #000;
+	border:solid 1px #c4c4c4;
 }
 
 #header form .button
@@ -1296,6 +1365,7 @@ fieldset.filters
 {
 	background:#fff;
 	color:#000;
+	padding:10px;
 }
 
 .contact input
@@ -1342,9 +1412,8 @@ body.contentpane
 #footer
 {
 	  /*  background:url(../images/footer_bg.gif) repeat-x;*/
-	background:#333333 url(../images/personal/tabs_back.png) repeat-x;
-	color:#A0A0A0;
-	border-top:solid 0px #ccc;
+	background:#e1e1e1;
+	color:#656464;
 }
 
 #footer-inner
@@ -1603,3 +1672,56 @@ float:left;
 	font-size:11px;
 		float:left;
 	}
+
+#callus
+{
+	font-family:Arial, Helvetica, sans-serif;
+	color:#5d5d5d;
+	float:right;
+	height:132px;
+	}
+	
+
+/* ########################## Inner bundle CSS########################### */
+
+.Inner_recomended
+{	background: url(../images/RedBundle.png) repeat-x;
+	height:25px;
+	padding-top:7px;
+	width:150px;
+	text-align:center;
+	cursor:pointer;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FFF;
+	font-size:11px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border-right:2px solid #ff001a;
+	border-left:2px solid #ff001a;
+	float:left;
+	margin:2px 20px 2px 20px;	
+	}
+
+.Inner_create
+{	background: url(../images/BlueBundle.png) repeat-x;
+	height:25px;
+	padding-top:7px;
+	width:150px;
+	text-align:center;
+	cursor:pointer;
+	font-weight:bold;
+	font-family:Arial, Helvetica, sans-serif;
+	color:#FFF;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	border-right:1px solid #00afff;
+	border-left:1px solid #00afff;
+	font-size:11px;
+	float:left;
+	margin:2px 20px 2px 20px;
+	}
+
+

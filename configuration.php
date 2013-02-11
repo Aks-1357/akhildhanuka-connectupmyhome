@@ -12,10 +12,10 @@ class JConfig {
 	public $debug = '0';
 	public $debug_lang = '0';
 	public $dbtype = 'mysqli';
-	public $host = 'localhost';
-	public $user = 'root';
-	public $password = '';
-	public $db = 'connecthome';
+	public $host = '192.168.0.200';
+	public $user = 'dbadmin';
+	public $password = 'dbadmin';
+	public $db = 'connectupmyhome1';
 	public $dbprefix = 'cnn_';
 	public $live_site = '';
 	public $secret = 'nJRIlQqgpxbe8bQU';
