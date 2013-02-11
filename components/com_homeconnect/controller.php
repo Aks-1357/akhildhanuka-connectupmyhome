@@ -93,13 +93,14 @@ class HomeconnectController extends JController
 
 		// $FileHandle = fopen($TextFileName, 'w') or die("can't open file");
 		fclose($FileHandle);
-
+        
 		$fp = fopen($CSVFileName, 'w');
 		// $fp1 = fopen($TextFileName, 'w');
         foreach ($csv_fields as $field)
         {
 		 fputcsv($fp, $field);
         }
+       
 
 		/* foreach ($csv_fields as $fields)
 		{

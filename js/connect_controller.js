@@ -619,7 +619,7 @@ var Controller = function()
 	// SDs for Details page validation and forward to next //[reviewed * ]
 	this.ValidateAndForword = function(targetdiv)
 	{
-		tracker.push("validating user details ");
+		
 		var name			= document.getElementById('d_name').value;
 		var phone			= document.getElementById('d_phone').value;
 		var email			= document.getElementById('d_email').value;
