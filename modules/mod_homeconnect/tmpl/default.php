@@ -59,7 +59,7 @@ $document->addStyleSheet(JURI::base() . 'includes/assets/css/jquery/ui-lightness
 	            <a class="tool_tip_1" rel="#tool_tip_1" href="javascript:void(0);">
 					<img id="tool_tip_1_inner" alt="More Info" src="<?php echo JURI::base().'images/Information.png'; ?>">
 				</a>
-	            <label for="geocomplete" style="font-size:10px;"><strong>Examples:</strong> Sydney, Australia Victoria 3841 Melbourne &nbsp;<sup>*</sup></label>
+	            <label for="geocomplete" style="font-size:10px;"><strong>Examples:</strong> <span onClick="javascript:moduleObj.selectAddress('Sydney, Australia Victoria 3841 Melbourne');"> Sydney, Australia Victoria 3841 Melbourne &nbsp;<sup>*</sup>  </span></label>
 
 				<div id="address_error_div" style="color:red;"> </div>
 				<!-- Aks : Not Required

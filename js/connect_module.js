@@ -192,4 +192,14 @@ var Module = function ()
 			}
 		}
 	};
+	
+	this.selectAddress = function(add)
+	{
+		document.getElementById('geocomplete').value=add;
+		if(document.getElementById("geocomplete"))
+		{
+			$( "#geocomplete" ).trigger("geocode");
+		}
+
+	};
 };

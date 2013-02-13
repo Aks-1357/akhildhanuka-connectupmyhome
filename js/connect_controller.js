@@ -758,7 +758,7 @@ var Controller = function()
 					track_info = new Array(ip_add, email_add, screen, "WAITING", "MAIL SENT");
 					tracker.push(track_info);
 					controller.switchDivs("#thank_div");
-					tracker.push("swiched to thank u page ");
+					
 				}
 				else
 				{
