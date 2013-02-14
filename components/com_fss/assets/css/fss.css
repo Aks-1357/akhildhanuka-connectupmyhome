@@ -1,0 +1,1586 @@
+/* There is PHP code in this file that is parsed to get various CSS Settings. */
+
+/* ------------------ */
+/* Global Page Styles */
+/* ------------------ */
+
+/* All main pages container */
+.fss_main
+{
+
+}
+
+/* All popup pages container */
+.fss_popup
+{
+
+}
+.fss_main div {
+margin: 0;
+}
+
+.fss_please_wait
+{
+    padding: 30px;
+    text-align: center;
+    color: #AAAAAA;
+    font-size: 150%;
+}
+/* ----------------- */
+/* FSS Table styling */
+/* ----------------- */
+table.fss_table {
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-left: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	margin:0px;
+	padding:0px;
+}
+table.fss_table th {
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-right: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	background-color: #f0f0ff;
+	padding: 3px 8px 3px 8px;
+	text-align: right;
+}
+table.fss_table td {
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-right: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	padding: 3px 8px 3px 8px;
+}
+table.fss_table td.noright {
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-right: none;
+	padding: 3px 8px 3px 8px;
+}
+
+table.fss_table td.fss_table_hspacer 
+{
+    width: 16px;
+    border-bottom: none;
+}
+
+/* ------------- */
+/* General stuff */
+/* ------------- */
+
+
+/* Clear div */
+div.fss_clear {
+	clear: both;
+}
+
+div.fss_spacer 
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.fss_must_have_field
+{
+    color: Red;
+}
+.tool-tip {
+   max-width: 500px !important;
+}
+/* ----------------------- */
+/* Knowledge base Article */
+/* ----------------------- */
+
+/* Knowledge base file entry container */
+table.fss_kb_files{
+    background-color: <?php echo FSS_Settings::get('css_hl'); ?>;
+    padding: 10px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+}
+
+div.fss_kb_files_div {
+    padding:8px;
+}
+
+/* Knowledge base file entry title */
+td.fss_kb_files_title {
+    font-size:120%;
+    color: #001c54;
+}
+
+/* --------- */
+/* FAQ Stuff */
+/* --------- */
+
+.fss_tooltip
+{
+    max-width: 300px;
+    border: 1px solid #000;
+    padding: 6px;
+	background-color: <?php echo FSS_Settings::get('css_hl'); ?>;
+	margin-top: 4px;
+	z-index: 500;
+}
+
+.fss_tooltip_wide
+{
+    max-width: 700px;
+    border: 1px solid #000;
+    padding: 6px;
+	background-color: <?php echo FSS_Settings::get('css_hl'); ?>;
+	z-index: 500;
+}
+
+.fss_tooltip h4
+{
+    font-size: 15px;
+   font-weight:bold;
+}
+.fss_tooltip .fsj_gt_inner
+{
+    text-align: left;
+    font-size: 13px;
+}
+
+.fss_faq_question_tip
+{
+    font-size: 15px;
+    font-weight:bold;
+}
+.fss_faq_answer_tip
+{
+    text-align: left;
+    line-height: normal;
+    font-size: 13px;
+}
+.fss_faq_answer_tip p
+{
+    line-height: normal;
+}
+/* -------------- */
+/* FAQ Categories */
+/* -------------- */
+
+/* list of categories container */
+div.fss_faq_catlist {
+
+}
+
+/* category container */
+div.faq_category {
+	clear:left;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+
+/* category title */
+div.faq_category_head {
+	font-size: 120%;
+}
+div.faq_category_head a.fss_highlight
+{
+	display: block;
+	padding: 6px 2px 6px 2px;
+}
+div.faq_category_head a.fss_highlight:hover {
+	background-color: <?php echo FSS_Settings::get('css_hl'); ?>;
+}
+
+/* description text in a cetegory */
+div.faq_category_desc {
+
+}
+
+/* image within a category */
+div.faq_category_image {
+	padding-right: 9px;
+	padding-bottom: 2px;
+	float:left;
+}
+
+/* ------------------------ */
+/* FAQ Category list module */
+/* ------------------------ */
+
+/* category container */
+div.faq_mod_category {
+	clear:left;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	padding: 3px;
+}
+div.faq_mod_category_cont{
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+/* category title */
+div.faq_mod_category_head {
+	font-size: 110%;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+/* image within a category */
+div.faq_mod_category_image {
+	padding-right: 9px !important;
+	padding-bottom: 2px;
+	float:left;
+}
+
+/* empty footer div at end of a category */
+div.faq_category_footer {
+	clear:left;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+
+/* when multiple colums of categories listed, normal column style */
+td.fss_faq_cat_col {
+	border-left: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+
+/* when multiple colums of categories listed, style for the 1st column*/
+td.fss_faq_cat_col_first {
+
+}
+
+/* list of faqs when listing within multiple categories */
+div.faq_category_faqlist {
+	clear:both;
+	padding-left: 70px;
+}
+
+/* -------- */
+/* FAQ FAqs */
+/* -------- */
+
+/* list of faqs container */
+div.fss_faqs {
+	clear:both;
+	padding-left: 70px;
+}
+
+/* FAQ container */
+div.fss_faq {	
+	/*padding-top: 4px;
+	padding-bottom: 4px;*/
+	
+	border-top-style: solid;
+	border-top-color: <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-top-width: 1px;	
+}
+
+/* FAQs all on one page wrapper */
+div.fss_faq_inline {
+	margin-top:10px;
+}
+
+/* List of questions with no answers, row highlight */
+div.fss_faq a.fss_highlight
+{
+	display: block;
+	padding: 6px 2px 6px 2px;
+}
+div.fss_faq a.fss_highlight:hover {
+	background-color: <?php echo FSS_Settings::get('css_hl'); ?>;
+}
+
+/* Standard question text */
+div.fss_faq_question {
+	font-size: 120%;
+}
+
+/* Standard FAQ answer */
+div.fss_faq_answer {
+	padding-bottom: 4px;
+	border-bottom-style: solid;
+	border-bottom-color: <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-bottom-width: 1px;
+	padding-left: 10px;	
+	/*font-size: 120%;*/
+}
+
+div.fss_faq_tags 
+{
+    padding-bottom: 3px;
+}
+
+div.fss_faq_tags span
+{
+    font-weight: bold;
+}
+
+/* Answer when shown within a tooltip */
+div.fss_faq_answer_tip {
+	padding-left: 10px;	
+}
+
+/* Answer when only single answer on a page */
+div.fss_faq_answer_single {
+	padding-left: 10px;	
+}
+
+/* Bordering around the popup windows content */
+div.fss_popup_gap {
+	padding-top: 10px;
+	padding-left: 10px;
+	padding-right: 10px;
+	overflow: hidden;
+}
+
+/* click for more.. text when in tooltip */
+div.fss_faq_more {
+	text-align: right;
+}
+
+
+div.fss_faq_featured
+{
+    float: right;
+    margin: 3px;
+    border: 1px solid #ccc;
+    padding-right:  3px;
+    padding-left: 3px;
+    padding-bottom: 3px;
+    padding-top: 1px;
+} 
+
+div.fss_faq_featured img
+{
+    position: relative;
+    top: 2px;
+    padding-right: 2px;
+}
+/* --------------- */
+/* Knowledge base */
+/* --------------- */
+
+/* Search container */
+div.fss_kb_search {
+	width: 100%;
+	border-bottom-style: solid;
+	border-bottom-color: <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-bottom-width: 1px;
+}
+
+/* Separator when main page is side by side */
+td.fss_sidebyside_sep {
+	border-right-style: solid;
+	border-right-color: <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-right-width: 1px;
+}
+
+/* Main page side by side table */
+table.fss_sidebyside {
+
+}
+
+/* Product list container */
+div.fss_kb_prodlist {
+
+}
+
+div.fss_kb_prodlist_header {
+	clear:both;
+	font-size:140%;
+	width: 100%;
+	padding: 8px;
+}
+
+/* Category list container */
+div.fss_kb_catlist {
+
+}
+
+/* Product container */
+div.kb_product {
+	clear:left;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+
+/* Product title */
+div.kb_product_head {
+	font-size: 120%;
+}
+div.kb_product_head a.fss_highlight
+{
+	display: block;
+	padding: 6px 2px 6px 2px;
+}
+div.kb_product_head a.fss_highlight:hover {
+	background-color: <?php echo FSS_Settings::get('css_hl'); ?>;
+}
+
+/* image within a Product */
+div.kb_product_image {
+	padding-right: 9px;
+	padding-bottom: 2px;
+	float:left;
+}
+
+/* category container */
+div.kb_category {
+	clear:left;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+
+/* category title */
+div.kb_category_head {
+	font-size: 120%;
+}
+div.kb_category_head a.fss_highlight
+{
+	display: block;
+	padding: 6px 2px 6px 2px;
+}
+div.kb_category_head a.fss_highlight:hover {
+	background-color: <?php echo FSS_Settings::get('css_hl'); ?>;
+}
+
+/* description text in a cetegory */
+div.kb_category_desc {
+
+}
+
+/* image within a category */
+div.kb_category_image {
+	padding-right: 9px;
+	padding-bottom: 2px;
+	float:left;
+}
+
+/* empty footer div at end of a category */
+div.kb_category_footer {
+	clear:left;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+
+/* list of articles when listing within multiple categories */
+div.kb_category_artlist {
+	clear:both;
+	padding-left: 70px;
+}
+
+div.fss_kb_catlist_header {
+	clear:both;
+	font-size:140%;
+	width: 100%;
+	padding: 8px;
+}
+
+/* styling for rating block */
+div.fss_kb_rate {
+	float:right;
+	padding-left:6px;
+	padding-bottom:6px;
+}
+div.fss_kb_rate_head {
+	font-size:120%;
+	border-bottom:1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	padding-bottom: 4px;
+}
+div.fss_kb_rate_line {
+	border-left:1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-right:1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-bottom:1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	cursor: pointer;
+}
+div.fss_kb_rate_top {
+	border-top:1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+span.fss_kb_rate_text {
+	font-size:110%;
+	position:relative;
+	top: -11px;
+}
+
+/* List of questions with no answers, row highlight */
+div.fss_kb_rate_line a.fss_highlight
+{
+	display: block;
+	padding-right: 4px;
+	padding-top: 4px;
+	padding-left: 4px;
+	text-decoration: none;
+}
+div.fss_kb_rate_line a.fss_highlight:hover {
+	background-color: <?php echo FSS_Settings::get('css_hl'); ?>;
+}
+div.fss_kb_applies {
+	font-size:120%;
+	padding:8px;
+}
+div.fss_kb_related {
+	padding-bottom:8px;
+}
+div.fss_kb_related_div {
+	font-size:120%;
+	padding-top:8px;
+	padding-left:8px;
+}
+
+div.fss_kb_views
+{
+	font-size:120%;
+	padding:8px;
+}
+
+img.fss_kb_view_image
+{
+	position:relative;
+	top:3px;
+}
+
+span.fss_kb_art_extra
+{
+	float:right;
+	margin-left: 2px;
+}
+span.fss_kb_art_extra_img
+{
+	float:right;
+	margin-left: 2px;
+    position: relative;
+    top: -2px;
+}
+
+img.fss_kb_art_extra_image
+{
+	position:relative;
+	top:2px;
+}
+
+div.fss_subcat_cont 
+{
+    padding-left: 70px;
+}
+
+/* ---------------- */
+/* comment add form */
+/* ---------------- */
+
+div.fss_comment_add {
+}
+
+.fss_comment_add_text {
+	border-top:1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	font-size:120%;
+	padding:4px;
+}
+div.fss_comment_add table tr th {
+	text-align: right;
+}
+
+/* Product container */
+div.comment_product {
+	clear:left;
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+div.fss_edit_comment
+{
+	border-bottom:1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	font-size:120%;
+	padding-bottom: 2px;
+}
+
+/* --------------- */
+/* comment listing */
+/* --------------- */
+
+div.fss_comment {
+	padding: 8px;
+	clear:both;
+	border-top:1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+div.fss_comment_name {
+	font-size: 110%;
+	width: 150px;
+}
+div.fss_comment_left {
+	float:left;
+}
+div.fss_comment_website {
+	width: 150px;
+}
+div.fss_comment_comment 
+{
+    padding-left: 153px;
+}
+div.fss_comment_commentmod
+{
+}
+div.fss_comment:first-child
+{
+    border-top: none !important;
+}
+div.fss_comment_wait {
+	font-size: 120%;
+	text-align: center;
+}
+div.fss_comment_approval {
+	font-size: 120%;
+	text-align: center;
+}
+
+div.fss_no_results {
+	font-size: 120%;
+	padding: 16px;
+}
+div.fss_invalid_captcha {
+	color: red;
+}
+div.fss_kb_mod_this
+{
+    float:right;
+}
+img.fss_comment_count_img 
+{
+    position: relative;
+    top:3px;
+}
+
+/* ----------------- */
+/* Support main page */
+/* ----------------- */
+
+table.fss_support_main {
+}
+
+table.fss_support_main td {
+	border:1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	text-align: center;
+	padding: 6px;
+}
+
+div.fss_support_title {
+	font-size: 120%;
+	height: 40px;
+}
+
+div.fss_support_desc {
+	font-size:100%;
+}
+
+div.fss_support_title_list {
+	font-size: 120%;
+}
+div.fss_support_desc_list {
+
+}
+
+div.fss_support_image_list {
+	padding-right: 9px;
+	padding-bottom: 2px;
+	float:left;
+}
+
+td.fss_support_row_list
+{
+	padding-top:4px;
+	border-bottom:1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+
+span.fss_support_fieldname
+{
+    font-weight:bold;
+}
+/* -------------------- */
+/* Announcements module */
+/* -------------------- */
+div.fss_mod_announce {
+	border-bottom:1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	padding-top:2px;
+	padding-bottom:4px;
+}
+div.fss_mod_announce_title {
+	font-size: 120%;
+	text-align: center;
+}
+div.fss_mod_announce_subtitle {
+}
+div.fss_mod_announce_date {
+	font-size: 80%;
+	text-align: center;
+	font-style:italic; 
+}
+div.fss_mod_announce_body {
+}
+div.fss_mod_announce_more {
+	font-size: 80%;
+	text-align: right;
+}
+div.fss_mod_announce_all {
+	/*font-size: 120%;
+	text-align: center;*/
+}
+
+/* ----------------------- */
+/* Announcements main page */
+/* ----------------------- */
+div.fss_announce {
+	border-bottom:1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	padding-top:2px;
+	padding-bottom:4px;
+}
+div.fss_announce_date {
+	float:right;
+	font-size: 120%;
+	padding-top:12px;
+}
+div.fss_announce_body {
+	clear:both;
+}
+div.fss_announce_more {
+	text-align: right !important;
+}
+
+/* ----------------------- */
+/* Viewing an announcement */
+/* ----------------------- */
+
+div.fss_main_announce {
+}
+div.fss_main_announce_date {
+	padding-bottom: 12px;
+}
+div.fss_main_announce_body {
+}
+
+
+/* --------------------- */
+/* Pagination formatting */
+/* --------------------- */
+
+.fss_list-footer {
+	position:relative;
+}
+
+.fss_counter {
+	float:left;
+	position:absolute;
+	width:140px;
+	display:inline;
+	left:0px;
+	top:0px;
+	padding-top: 5px;
+}
+
+.fss_limit {
+	float:right;
+	display:inline;
+	position:absolute;
+	right:0px;
+}
+
+.fss_pagination {
+	text-align:center !important;
+	padding-top: 5px;
+}
+
+/* ---------------- */
+/* Testimonials mod */
+/* ---------------- */
+
+div.fss_mod_test {
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	margin-bottom: 4px;
+	padding-bottom: 4px;
+}
+div.fss_mod_test_title {
+	font-size: 120%;
+}
+div.fss_mod_test_body {
+}
+div.fss_mod_test_more {
+	text-align: right;
+	float:right;
+}
+div.fss_mod_test_name {
+	text-align: right;
+}
+div.fss_mod_test_all {
+	text-align: right;
+}
+div.fss_mod_test_add {
+	text-align: right;
+}
+
+/* ----------------- */
+/* Testimonials page */
+/* ----------------- */
+div.fss_test {
+	padding-bottom: 5px;
+	padding-left: 84px;
+}
+div.fss_test_title {
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	padding-top: 5px;
+	font-size: 120%;
+}
+div.fss_test_body {
+}
+div.fss_test_name {
+	text-align: right;
+}
+div.fss_test_mod_this
+{
+    float:right;
+}
+
+/* ----------------------- */
+/* moderation */
+/* ----------------------- */
+
+.fss_moderate
+{
+}
+
+.fss_moderate_ident
+{
+}
+
+.fss_moderate_ident_title
+{
+    font-size: 130%;
+    padding-top: 8px;
+    padding-bottom: 4px;
+}
+
+.fss_moderate_ident_content
+{
+    padding-left: 20px;
+}
+
+.fss_moderate_article
+{
+}
+
+.fss_moderate_article_title
+{
+    font-size: 115%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+.fss_moderate_article_content
+{
+    padding-left: 20px;
+}
+
+/* ----------------------- */
+/* Support Ticket Creation */
+/* ----------------------- */
+
+
+/* Select a product */
+div.fss_ticket_prod {
+	clear:left;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	padding: 3px;
+	cursor: pointer;
+	margin: 0px;
+}
+
+div.fss_ticket_prod_foot {
+	clear:left;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	padding: 3px;
+}
+
+div.fss_ticket_prod_head {
+	font-size: 120%;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+div.fss_ticket_prod_image {
+	padding-right: 9px;
+	padding-bottom: 2px;
+}
+
+div.fss_ticket_prod_desc {
+
+}
+
+div.fss_unreg_msg {
+	font-size: 120%;
+	border: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	background-color: <?php echo FSS_Settings::get('css_hl'); ?>;
+	padding:8px;	
+}
+
+div.prod_search_res {
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	margin: 0px;
+}
+
+/* Select a department */
+div.fss_ticket_dept {
+	clear:left;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	padding: 3px;
+	cursor: pointer;
+}
+
+div.fss_ticket_dept_foot {
+	clear:left;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	padding: 3px;
+}
+
+div.fss_ticket_dept_head {
+	font-size: 120%;
+	padding-top: 4px;
+	padding-bottom: 4px;
+}
+
+div.fss_ticket_dept_image {
+	padding-right: 9px;
+	padding-bottom: 2px;
+	float:left;
+}
+
+div.fss_ticket_dept_desc {
+
+}
+div.fss_ticket_dept_prod {
+	font-size: 120%;
+	padding-bottom: 8px;
+}
+
+/* New ticket page */
+table.fss_ticket_msgsheader 
+{
+    border: none;
+}
+table.fss_ticket_msgsheader tr, table.fss_ticket_msgsheader td 
+{
+    border: none;
+}
+table.fss_ticket_msgheader 
+{
+    border: none;
+}
+table.fss_ticket_msgheader tr, table.fss_ticket_msgheader td 
+{
+    border: none;
+}
+
+div.fss_ticket_section {
+	font-size: 140%;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+div.fss_ticket_foot {
+	clear:left;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	padding: 3px;
+	margin-top: 10px;
+}
+div.fss_ticket_error {
+	color: red;
+	font-weight: bold;
+}
+td.fss_ticket_title {
+	font-weight: bold;
+	border-right: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	/*cursor: pointer;*/
+	padding-top: 2px; 
+	padding-bottom: 0px;
+	padding-left: 2px;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+
+td.fss_ticket_br
+{
+	border-right: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+
+table.fss_ticket_list {
+	border-left: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+table.fss_ticket_list div {
+	margin: 0px;
+}
+table.fss_ticket_list th {
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-right: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+td.fss_ticket_row {
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-right: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	/*cursor: pointer;*/
+}
+table.fss_ticket_messages {
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-left: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+td.fss_ticket_message_head {
+	font-size: 120%;
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-right: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	/*background-color: <?php echo FSS_Settings::get('css_hl'); ?>;*/
+}
+td.fss_ticket_message_head_user 
+{
+    background-color: <?php echo FSS_Settings::get('support_user_message'); ?>;
+}
+
+td.fss_ticket_message_head_admin 
+{
+    background-color: <?php echo FSS_Settings::get('support_admin_message'); ?>;
+}
+
+td.fss_ticket_message_head_private 
+{    
+    background-color: <?php echo FSS_Settings::get('support_private_message'); ?>;
+}
+td.fss_ticket_message_head_info
+{
+    padding:3px;
+ 	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-right: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+table.fss_ticket_message_head_info
+{
+ 	border-left: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+
+table.fss_ticket_messages_info{
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+td.fss_ticket_messages_info_cont {
+	border-right: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	padding: 0px;
+}
+td.fss_ticket_message_message {
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-right: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	padding: 4px;
+}
+td.fss_ticket_message_user {
+	font-weight: bold;
+}
+.fss_support_msg_audit
+{
+    display: none;
+}
+.fss_support_msg_audit table
+{
+    border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+.fss_support_msg_audit_row
+{
+    background-color: #F0F0FF;
+}
+.fss_support_msg_audit_row td
+{
+    padding: 3px;  
+}
+div.fss_ticket_grouping
+{
+    font-size: 115%;
+    padding:2px;
+}
+
+table.fss_ticket_attach {
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-left: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+td.fss_ticket_attach_file {
+	font-size: 120%;
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	background-color: <?php echo FSS_Settings::get('css_hl'); ?>;
+}
+td.fss_ticket_attach_filename {
+	font-size: 120%;
+	background-color: <?php echo FSS_Settings::get('css_hl'); ?>;
+}
+td.fss_ticket_attach_size {
+	font-size: 120%;
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-right: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	background-color: <?php echo FSS_Settings::get('css_hl'); ?>;
+}
+td.fss_ticket_attach_user {
+	font-weight: bold;
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+td.fss_ticket_attach_date {
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-right: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+
+.fss_admin_create {
+	font-size:120%;
+}
+
+.fss_admin_create_130 {
+	font-size:120%;
+	width: 130px;
+	float:left;
+}
+
+.fss_admin_tags {
+	font-size:120%;
+	width: 130px;
+	float:left;
+	/*padding-top: 6px;*/
+}
+
+.fss_admin_search {
+	font-size:120%;
+	width: 130px;
+	float:left;
+	padding-top: 5px;
+}
+.fss_admin_search_adv {
+	font-size:120%;
+	width: 130px;
+	float:left;
+	padding-top: 7px;
+}
+
+.fss_admin_create_sub {
+	padding-left:20px;
+}
+
+.fss_admin_create_cont {
+	padding-bottom:5px;
+}
+
+div.fss_ticket_login_error {
+	border: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	background: <?php echo FSS_Settings::get('css_hl'); ?>;
+	font-size:130%;
+	padding: 10px;
+	margin-left:10px;
+	margin-right:10px;
+	margin-bottom:10px;
+}
+
+div.fss_ticket_login_head {
+	font-size:160%;
+	padding-bottom : 10px;
+	padding-top: 10px;
+	
+}
+
+div.fss_ticket_login_subtext {
+	padding-bottom : 10px;
+}
+
+div.fss_ticket_nonefound {
+	font-size:130%;
+	padding:20px;
+	text-align:center;
+}
+
+div.fss_ticket_tag
+{
+	background-color: #EAEAEA;
+	border: 1px solid #CCC;
+	font-size: 11px;
+	padding: 0px 3px 3px 1px;
+	float:left;
+	margin-bottom: 3px;
+	margin-right: 3px;
+	height:13px;
+	
+}
+
+.fss_ticket_tag_text
+{
+    position: relative;
+    top: -1px;
+    
+}
+div.fss_ticket_tag img
+{
+	left: 2px;
+	position: relative;
+	top: 1px;
+}
+.fss_taglist
+{
+    position: absolute;
+    left: 0px;
+    top: 2px;
+    width: 130px;
+    background-color: White;
+    display: none;
+}
+
+.fss_taglist_scroll
+{
+    max-height: 200px;
+    overflow: scroll;
+    overflow-x:hidden;
+}
+.fss_taglist_inner
+{
+    border-left: none !important;
+    border-top: none !important;
+}
+.fss_taglist_inner td
+{
+    border-right: none !important;
+}
+.tags_header
+{
+	font-size:120%;
+}
+.fss_support_custom_edit
+{
+	font-size: 9pt;
+	height: 14px;
+}
+
+.tag_add_input
+{
+	font-size: 9pt;
+	height: 14px;
+	width: 84px;
+}
+.fss_tags_div_inner
+{
+	border: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	padding: 3px;
+	background-color: white;
+	position: relative;
+	left: -3px;
+	top: -3px;
+}
+.fss_tags_div
+{
+	position: absolute;
+	float: left;
+	display: none;
+	min-width: 150px;
+	background-color: #888888;
+	margin-left: 155px !important;
+}
+.fss_tags_div_tag
+{
+	padding: 1px;
+}
+span.fss_ticket_tag_large
+{
+	background-color: #EAEAEA;
+	border: 1px solid #CCC;
+	padding: 1px 3px 1px 1px;
+	padding-right: 3px;
+}
+
+span.fss_ticket_tag_large img
+{
+	left: 2px;
+	position: relative;
+	top: 2px;
+}
+
+span.fss_ticket_tag_large a 
+{ 
+	text-decoration:none 
+}
+div.fss_signature
+{
+	padding: 8px;
+}
+
+.fss_locked_warn
+{
+    color: red;
+    padding: 4px;
+    font-size: 120%;
+}
+
+.fss_layout_preview
+{
+    width: 100%;
+    border: 1px solid red;
+    background-color: #ffc0c0;
+    text-align: center !important;
+    font-size: 150%;
+    padding: 4px;
+    margin: 4px;
+}
+/* --------- */
+/* tab stuff */
+/* --------- */
+div.ffs_tabs {
+	/*padding: 8px;
+	margin-bottom: 18px;
+	width: 100%;
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;*/
+	padding-left: 4px !important;
+    margin-bottom: 18px !important;
+    width: 100%;
+    border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+    padding-right: 4px !important;
+    padding-top: 4px !important;
+    padding-bottom: 0px !important;
+}
+
+a.ffs_tab 
+{
+    white-space: nowrap;
+	/*margin: 4px;
+	padding: 5px 8px 8px 8px;
+	border-left: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-right: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	background-color: <?php echo FSS_Settings::get('css_tb'); ?>;*/
+	margin: 0px !important;
+    padding: 5px 6px 6px 6px !important;
+    border-left: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	border-right: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	background-color: <?php echo FSS_Settings::get('css_tb'); ?>;
+    line-height: 29px !important;
+}
+
+a.ffs_tab:hover {
+	background-color: <?php echo FSS_Settings::get('css_hl'); ?>;
+	text-decoration: none;
+}
+
+a.fss_tab_selected {
+	background-color: <?php echo FSS_Settings::get('css_hl'); ?> !important;
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_hl'); ?> !important;
+	font-weight: bold !important;
+}
+
+a.fss_tab_selected:hover {
+	background-color: <?php echo FSS_Settings::get('css_hl'); ?>;
+	text-decoration: none;
+}
+
+/* ------------------- */
+/* Support admin stuff */
+/* ------------------- */
+.fss_support_admin_section {
+	padding-bottom:15px;
+}
+
+.fss_moderate_status 
+{
+    clear: both;
+    padding-left: 20px;
+}
+/* -------- */
+/* Glossary */
+/* -------- */
+
+.fss_glossary_tip-tip {
+    border: 1px solid #000;
+    padding: 6px;
+	background-color: <?php echo FSS_Settings::get('css_hl'); ?>;
+}
+
+.fss_glossary_tip-title {
+	font-size:110%;
+	padding-bottom: 6px;
+}
+
+.fss_glossary_tip-text {
+	
+}
+
+a.fss_glossary_word {
+	background: #EEEEEE;
+}
+
+div.fss_glossary_div {
+	border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+div.fss_glossary_word {
+	font-size: 120%;
+	font-weight: bold;
+	padding:5px;
+}
+div.fss_glossary_text {
+	padding:5px;
+}
+
+div.fss_glossary_letters 
+{
+    font-size: 130%;
+    text-align: center;
+}
+span.fss_glossary_letter 
+{
+    /*padding: 4px;*/
+}
+
+span.fss_glossary_letter a 
+{
+    text-decoration: none;
+}
+/* Main menu support panel */
+.fss_menu_support_cont
+{
+	margin-left: auto;
+	margin-right: auto;
+}
+.fss_menu_support 
+{
+    height: 52px;
+    margin: 0.7em !important;
+    padding: 0.3em;
+    background-color: <?php echo FSS_Settings::get('css_hl'); ?>;
+	border: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+
+.fss_menu_support_image
+{
+    float: left;
+    padding-right: 4px;
+}
+
+.fss_menu_support_title
+{
+    float: left;
+    width: 150px;
+    font-size: 150%;
+    padding-top: 15px;
+}
+.fss_menu_support_items
+{
+    font-size: 120%;
+    padding-left: 205px;
+}
+
+/* ticket attachments within messages */
+.fss_ticket_message_attach
+{
+    padding: 3px;
+}
+.fss_ticket_message_attach img
+{
+    position: relative;
+    top: 4px;
+}
+
+/* Support module */
+.fss_module_support_title
+{
+    font-size: 120%;
+    padding-bottom: 4px;
+    padding-top: 6px;
+}
+
+.fss_module_support_item
+{
+    padding-left: 12px;
+}
+
+.fss_tab_image
+{
+    padding-right: 3px;
+    position: relative;
+    top: 3px;
+}
+.fss_support_main_image
+{
+    position: relative;
+    padding-right: 3px;
+    top: 4px;
+}
+
+.fss_content_toolbar
+{
+	height: 62px;  
+}
+.fss_content_toolbar_item
+{
+    float: right;
+    width: 60px;
+    padding: 3px;
+    margin-left:3px !important;
+    text-align: center !important;
+	border: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+	cursor:pointer;
+}
+.fss_content_toolbar_item span
+{
+    font-size: 80%;
+}
+
+/* content list table */
+.fss_content_list
+{
+    border-left: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+    border-top: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+.fss_content_list th, .fss_content_list td
+{
+    border-right: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+    border-bottom: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+    padding: 2px;
+}
+.fss_content_form_title
+{
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 110%;
+}
+.fss_content_toolbar_title
+{
+    float: left;
+}
+
+.fss_content_filter
+{
+    
+}
+.fss_content_filter_search
+{
+    float: left;
+}
+.fss_content_filter_item
+{
+    float: right;
+    padding-left: 3px;
+    padding-bottom: 3px;
+}
+
+
+/* ticket group stuff */
+.fss_group
+{   
+    margin-top: 4px !important;
+    margin-bottom: 4px !important;
+}
+.fss_group_inner
+{   
+    border: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+}
+
+.fss_groups_exclude img
+{
+    position: relative;
+    top: 3px;
+}
+
+/* Content editing within documents */
+div.fss_content_edit_article
+{
+    float:right;
+    padding: 1px 1px 1px 1px;
+    border: 1px solid <?php echo FSS_Settings::get('css_bo'); ?>;
+    margin: 2px;
+    height: 19px;
+}
+
+div.content_edit_unpublished
+{
+    background-color: <?php echo FSS_Settings::get('content_unpublished_color'); ?>;
+}
+
+div.fss_group_title
+{
+    padding:6px;
+}
+div.fss_group_desc
+{
+     padding:4px;
+}

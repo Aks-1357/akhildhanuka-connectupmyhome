@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<layout title="SUPPORT_MAIN_MENU">
+		<help url = "http://www.freestyle-joomla.com/comhelp/fss/frontend-view-main-default" />
+		<message></message>
+  </layout>
+	<state>
+		<name>SUPPORT_MAIN_MENU</name>
+		
+		<!-- Joomla 1.5 settings -->
+        <params>
+          <param name="show_desc" type="radio" default="1" label="Show Description" description="When viewing main page, should descriptions be shown?">
+            <option value="0">No</option>
+            <option value="1">Yes</option>
+          </param>
+          <param name="template" type="radio" default="grid" label="Template" description="When viewing main page, what template should be used">
+            <option value="grid">Grid</option>
+            <option value="list">List</option>
+          </param>
+          
+          <param name="@spacer" type="spacer" default="Grid Settings" label="" description="" />
+          <param name="grid_mainwidth" type="text" size="5" default="100%" label="Width of main content" description="When viewing main page, how wide should the support menu be?" />
+          <param name="grid_maincolums" type="text" size="3" default="3" label="Number Of Colums" description="When viewing main page, how many columns should be listed?" />
+          <param name="grid_hideicons" type="radio" default="0" label="Show Icons" description="Show icons on main support page">
+            <option value="1">No</option>
+            <option value="0">Yes</option>
+          </param>
+          <param name="grid_imagewidth" type="text" size="3" default="128" label="Icon Width" description="How wide should the icons be" />
+          <param name="grid_imageheight" type="text" size="3" default="128" label="Icon Height" description="How high should the icons be" />
+          
+          <param name="@spacer" type="spacer" default="List Settings" label="" description="" />
+          <param name="list_mainwidth" type="text" size="5" default="100%" label="Width of main content" description="When viewing main page, how wide should the support menu be?" />
+          <param name="list_maincolums" type="text" size="3" default="1" label="Number Of Colums" description="When viewing main page, how many columns should be listed?" />
+          <param name="list_hideicons" type="radio" default="0" label="Show Icons" description="Show icons on main support page">
+            <option value="1">No</option>
+            <option value="0">Yes</option>
+          </param>
+          <param name="list_imagewidth" type="text" size="3" default="64" label="Icon Width" description="How wide should the icons be" />
+          <param name="list_imageheight" type="text" size="3" default="64" label="Icon Height" description="How high should the icons be" />
+        </params>
+
+		<!-- Joomla 1.6 settings -->
+		<fields name="params">
+			<!-- Basic options. -->
+			<fieldset name="basic"	label="Main Settings">
+				<field name="show_desc" type="radio" default="1" label="Show Description" description="When viewing main page, should descriptions be shown?">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="template" type="radio" default="grid" label="Template" description="When viewing main page, what template should be used">
+					<option value="grid">Grid</option>
+					<option value="list">List.</option>
+				</field>
+			</fieldset>
+			
+			<fieldset name="grid" label="Grid Settings">
+				<field name="grid_mainwidth" type="text" size="5" default="100%" label="Width of main content" description="When viewing main page, how wide should the support menu be?" />
+				<field name="grid_maincolums" type="text" size="3" default="3" label="Number Of Colums" description="When viewing main page, how many columns should be listed?" />
+				<field name="grid_hideicons" type="radio" default="0" label="Show Icons" description="Show icons on main support page">
+					<option value="1">No</option>
+					<option value="0">Yes</option>
+				</field>
+				<field name="grid_imagewidth" type="text" size="3" default="128" label="Icon Width" description="How wide should the icons be" />
+				<field name="grid_imageheight" type="text" size="3" default="128" label="Icon Height" description="How high should the icons be" />
+			</fieldset>
+
+			<fieldset name="list" label="List Settings">
+				<field name="list_mainwidth" type="text" size="5" default="100%" label="Width of main content" description="When viewing main page, how wide should the support menu be?" />
+				<field name="list_maincolums" type="text" size="3" default="1" label="Number Of Colums" description="When viewing main page, how many columns should be listed?" />
+				<field name="list_hideicons" type="radio" default="0" label="Show Icons" description="Show icons on main support page">
+					<option value="1">No</option>
+					<option value="0">Yes</option>
+				</field>
+				<field name="list_imagewidth" type="text" size="3" default="64" label="Icon Width" description="How wide should the icons be" />
+				<field name="list_imageheight" type="text" size="3" default="64" label="Icon Height" description="How high should the icons be" />
+			</fieldset>
+		</fields>
+	</state>
+</metadata>
