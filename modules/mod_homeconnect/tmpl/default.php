@@ -34,103 +34,87 @@ $document->addStyleSheet(JURI::base() . 'includes/assets/css/jquery/ui-lightness
 // echo $hello;
 ?>
 
-<div id="tool_tip_1" class="tooltip1">It would be great if you would provide your full address to enable us
-				to make the best possible recommendation. However, if you choose to
-				just pass on your postcode we can still provide you with a recommendation.
-				< link to privacy policy here ></div>
+<div id="tool_tip_1" class="tooltip1">
+	<?php echo $params->get('tooltip1'); ?>
+	<br />
+	<a href="<?php echo $params->get('tooltip1_link'); ?>">
+		<?php echo $params->get('tooltip1_link_text'); ?>
+	</a>
+</div>
 
-<div id="tool_tip_2" class="tooltip1">It would be great if you would provide your email address to enable us
-				to send you the recommendation that we give you on connecting up your
-				home < link to privacy policy here ></div>
+<div id="tool_tip_2" class="tooltip1">
+	<?php echo $params->get('tooltip2'); ?>
+	<br />
+	<a href="<?php echo $params->get('tooltip2_link'); ?>">
+		<?php echo $params->get('tooltip2_link_text'); ?>
+	</a>
+</div>
 
 <form action="index.php?option=com_homeconnect&view=createbundle" method="post" name="bundle" id="bundle">
-	<?php  $module = JModuleHelper::getModule( 'homeconnect' );
-	if($module->position == 'homeleftmodule')
-	{ ?>
-		<div id="landing_div">
 
+	<?php
+	$module		= JModuleHelper::getModule( 'homeconnect' );
+
+	$tagLine	= ($module->position == 'homeleftmodule') ? "tagLine"	: "InnertagLine";
+	$tagLine1	= ($module->position == 'homeleftmodule') ? "tagLine1"	: "InnertagLine1";
+	$HomeForm	= ($module->position == 'homeleftmodule') ? "HomeForm"	: "InnerHomeForm";
+	?>
+
+	<div id="landing_div">
 	    <div>
-	    	<span id="tagLine"><?php echo 'Find out' ?></span>
-			<span id="tagLine1"><?php echo 'what is available is your area...' ?></span>
-	        </div>
+	    	<span id="<?php echo $tagLine; ?>"><?php echo $params->get('line1'); ?></span>
+			<span id="<?php echo $tagLine1; ?>"><?php echo $params->get('line2'); ?></span>
+        </div>
 
-			<div>
-				<input id="geocomplete" name="geocomplete" type="text" placeholder="Type in an address / postcode" class="HomeForm"/>
-	            <a class="tool_tip_1" rel="#tool_tip_1" href="javascript:void(0);">
-					<img id="tool_tip_1_inner" alt="More Info" src="<?php echo JURI::base().'images/Information.png'; ?>">
-				</a>
-	            <label for="geocomplete" style="font-size:10px;"><strong>Examples:</strong> <span onClick="javascript:moduleObj.selectAddress('Sydney, Australia Victoria 3841 Melbourne');"> Sydney, Australia Victoria 3841 Melbourne &nbsp;<sup>*</sup>  </span></label>
+		<div>
+			<input class="<?php echo $HomeForm; ?>" id="geocomplete" name="geocomplete" type="text" placeholder="Type in an address / postcode" />
+            <a class="tool_tip_1" rel="#tool_tip_1" href="javascript:void(0);">
+				<img id="tool_tip_1_inner" alt="More Info" src="<?php echo JURI::base().'images/Information.png'; ?>">
+			</a>
+            <label for="geocomplete" style="font-size:10px;">
+            	<strong>Example : </strong>
+				<span onClick="javascript:moduleObj.selectAddress(this.innerHTML);"><?php echo trim(strip_tags($params->get('example_address'))); ?></span>
+			</label>
 
-				<div id="address_error_div" style="color:red;"> </div>
-				<!-- Aks : Not Required
-				<input id="find" type="button" value="find" />
-				-->
-			</div>
+			<div id="address_error_div" style="color: red;"> </div>
+			<!-- Aks : Not Required
+			<input id="find" type="button" value="find" />
+			-->
+		</div>
 
-			<div style="margin-top: 10px;">
-				<input id="email" name="email" type="text" placeholder="Type in  your email address" class="HomeForm" />
-				<a class="tool_tip_2" rel="#tool_tip_2" href="javascript:void(0);">
-					<img id="tool_tip_2_inner" alt="More Info" src="<?php echo JURI::base().'images/Information.png'; ?>">
-				</a>
-				<div id="email_error_div" style="color:red;"> </div>
-			</div>
+		<div style="margin-top: 10px;">
+			<input class="<?php echo $HomeForm; ?>" id="email" name="email" type="text" placeholder="Type in  your email address" />
+			<a class="tool_tip_2" rel="#tool_tip_2" href="javascript:void(0);">
+				<img id="tool_tip_2_inner" alt="More Info" src="<?php echo JURI::base().'images/Information.png'; ?>">
+			</a>
+			<div id="email_error_div" style="color: red;"> </div>
+		</div>
 
+		<?php
+		if($module->position == 'homeleftmodule')
+		{ ?>
 			<div style="width: 100%; margin-top: 15px; text-align: center;">
 				<div id="recommended_bundle" onClick="javascript:moduleObj.showBundle('recommend');" class="create" >Recommended Bundle</div>
 				<div id="or"> - OR - </div>
 				<div id="create_bundle" onClick="javascript:moduleObj.showBundle('create');" class="recomended">Create your Own Bundle</div>
 			</div>
-
-			<input type="hidden" id="bundle_type" name="bundle_type">
-			<!-- Aks : No need
-			<pre id="logger">Log:</pre>
-			-->
-		</div>
-	<?php }
-	else
-	{ ?>
-		<div id="landing_div">
-
-	    <div>
-	    	<span id="InnertagLine"><?php echo 'Find out' ?></span>
-			<span id="InnertagLine1"><?php echo 'what is available is your area...' ?></span>
-	        </div>
-
+		<?php }
+		else
+		{ ?>
 			<div>
-				<input id="geocomplete" name="geocomplete" type="text" placeholder="Type in an address / postcode" class="InnerHomeForm"/>
-	            <a class="tool_tip_1" rel="#tool_tip_1" href="javascript:void(0);">
-					<img id="tool_tip_1_inner" alt="More Info" src="<?php echo JURI::base().'images/Information.png'; ?>">
-				</a>
-	            <label for="geocomplete" style="font-size:10px;"><strong>Examples:</strong> Sydney, Australia Victoria 3841 Melbourne &nbsp;<sup>*</sup></label>
-
-				<div id="address_error_div" style="color:red;"> </div>
-				<!-- Aks : Not Required
-				<input id="find" type="button" value="find" />
-				-->
+				<center>
+					<div id="recommended_bundle" onClick="javascript:moduleObj.showBundle('recommend');" class="Inner_create" >Recommended Bundle</div>
+					<div id="Inneror"> - OR - </div>
+					<div id="create_bundle" onClick="javascript:moduleObj.showBundle('create');" class="Inner_recomended">Create your Own Bundle</div>
+				</center>
 			</div>
+		<?php }?>
 
-			<div style="margin-top: 10px;">
-				<input id="email" name="email" type="text" placeholder="Type in  your email address" class="InnerHomeForm" />
-				<a class="tool_tip_2" rel="#tool_tip_2" href="javascript:void(0);">
-					<img id="tool_tip_2_inner" alt="More Info" src="<?php echo JURI::base().'images/Information.png'; ?>">
-				</a>
-				<div id="email_error_div" style="color:red;"> </div>
-			</div>
-
-			<div>
-            <center>
-				<div id="recommended_bundle" onClick="javascript:moduleObj.showBundle('recommend');" class="Inner_create" >Recommended Bundle</div>
-				<div id="Inneror"> - OR - </div>
-				<div id="create_bundle" onClick="javascript:moduleObj.showBundle('create');" class="Inner_recomended">Create your Own Bundle</div>
-                </center>
-			</div>
-
-			<input type="hidden" id="bundle_type" name="bundle_type">
-			<!-- Aks : No need
-			<pre id="logger">Log:</pre>
-			-->
-		</div>
-	<?php } ?>
+		<input type="hidden" id="bundle_type" name="bundle_type">
+		<!-- Aks : No need
+		<pre id="logger">Log:</pre>
+		-->
+	</div>
 </form>
 
 <?php

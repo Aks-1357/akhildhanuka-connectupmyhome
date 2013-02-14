@@ -304,40 +304,10 @@ var Controller = function()
 	// modified by SDs for switch multiple inner divs
 	this.switchInnerDivs = function (h_ids, s_ids, product_id, cat_id)
 	{
-		if(s_ids=="confirmation_div")
-		{
-			var empty_flag = 0;
-
-			selected_product = CM_obj.getSelectedProducts();
-			var selected_product_length = selected_product.length;
-
-			for(var i = 0; i < selected_product_length; i++)
-			{
-				if(selected_product[i].length!=0)
-				{
-					empty_flag = 1;
-				}
-			}
-			if(empty_flag == 0)
-			{
-				document.getElementById('error_message').style.display="block";
-				var  err_html="<h1 style='color:red'>Please Make Selection First!!!</h1>";
-			    document.getElementById('error_message').innerHTML =err_html;
-				$("#error_message").delay(3200).fadeOut(1000);
-				err_html="";
-				s_ids="main_category_div";
-			}
-			track_info = new Array(ip_add, email_add, screen, "FORWORD_CLICK", "ENTER TO CATEGORY "+h_ids+" FROM CATEGORY "+s_ids+"AS EMPTY SELECTION");
-			tracker.push(track_info);
-		}
-		else
-		{
-			track_info = new Array(ip_add, email_add, screen, "FORWORD_CLICK", "ENTER TO CATEGORY "+h_ids+" FROM CATEGORY "+s_ids);
-			tracker.push(track_info);
-		}
-
+		
+		s_ids = controller.allowNavigation(h_ids,s_ids);
+		
 		CM_obj.setCurrentState(s_ids);
-
 		hide_ids = h_ids.split(",");
 		show_ids = s_ids.split(",");
 
@@ -356,6 +326,7 @@ var Controller = function()
 		}
 		if(show_ids=="confirmation_div" || show_ids=="recommendation_div"  || show_ids=="installation_div")
 		{
+          
 			controller.updateDiv(show_ids);
 		}
 	};
@@ -397,7 +368,7 @@ var Controller = function()
 		CM_obj.setCurrentState(id);
 
 		// get effect type from
-		var selectedEffect = "slide";
+		var selectedEffect = "fade";
 
 		// most effect types need no options passed by default
 		var options = {};
@@ -430,7 +401,7 @@ var Controller = function()
 	this.hideDiv = function (id)
 	{
 		// get effect type from
-		var selectedEffect = "slide";
+		var selectedEffect = "fade";
 
 		// most effect types need no options passed by default
 		var options = {};
@@ -489,8 +460,10 @@ var Controller = function()
 	// SDs for addto my bundle
 	this.AddToMyBundle = function(category)
 	{
+		
 		var cat_product = category.split("_");
 		var selected_product;
+		
 
 		if(document.getElementById(category).checked)
 		{
@@ -499,7 +472,7 @@ var Controller = function()
 
 			CM_obj.setAddToMyBundleResult(cat_product[0], cat_product[1]);
 		    selected_product = CM_obj.getSelectedProducts(cat_product[0]);
-
+		    
 		    controller.viewtoMybundle(cat_product[0], selected_product);
 		}
 		else
@@ -509,7 +482,7 @@ var Controller = function()
 
 			CM_obj.deleteAddedMyBundleResult(cat_product[0],cat_product[1]);
 		    selected_product = CM_obj.getSelectedProducts(cat_product[0]);
-
+		    
 		    controller.viewtoMybundle(cat_product[0],selected_product)
 		}
 	};
@@ -517,6 +490,7 @@ var Controller = function()
 	// SDs for view in mybundle section
 	this.viewtoMybundle = function(cat_id, selected_product)
 	{
+		
 		var nofselection = selected_product.length;
 		$(cat_id ).html(nofselection);
 		$("#cat_"+cat_id+"_"+cat_id).html(nofselection);
@@ -796,4 +770,125 @@ var Controller = function()
 			document.getElementById(cat_id+'_'+id).style.color = "#000000";
 		}
 	};
+	// SDs for add recommended bundle
+	this.PickRecommendedBundle = function(bundle_id)
+	{
+		for(i=0;i<5;i++)
+		 {
+			CM_obj.deleteAddedMyBundleResult(i, i);
+		 }
+		var recommended_bundle = new Array ('rec_select_lowerp_1','rec_select_lowerp_2','rec_select_lowerp_3','rec_select_closest_1','rec_select_closest_2','rec_select_closest_3','rec_select_popular_1','rec_select_popular_2','rec_select_popular_3');
+		if(document.getElementById(bundle_id).checked == true)
+			{
+			//code for uncheck all other bundle checked
+			  for(var i=0;i<recommended_bundle.length;i++)
+				  {
+				   if(bundle_id!=recommended_bundle[i])
+					   {
+					   
+					        $('#'+recommended_bundle[i]).attr('checked',false);
+					        
+						 
+					   }
+				   
+				  
+				  }
+			
+			//statically considered 5 product under 5 different category
+				for(i=0;i<5;i++)
+				 {
+				 	CM_obj.setAddToMyBundleResult(i, i);
+				 }
+				
+				selected_product = CM_obj.getSelectedProducts();
+				document.getElementById("my_selection").style.display="block";
+				
+			}
+		else
+			{
+			
+				 for(i=0;i<5;i++)
+				 {
+					 CM_obj.deleteAddedMyBundleResult(i, i+1);
+				 }
+				 selected_product = CM_obj.getSelectedProducts();
+				 document.getElementById("my_selection").style.display="none";
+			
+			}
+		
+	};
+	
+	// navigation check
+	
+	this.allowNavigation = function (hid,sid)
+	{
+		
+		//this flow is only to check empty selection and redirect to selection  if empty so only check is for recommended and confirmation screen
+		var errordiv_id,s_id,h_id;
+		
+		if(sid=="confirmation_div" || hid=="recommended_div" )
+	   {		
+		
+	   	
+		var empty_flag = 0;
+		selected_product = CM_obj.getSelectedProducts();
+		var selected_product_length = selected_product.length;
+
+		for(var i = 0; i < selected_product_length; i++)
+		{
+			if(selected_product[i].length!=0)
+			{
+				empty_flag = 1;
+			}
+		}
+		if(empty_flag == 0)
+		{
+			
+		
+			if(sid=="confirmation_div")
+			{
+				errordiv_id="error_message";
+				sid="main_category_div";
+				
+			}
+			if(hid=="recommended_div")
+			{
+				errordiv_id="rec_error_message";
+				sid=hid;
+				
+			}
+			
+			controller.displayerror(errordiv_id);
+		}
+		track_info = new Array(ip_add, email_add, screen, "FORWORD_CLICK", "ENTER TO CATEGORY "+hid+" FROM CATEGORY "+sid+"AS EMPTY SELECTION");
+		tracker.push(track_info);
+		return sid;
+	   }
+		else
+	  {
+			track_info = new Array(ip_add, email_add, screen, "FORWORD_CLICK", "ENTER TO CATEGORY "+hid+" FROM CATEGORY "+sid+"AS EMPTY SELECTION");
+			tracker.push(track_info);
+			return sid;
+	  }	
+	
+		
+	};
+	
+	//display error message
+	
+	 this.displayerror = function (errdiv_id)
+	 {
+		 if(document.getElementById(errdiv_id))
+			 {
+			    document.getElementById(errdiv_id).style.display="block";
+				var  err_html="<h1 style='color:red'>Please Make Selection First!!!</h1>";
+			    document.getElementById(errdiv_id).innerHTML =err_html;
+				$("#"+errdiv_id).delay(3200).fadeOut(1000);
+				err_html="";
+				return;
+			 }
+					 
+	 };
+	 
+	
 };

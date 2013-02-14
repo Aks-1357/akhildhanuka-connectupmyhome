@@ -300,47 +300,48 @@ border-bottom-left-radius: 5px;
 
 #InnertagLine1
 { 	font-family: 'MyriadPro';
-	font-size:1.3em;
-	color:#00709a;
-	font-weight:bold;
-	line-height:19px;
-	float:left;
-	width:100%;
-	margin-bottom:10px;
-	}
-	
+	font-size: 1.3em;
+	color: #00709a;
+	font-weight: bold;
+	line-height: 19px;
+	float: left;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
 #Inneror
 {	color:#282828;
 	font-family:Arial, Helvetica, sans-serif;
-	font-size:10px;
-	padding:2px 5px;
+	font-size: 10px;
+	padding: 2px 5px;
 	float: left;
-	font-weight:bold;
-	margin-left:70px;
-	}
+	font-weight: bold;
+	margin-left: 70px;
+}
 
 .InnerHomeForm
 {
-	border:1px solid #c7c7c7;
-	 -webkit-border-radius: 5px;
+	border: 1px solid #c7c7c7;
+	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
-	padding:7px;
-	height:15px;
-	color:#686666;
-	width:178px;
-	font-family:'Arial';
-	font-size:10px;
-	margin-bottom:5px;
+	padding: 7px;
+	height: 15px;
+	color: #686666;
+	width: 175px;
+	font-family: 'Arial';
+	font-size: 10px;
+	margin-bottom: 5px;
 }
 
 .Innertooltip1
 {
-	font-family:'Arial'; 
-	font-size:12px; 
-	background:#0097cc; 
-	color:#fff; 
-	padding:10px}
+	font-family: 'Arial'; 
+	font-size: 12px; 
+	background: #0097cc; 
+	color: #fff; 
+	padding: 10px;
+}
 
 
 /* ++++++++++++++  lists, skiplinks  ++++++++++++++ */

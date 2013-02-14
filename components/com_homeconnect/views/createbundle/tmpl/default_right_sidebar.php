@@ -53,5 +53,13 @@
 				0
 			</div>
 		</li>
+		<li id="my_selection" style="display:none;padding: 10px; margin: 10px; width: 75%; height: 30px;">
+			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: left;">
+				myselection
+			</div>
+			<div   style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
+				1
+			</div>
+		</li>
 	</ul>
 </div>

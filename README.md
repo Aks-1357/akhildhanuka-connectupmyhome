@@ -1,4 +1,4 @@
-akhildhanuka-connectupmyhome
-============================
+CUMH
+====
 
-Connect Up My Home Temporary Repository
+Connect Up My Home

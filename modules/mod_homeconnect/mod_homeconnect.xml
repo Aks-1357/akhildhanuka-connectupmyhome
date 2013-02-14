@@ -26,6 +26,71 @@
 	
 	<config>
 		<fields name="params">
+			<fieldset name="basic">
+				<field name="line1"
+						type="textarea"
+						label="First Line"
+						description="Displays as line 1 of header text on the module"
+				/>
+				<field name="line2"
+						type="textarea"
+						label="Second Line"
+						description="Displays as line 2 of header text on the module"
+				/>
+
+				<field type="spacer" name="spacer_1" hr="true" />
+
+				<field name="tooltip1"
+						type="textarea"
+						cols="40"
+						rows="7"
+						label="Tool Tip 1"
+						description="Displays first tool tip i.e. for address / postcode"
+				/>
+				<field name="tooltip1_link"
+						type="text"
+						size="40"
+						label="Tool Tip 1 Link"
+						description="Displays first tool tip link"
+				/>
+				<field name="tooltip1_link_text"
+						type="text"
+						size="40"
+						label="Tool Tip 1 Link Text"
+						description="Displays first tool tip link text"
+				/>
+
+				<field type="spacer" name="spacer_2" hr="true" />
+
+				<field name="tooltip2"
+						type="textarea"
+						cols="40"
+						rows="7"
+						label="Tool Tip 2"
+						description="Displays second tool tip i.e. for email address"
+				/>
+				<field name="tooltip2_link"
+						type="text"
+						size="40"
+						label="Tool Tip 2 Link"
+						description="Displays second tool tip link"
+				/>
+				<field name="tooltip2_link_text"
+						type="text"
+						size="40"
+						label="Tool Tip 2 Link Text"
+						description="Displays second tool tip link text"
+				/>
+
+				<field type="spacer" name="spacer_3" hr="true" />
+
+				<field name="example_address"
+						type="text"
+						size="40"
+						label="Example Text"
+						description="Example Address to be displayed"
+				/>
+			</fieldset>
 			<fieldset name="advanced">
 				<field name="moduleclass_sfx"
 						type="text"

@@ -106,7 +106,6 @@ var Model = function ()
 		{
 			category_wise_selected[category]=0;
 		}
-
 		category_wise_selected[category]++;
 		selected_product[category].push(product_id);
 	};
@@ -154,5 +153,9 @@ var Model = function ()
 	this.getEmail = function ()
 	{
 		return this.customer_email;
+	};
+	this.deleteRecommendedselection = function()
+	{
+		selected_product = [];
 	};
 };
