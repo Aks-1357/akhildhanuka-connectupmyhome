@@ -1,65 +1,56 @@
 <?php
+	$app = JFactory::getApplication();
+	$subcategories = array();
+	$accordion_no = 0;
 ?>
-
-<div id="right" style="float: right; width: 30%; height: 100%; border: 1px solid #ccc; margin: 3px 0px 10px 0px;">
-	<ul>
-		<li style="padding: 10px; margin: 10px; width: 75%;">
-			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 1px 26px 10px 26px; margin: -10px 40px -10px 40px; align: center;">
-				C
-			</div>
-		</li>
-
-		<li style="padding: 10px; margin: 10px; width: 75%; height: 100%;">
-			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: left;">
-				C 1
-			</div> 
-			<div id="cat_1_1" onClick="javascript:controllerObj.switchtoSelectionpage(0);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
-				0
-			</div>
-		</li>
-
-		<li style="padding: 10px; margin: 10px; width: 75%; height: 30px;">
- 			<div style="cursor: pointer; border: 1px solid #ccc; padding:  0px; margin: 0px; float: left;">
-				C 2
-			</div>
-			<div id="cat_2_2" onClick="javascript:controllerObj.switchtoSelectionpage(1);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
-				0
-			</div>
-		</li>
-
-		<li style="padding: 10px; margin: 10px; width: 75%; height: 30px;">
-			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: left;">
-				C 3
-			</div>
-			<div id="cat_3_3" onClick="javascript:controllerObj.switchtoSelectionpage(2);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
-				0
-			</div>
-		</li>
-
-		<li style="padding: 10px; margin: 10px; width: 75%; height: 30px;">
-		 	<div  style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: left;">
-				C 4
-			</div>
-			<div id="cat_4_4" onClick="javascript:controllerObj.switchtoSelectionpage(3);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
-				0
-			</div>
-		</li>
-
-		<li style="padding: 10px; margin: 10px; width: 75%; height: 30px;">
-			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: left;">
-				C 5
-			</div>
-			<div id="cat_5_5" onClick="javascript:controllerObj.switchtoSelectionpage(4);" style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
-				0
-			</div>
-		</li>
-		<li id="my_selection" style="display:none;padding: 10px; margin: 10px; width: 75%; height: 30px;">
-			<div  style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: left;">
-				myselection
-			</div>
-			<div   style="cursor: pointer; border: 1px solid #ccc; padding: 0px; margin: 0px; float: right;">
-				1
-			</div>
-		</li>
-	</ul>
+<div id="cumh_right">
+	<div class="accordion vertical">
+		<ul>
+		<?php
+		    $i = 0;
+		    
+			foreach ($this->data as $d)
+			{
+				if(in_array($d->name, $subcategories)== false )
+				{
+					array_push($subcategories, $d->name);
+			
+					$i++;
+					$on_click = "javascript:controllerObj.switchtoSelectionpage('".JFilterOutput::stringURLSafe($d->name)."','".JFilterOutput::stringURLSafe($v->name)."',".$accordion_no.",'0')";
+					if (JRequest::getVar('bundle_type') == 'recommend')
+					{
+						$on_click = "";
+					}
+				?>
+				<li>
+				    
+					<input type="checkbox" id="<?php echo 'checkbox-'.$i;?>" name="checkbox-accordion" />
+					<label for="<?php echo 'checkbox-'.$i;?>">
+						<div id="<?php echo JFilterOutput::stringURLSafe('myselection-div-in-'.$d->name);?>" class=" <?php echo JFilterOutput::stringURLSafe($d->name); ?> commen">
+							<?php echo $d->name;?>
+							<span style="top:-6;" id="<?php echo JFilterOutput::stringURLSafe('myselection-in-'.$d->name);?>" onclick="<?php echo $on_click; ?>">
+							</span>
+						</div>
+					</label>
+                    
+					<div class="content">
+						<div class="mainwrap" id="<?php echo 'inner-brands-'.JFilterOutput::stringURLSafe($d->name); ?>">
+						<div id="<?php echo 'basket-noproduct-'.JFilterOutput::stringURLSafe($d->name); ?>"><strong>No product Selected...</strong></div>
+						</div>
+					</div>
+				</li>
+				
+			<?php 
+				}
+				$accordion_no++;
+			} ?>
+			
+		</ul>
+        
+       		<div class="totalcost commen">TOTAL COST</div>
+            <div class="totalcostwrap">
+            <span style="margin-top:10px;"><div class="cost_month">One-off cost</div><div class="costing" id="fixcost">$0</div></span>
+            <span style="border-bottom:none;"><div class="cost_month">Monthly Price</div> <div class="costing" id="monthlycost">$0</div></span>
+            </div>
+      </div>
 </div>

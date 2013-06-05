@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension
+	type="module"
+	version="2.5"
+	client="site"
+	method="upgrade">
+  <help url="HELP_MODULE" key="HELP_MODULE"></help>
+  <name>Freestyle Support: Custom Text</name>
+	<author>Freestyle Joomla</author>
+	<creationDate>2013 02 11</creationDate>
+	<version>1.10.0.1580</version>
+	<description>Allow custom text to be places at various places within the support system</description>
+	<files>
+		<filename>mod_fss_custom.xml</filename>
+		<filename module="mod_fss_custom">mod_fss_custom.php</filename>
+		<filename>index.html</filename>
+		<folder>tmpl</folder>
+	</files>
+	<languages>
+		<language tag="en-GB">en-GB.mod_fss_custom.ini</language>
+	</languages>
+
+	<!-- Joomla 1.6+ -->
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="customid" type="sql" default="10" label="Select Custom Text" query="SELECT id, title FROM #__fss_custom_text" key_field="id" value_field="title" />
+				<field name="show_kb_main" type="radio" default="0" label="Show KB Main Page" description="Show when viewing Knowledge base main page">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="show_kb_prod" type="radio" default="0" label="Show KB Prod Selected" description="Show when Knowledge base, product selected">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="show_kb_cat" type="radio" default="0" label="Show KB Cat Selected" description="Show when Knowledge base, category selected">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="show_kb_art" type="radio" default="0" label="Show KB Article" description="Show when viewing a kb article">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="show_faq_main" type="radio" default="0" label="Show FAQ Main Page" description="Show when viewing faq base main page">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="show_faq_cat" type="radio" default="0" label="Show FAQ Cat Selected" description="Show when faqs, category selected">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+				<field name="show_faq_faq" type="radio" default="0" label="Show FAQ Selected" description="Show when viewing a faq">
+					<option value="0">No</option>
+					<option value="1">Yes</option>
+				</field>
+
+			</fieldset>
+			<fieldset name="advanced">
+				<field
+					name="moduleclass_sfx"
+					type="text"
+					label="COM_MODULES_FIELD_MODULECLASS_SFX_LABEL"
+					description="COM_MODULES_FIELD_MODULECLASS_SFX_DESC" />
+			</fieldset>
+		</fields>
+	</config>
+</extension>

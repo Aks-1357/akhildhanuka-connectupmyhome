@@ -28,7 +28,13 @@ class HomeconnectViewCreatebundle extends JView
 	protected $recommendDisplay;
 	protected $mainCategoryDisplay;
     protected $prevDiv;
-	/**
+    protected $data;
+    //SDS to get super category array
+    protected $categories;
+    protected $cat_descriptionline;
+    protected $recommended;
+    
+    /**
 	 * Display the view
 	 */
 	public function display($tpl = null)
@@ -38,21 +44,41 @@ class HomeconnectViewCreatebundle extends JView
 		$this->items		= $this->get('Items');
 		$this->pagination	= $this->get('Pagination');
 		$this->params       = $app->getParams('com_homeconnect');
-
+  
 		// Aks : To Display Either of the Divs
 		$this->userEmail = JRequest::getVar('email');
 		$this->userAddress = JRequest::getVar('geocomplete');
 		$this->recommendDisplay = "display: none;";
 		$this->mainCategoryDisplay = "display: none;";
-		
-      //edited by SDs for back navigation from details page prevDiv value stored in variable
+
+		// edited by SDs for back navigation from details page prevDiv value stored in variable
 		if (JRequest::getVar('bundle_type') == 'recommend')
 		{
+			$model =& $this->getModel();//without calling following get methos we cant get recommeneded packages as recommeneded data is merged to api/v1
+			$model->getDataFromAPI($this->userAddress);
+			$this->data = $model->getDataFromAPI($this->userAddress);
+			$this->recommended = $model->getRecommendedPackages();
+			$this->categories= $model->getLocationCategories();
 			$this->prevDiv="recommended_div";
 			$this->recommendDisplay = "display: block;";
 		}
 		else
 		{
+			$model =& $this->getModel();
+			$this->data = $model->getDataFromAPI($this->userAddress);
+			$this->recommended = $model->getRecommendedPackages();
+
+			if (!is_array($this->data))
+			{
+				
+			 	$app =& JFactory::getApplication();
+			 	JError::raiseWarning( 100, 'Warning: Sorry Our services not availble i avialable in your area' );
+				$app->redirect('index.php'); 
+			}
+	      
+			$this->categories= $model->getLocationCategories();
+			
+
 			$this->prevDiv="confirmation_div";
 			$this->mainCategoryDisplay = "display: block;";
 		}

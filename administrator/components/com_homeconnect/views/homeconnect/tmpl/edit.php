@@ -42,15 +42,14 @@ $document->addStyleSheet('components/com_homeconnect/assets/css/homeconnect.css'
 					<?php echo $this->form->getLabel('id'); ?>
 					<?php echo $this->form->getInput('id'); ?>
 				</li>
-
 				<li>
-					<?php echo $this->form->getLabel('home_text'); ?>
-					<?php echo $this->form->getInput('home_text'); ?>
+					<?php echo $this->form->getLabel('category'); ?>
+					<?php echo $this->form->getInput('category'); ?>
 				</li>
 
 				<li>
-					<?php echo $this->form->getLabel('state'); ?>
-					<?php echo $this->form->getInput('state'); ?>
+					<?php echo $this->form->getLabel('category_description'); ?>
+					<?php echo $this->form->getInput('category_description'); ?>
 				</li>
 
 				<li>

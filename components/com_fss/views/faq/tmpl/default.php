@@ -1,3 +1,4 @@
+<link href="templates/beez_20/css/personal.css" rel="stylesheet" type="text/css" />
 <?php
 /**
 * @Copyright Freestyle Joomla (C) 2010
@@ -35,7 +36,6 @@ function end_faq_col_item()
 defined('_JEXEC') or die('Restricted access'); ?>
 <?php echo FSS_Helper::PageStyle(); ?>
 <?php echo FSS_Helper::PageTitle("FREQUENTLY_ASKED_QUESTIONS",$this->curcattitle); ?>
-<div class="fss_spacer"></div>
 
 <?php $acl = 1; ?>
 
@@ -55,7 +55,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 				else 
 					echo "<td width='$colwidth' class='fss_faq_cat_col' valign='top'>";        
 			?>
-           	<div class='faq_category'>
+           	<div class='faq_category' style="display:none">
 	    		<div class='faq_category_image'>
 	    			<img src='<?php echo JURI::root( true ); ?>/components/com_fss/assets/images/search.png' width='64' height='64'>
 	    		</div>
@@ -239,7 +239,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 
 <?php if ($this->showfaqs) : ?>
 
-	<div class='faq_category'>
+	<div class='faq_category' style="border:none; display:none !important">
 	    <?php if ($this->curcatimage) : ?>
 		<div class='faq_category_image'>
 			<?php if (substr($this->curcatimage,0,1) == "/") : ?>
@@ -249,16 +249,26 @@ defined('_JEXEC') or die('Restricted access'); ?>
 			<?php endif; ?>
 	    </div>
 	    <?php endif; ?>
-			<div class='fss_spacer contentheading' style="padding-top:6px;padding-bottom:6px;">
+			<div class='fss_spacer contentheading' style="padding-top:6px;padding-bottom:6px; display:none;">
 				<?php echo JText::_("FAQS"); ?> <?php if ($this->curcattitle) { echo " - " . $this->curcattitle; } ?>
 			</div>
+			<?php if ($this->enable_pages): ?>
+		<form id="adminForm" action="<?php echo FSSRoute::x( 'index.php?option=com_fss&view=faq&catid=' . $this->curcatid );?>" method="post" name="adminForm">
+		<input type='hidden' name='catid' value='<?php echo $this->curcatid; ?>' />
+		<input type='hidden' name='enable_pages' value='<?php echo $this->enable_pages; ?>' />
+		<input type='hidden' name='view_mode' value='<?php echo $this->view_mode; ?>' />
+			<?php //echo $this->pagination->getListFooter(); ?>
+		</form>
+
+	<?php endif; ?>
+	
 		<div class='faq_category_desc'><?php echo $this->curcatdesc; ?></div>
 	</div>
 	<div class='fss_clear'></div>
 	
 
 	<?php if ($this->curcatid == -1): ?>
-		<div class='faq_category'>
+		<div class='faq_category' style="display:none">
 			<div class='faq_category_image'>
 				<img src='<?php echo JURI::root( true ); ?>/components/com_fss/assets/images/search.png' width='64' height='64'>
 			</div>
@@ -279,7 +289,7 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	<?php endif; ?>
 	
 	
-	<div class='fss_faqs' id='fss_faqs'>
+	<div class='knowledgeleft' id='fss_faqs'>
 	<?php if (count($this->items)) foreach ($this->items as $faq) : ?>
 	<?php include JPATH_SITE.DS.'components'.DS.'com_fss'.DS.'views'.DS.'faq'.DS.'snippet'.DS.'_faq.php';
 	//include "components/com_fss/views/faq/snippet/_faq.php" ?>
@@ -288,15 +298,6 @@ defined('_JEXEC') or die('Restricted access'); ?>
 	<div class="fss_no_results"><?php echo JText::_("NO_FAQS_MATCH_YOUR_SEARCH_CRITERIA");?></div>
 	<?php endif; ?>
 	</div>
-
-	<?php if ($this->enable_pages): ?>
-		<form id="adminForm" action="<?php echo FSSRoute::x( 'index.php?option=com_fss&view=faq&catid=' . $this->curcatid );?>" method="post" name="adminForm">
-		<input type='hidden' name='catid' value='<?php echo $this->curcatid; ?>' />
-		<input type='hidden' name='enable_pages' value='<?php echo $this->enable_pages; ?>' />
-		<input type='hidden' name='view_mode' value='<?php echo $this->view_mode; ?>' />
-			<?php echo $this->pagination->getListFooter(); ?>
-		</form>
-	<?php endif; ?>
 
 <?php endif; ?>
 

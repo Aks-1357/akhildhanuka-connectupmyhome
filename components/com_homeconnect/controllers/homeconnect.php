@@ -147,9 +147,24 @@ class HomeconnectControllerHomeconnect extends HomeconnectController
 			$this->setRedirect(JRoute::_('index.php?option=com_homeconnect&view=homeconnects', false));
         }
     }
-    function sendmail()
-     {
-     	$arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
-     	echo json_encode($arr);
-     } 
+
+	public function thankYou()
+	{
+		$model = $this->getModel('Createbundle', 'HomeconnectModel');
+		$model->createcsv();
+		// $model-> setSuppliers();
+		$supplers = JRequest::getVar("suppliers");
+
+		$_SESSION['suppliers'] = $supplers;
+
+		$cumh_installer_help = JRequest::getVar("cumh_installer_help");
+		$body	= JRequest::getVar("data");
+		$selectedproduct = explode("#$#",$body);
+		$result= $model->sendEmail();
+        if($result == "success")
+        {
+			// $model->sendConfirmPost($selectedproduct);
+			$this->setRedirect(JRoute::_('index.php?option=com_homeconnect&view=createbundle&layout=default_thank_you&Itemid=168&suppliers='.$supplers.'&cumh_installer_help='.$cumh_installer_help, false));
+		}
+	}
 }

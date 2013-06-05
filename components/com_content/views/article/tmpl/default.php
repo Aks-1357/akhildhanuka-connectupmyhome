@@ -19,7 +19,7 @@ $canEdit	= $this->item->params->get('access-edit');
 $user		= JFactory::getUser();
 
 ?>
-<div class="item-page<?php echo $this->pageclass_sfx?>">
+<div class="items-row item-page<?php echo $this->pageclass_sfx?>">
 <?php if ($this->params->get('show_page_heading')) : ?>
 	<h1>
 	<?php echo $this->escape($this->params->get('page_heading')); ?>
@@ -110,22 +110,8 @@ endif; ?>
 	</dd>
 <?php endif; ?>
 <?php if ($params->get('show_create_date')) : ?>
-	<dd class="create">
-	<?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC2'))); ?>
-	</dd>
-<?php endif; ?>
-<?php if ($params->get('show_modify_date')) : ?>
-	<dd class="modified">
-	<?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', JHtml::_('date', $this->item->modified, JText::_('DATE_FORMAT_LC2'))); ?>
-	</dd>
-<?php endif; ?>
-<?php if ($params->get('show_publish_date')) : ?>
-	<dd class="published">
-	<?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE_ON', JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC2'))); ?>
-	</dd>
-<?php endif; ?>
-<?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
-	<dd class="createdby">
+	<dd class="article-postdetails">
+<!--		<dd class="createdby">-->
 	<?php $author = $this->item->created_by_alias ? $this->item->created_by_alias : $this->item->author; ?>
 	<?php if (!empty($this->item->contactid) && $params->get('link_author') == true): ?>
 	<?php
@@ -138,6 +124,22 @@ endif; ?>
 	<?php else: ?>
 		<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
 	<?php endif; ?>
+<!--</dd>-->    
+    
+	<?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC2'))); ?>
+<!--	</dd>-->
+<?php endif; ?>
+<?php if ($params->get('show_modify_date')) : ?>
+<!--	<dd class="modified">-->
+	<?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', JHtml::_('date', $this->item->modified, JText::_('DATE_FORMAT_LC2'))); ?>
+<!--		</dd>-->
+<?php endif; ?>
+<?php if ($params->get('show_publish_date')) : ?>
+<!--		<dd class="published">-->
+	<?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE_ON', JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC2'))); ?>
+<!--		</dd>-->
+<?php endif; ?>
+<?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
 	</dd>
 <?php endif; ?>
 <?php if ($params->get('show_hits')) : ?>

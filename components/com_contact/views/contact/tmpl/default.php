@@ -1,3 +1,27 @@
+<style>
+legend
+{
+    color: #B70000;
+    float: left;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 17px;
+    margin-bottom: 10px;
+    width: 100%;
+	padding: 0px;
+}
+fieldset {
+    margin: -30px 0 0;
+    padding: 15px 0;
+}
+#header form .button {
+    background: url("templates/beez_20/images/menu_over.png") repeat-x scroll 0 0 transparent;
+    border: 0 solid #DDDDDD;
+    color: #fff;
+    padding: 4px !important;
+}
+</style>
 <?php
  /**
  * @package		Joomla.Site
@@ -13,12 +37,12 @@ $cparams = JComponentHelper::getParams ('com_media');
 <div class="contact<?php echo $this->pageclass_sfx?>">
 <?php if ($this->params->get('show_page_heading')) : ?>
 <h1>
-	<?php echo $this->escape($this->params->get('page_heading')); ?>
+	<?php //echo $this->escape($this->params->get('page_heading')); ?>
 </h1>
 <?php endif; ?>
 	<?php if ($this->contact->name && $this->params->get('show_name')) : ?>
 		<h2>
-			<span class="contact-name"><?php echo $this->contact->name; ?></span>
+			<span class="contact-name"><?php  echo $this->contact->name; ?></span>
 		</h2>
 	<?php endif;  ?>
 	<?php if ($this->params->get('show_contact_category') == 'show_no_link') : ?>
@@ -44,7 +68,7 @@ $cparams = JComponentHelper::getParams ('com_media');
 		<?php  echo  JHtml::_($this->params->get('presentation_style').'.start', 'contact-slider'); ?>
 	<?php  echo JHtml::_($this->params->get('presentation_style').'.panel', JText::_('COM_CONTACT_DETAILS'), 'basic-details'); } ?>
 	<?php if ($this->params->get('presentation_style')=='plain'):?>
-		<?php  echo '<h3>'. JText::_('COM_CONTACT_DETAILS').'</h3>';  ?>
+		<?php  //echo '<h3>'. JText::_('COM_CONTACT_DETAILS').'</h3>';  ?>
 	<?php endif; ?>
 	<?php if ($this->contact->image && $this->params->get('show_image')) : ?>
 		<div class="contact-image">
@@ -56,12 +80,12 @@ $cparams = JComponentHelper::getParams ('com_media');
 		<p class="contact-position"><?php echo $this->contact->con_position; ?></p>
 	<?php endif; ?>
 
-	<?php echo $this->loadTemplate('address'); ?>
+	<?php //echo $this->loadTemplate('address'); ?>
 
 	<?php if ($this->params->get('allow_vcard')) :	?>
-		<?php echo JText::_('COM_CONTACT_DOWNLOAD_INFORMATION_AS');?>
+		<?php // echo JText::_('COM_CONTACT_DOWNLOAD_INFORMATION_AS');?>
 			<a href="<?php echo JRoute::_('index.php?option=com_contact&amp;view=contact&amp;id='.$this->contact->id . '&amp;format=vcf'); ?>">
-			<?php echo JText::_('COM_CONTACT_VCARD');?></a>
+			<?php //echo JText::_('COM_CONTACT_VCARD');?></a>
 	<?php endif; ?>
 	<p></p>
 	<?php if ($this->params->get('show_email_form') && ($this->contact->email_to || $this->contact->user_id)) : ?>
@@ -70,7 +94,7 @@ $cparams = JComponentHelper::getParams ('com_media');
 			<?php  echo JHtml::_($this->params->get('presentation_style').'.panel', JText::_('COM_CONTACT_EMAIL_FORM'), 'display-form');  ?>
 		<?php endif; ?>
 		<?php if ($this->params->get('presentation_style')=='plain'):?>
-			<?php  echo '<h3>'. JText::_('COM_CONTACT_EMAIL_FORM').'</h3>';  ?>
+			<?php  //echo '<h3>'. JText::_('COM_CONTACT_EMAIL_FORM').'</h3>';  ?>
 		<?php endif; ?>
 		<?php  echo $this->loadTemplate('form');  ?>
 	<?php endif; ?>

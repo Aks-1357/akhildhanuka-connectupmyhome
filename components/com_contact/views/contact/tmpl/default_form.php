@@ -29,10 +29,7 @@ JHtml::_('behavior.tooltip');
 				<dd><?php echo $this->form->getInput('contact_subject'); ?></dd>
 				<dt><?php echo $this->form->getLabel('contact_message'); ?></dt>
 				<dd><?php echo $this->form->getInput('contact_message'); ?></dd>
-				<?php 	if ($this->params->get('show_email_copy')){ ?>
-						<dt><?php echo $this->form->getLabel('contact_email_copy'); ?></dt>
-						<dd><?php echo $this->form->getInput('contact_email_copy'); ?></dd>
-				<?php 	} ?>
+				
 			<?php //Dynamically load any additional fields from plugins. ?>
 			     <?php foreach ($this->form->getFieldsets() as $fieldset): ?>
 			          <?php if ($fieldset->name != 'contact'):?>
@@ -53,7 +50,7 @@ JHtml::_('behavior.tooltip');
 			          <?php endif ?>
 			     <?php endforeach;?>
 				<dt></dt>
-				<dd><button class="button validate" type="submit"><?php echo JText::_('COM_CONTACT_CONTACT_SEND'); ?></button>
+				<dd><button class="button validate" type="submit"> <?php echo 'Submit'; ?></button>
 					<input type="hidden" name="option" value="com_contact" />
 					<input type="hidden" name="task" value="contact.submit" />
 					<input type="hidden" name="return" value="<?php echo $this->return_page;?>" />

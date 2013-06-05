@@ -20,6 +20,7 @@ class HomeconnectModelHomeconnect extends JModelForm
 {
     
     var $_item = null;
+     protected $supplier = array();
     
 	/**
 	 * Method to auto-populate the model state.
@@ -225,5 +226,7 @@ class HomeconnectModelHomeconnect extends JModelForm
         }
         
 	}    
+	
+
     
 }

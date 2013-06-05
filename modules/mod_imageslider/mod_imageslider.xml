@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<install type="module" version="1.5.0">
+    <name>Trending Topics</name>
+    <author>John Doe</author>
+    <version>1.5.0</version>
+    <description>A Custom Test Module for trending topics</description>
+    <files>
+        <filename>mod_imageslider.xml</filename>
+        <filename module="mod_imageslider">mod_imageslider.php</filename>
+        <filename>index.html</filename>
+        <filename>helper.php</filename>
+        <filename>tmpl/default.php</filename>
+        <filename>tmpl/index.html</filename>
+    </files>
+    <params>
+    </params>
+</install>

@@ -63,12 +63,12 @@ class HomeconnectViewHomeconnects extends JView
 		$formPath = JPATH_COMPONENT_ADMINISTRATOR.'/views/homeconnect';
 		if (file_exists($formPath))
 		{
-			/* Aks : No Need of New
+			// Aks : No Need of New
             if ($canDo->get('core.create'))
             {
 			    JToolBarHelper::addNew('homeconnect.add','JTOOLBAR_NEW');
 		    }
-		    */
+		    
 
 		    if ($canDo->get('core.edit') && isset($this->items[0]))
 		    {
@@ -76,7 +76,7 @@ class HomeconnectViewHomeconnects extends JView
 		    }
         }
 
-		/* Aks : No Need Of Following Buttons
+		// Aks : No Need Of Following Buttons
         if ($canDo->get('core.edit.state'))
 		{
 			if (isset($this->items[0]->state))
@@ -121,6 +121,6 @@ class HomeconnectViewHomeconnects extends JView
 		{
 			JToolBarHelper::preferences('com_homeconnect');
 		}
-		*/
+		
 	}
 }

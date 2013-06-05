@@ -37,6 +37,7 @@ class HomeconnectViewHomeconnect extends JView
 
 		$this->addToolbar();
 		parent::display($tpl);
+		
 	}
 
 	/**
@@ -63,7 +64,7 @@ class HomeconnectViewHomeconnect extends JView
 			JToolBarHelper::apply('homeconnect.apply', 'JTOOLBAR_APPLY');
 			JToolBarHelper::save('homeconnect.save', 'JTOOLBAR_SAVE');
 		}
-		/* Aks : No need to create a new and to copy
+		// Aks : No need to create a new and to copy
 		if (!$checkedOut && ($canDo->get('core.create'))){
 			JToolBarHelper::custom('homeconnect.save2new', 'save-new.png', 'save-new_f2.png', 'JTOOLBAR_SAVE_AND_NEW', false);
 		}
@@ -71,13 +72,14 @@ class HomeconnectViewHomeconnect extends JView
 		if (!$isNew && $canDo->get('core.create')) {
 			JToolBarHelper::custom('homeconnect.save2copy', 'save-copy.png', 'save-copy_f2.png', 'JTOOLBAR_SAVE_AS_COPY', false);
 		}
-		*/
+		
 		if (empty($this->item->id)) {
 			JToolBarHelper::cancel('homeconnect.cancel', 'JTOOLBAR_CANCEL');
 		}
 		else {
 			JToolBarHelper::cancel('homeconnect.cancel', 'JTOOLBAR_CLOSE');
 		}
+		
 
 	}
 }

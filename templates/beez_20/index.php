@@ -20,6 +20,7 @@ if ($showRightColumn==0 and $showleft==0) {
 	$showno = 0;
 }
 
+
 JHtml::_('behavior.framework', true);
 
 // get params
@@ -122,24 +123,28 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
                                         </div>
                                         </div> <!-- end line -->
                                         <div id="ja-mainnav" class="navigation">
-											<jdoc:include type="modules" name="navigation_module" />
-											<div id="search_mod" style="float:right;min-width:30%;margin-right:5px; height:39px; padding-top:7px;">
+											<jdoc:include type="modules" name="navigation_module" style="float:left;" />
+											<div id="search_mod" class="searchwrapper">
+                                            
 											<jdoc:include type="modules" name="search_module" />
-											</div></div>
+											</div>
+                                            <div class="followus">Follow Us </div>
+                                            <div class="socialicon"> <a href="http://www.facebook.com/pages/Connect-Up-My-Home/168886489928631" target="_blank"><img src="<?php echo JURI::base().'templates/'.$app->getTemplate().'/images/facebook.png';?>"/></a> <a href="
+https://twitter.com/ConnectUpMyHome" target="_blank"><img src="<?php echo JURI::base().'templates/'.$app->getTemplate().'/images/tweeter.png';?>"/></a> <a href="http://www.youtube.com/user/ConnectUpMyHome" target="_blank"><img src="<?php echo JURI::base().'templates/'.$app->getTemplate().'/images/youtube.png';?>"/></a></div>
 
 
                         </div><!-- end header -->
                         <div id="<?php echo $showRightColumn ? 'contentarea2' : 'contentarea'; ?>">
-                                        <div id="breadcrumbs">
+                                        <div id="breadcrumbs" style="display:none"> <!-- SD hide breadcrumbs -->
 
                                                         <jdoc:include type="modules" name="position-2" />
 
                                         </div>
                                         <div id="Homemodules">
-												<div id="home_left_module" style="width:388px; margin-right:5px">
+												<div id="home_left_module" style="margin-right:5px; width:390px;">
 		                                        <jdoc:include type="modules" name="homeleftmodule" />
 		                                        </div>
-		                                        <div id="home_right_module" style="width:595px;;float:right">
+		                                        <div id="home_right_module" style="width:600px; padding:0px 5px;float:right;">
 		                                        <jdoc:include type="modules" name="homerightmodule" />
 		                                        </div>
                                         </div>
@@ -167,7 +172,8 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
 
                                                         <jdoc:include type="message" />
                                                         <jdoc:include type="component" />
-
+                                                        
+ 
                                                 </div><!-- end main -->
 
                                         </div><!-- end wrapper -->
@@ -203,6 +209,19 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
                         </div><!-- back -->
 
                 </div><!-- all -->
+             <center> <img src="<?php echo JURI::base().'templates/'.$app->getTemplate().'/images/shadow.png';?>"/></center>
+                 <div id="footer-image-slide">
+                 <?php 
+                 $displayValue="display:none";
+                 $menu = &JSite::getMenu();
+                        if ($menu->getActive() == $menu->getDefault()) {
+                 			$displayValue = "";       	
+                        }
+                        	?>
+                        
+                        <div id="brand-slide" style="<?php echo $displayValue ?>"><jdoc:include type="modules" name="brand-image-slider"   />
+                        
+                        </div>    
 
                 <div id="footer-outer">
                         <?php if ($showbottom) : ?>
@@ -213,14 +232,21 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
                                         <div class="box box2"> <jdoc:include type="modules" name="position-10" style="beezDivision" headerlevel="3" /></div>
                                         <div class="box box3"> <jdoc:include type="modules" name="position-11" style="beezDivision" headerlevel="3" /></div>
                                 </div>
+                                
+                               
 
 
                         </div>
                                 <?php endif ; ?>
+                                
+                            
 
                         
 
                 </div>
+                
+               
+                
                 <div id="footer-sub">
 
 
@@ -229,7 +255,7 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
                                         <jdoc:include type="modules" name="position-14" />
                                        <!-- SDs : commented this div  to hide powered by joomla label in the footer -->
                                          <p>
-                                                <?php echo 'Copyright';?> &copy;<?php echo '2013 .Connect up my home.All Rights Reserved';?> <a href="#"></a>
+                                                <?php echo 'Copyright';?> &copy;<?php echo ' 2013 Connect Up My Home. All Rights Reserved';?> <a href="#"></a>
                                         </p> 
 
 
@@ -238,5 +264,10 @@ $doc->addScript($this->baseurl.'/templates/'.$this->template.'/javascript/hide.j
                         </div>
                 
 				<jdoc:include type="modules" name="debug" />
+              <style>
+			  .pac-container{
+			  font-size:13px;
+			  }
+</style>			  
         </body>
 </html>

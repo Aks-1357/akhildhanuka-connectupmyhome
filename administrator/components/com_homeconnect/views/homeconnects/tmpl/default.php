@@ -56,10 +56,14 @@ $saveOrder	= $listOrder == 'a.ordering';
 				<th class='left'>
 				<?php echo JHtml::_('grid.sort',  'COM_HOMECONNECT_HOMECONNECTS_CREATED_BY', 'a.created_by', $listDirn, $listOrder); ?>
 				</th>
+				<th class='left'>
+				<?php echo JHtml::_('grid.sort',  'Category', 'a.category', $listDirn, $listOrder); ?>
+				</th>
 
 				<th class='left'>
-				<?php echo JHtml::_('grid.sort',  'Home Text', 'a.home_text', $listDirn, $listOrder); ?>
+				<?php echo JHtml::_('grid.sort',  'Category Description', 'a.category_description', $listDirn, $listOrder); ?>
 				</th>
+				
 
                 <?php if (isset($this->items[0]->state)) { ?>
 				<th width="5%">
@@ -108,11 +112,15 @@ $saveOrder	= $listOrder == 'a.ordering';
 				<td>
 					<?php if ($canEdit) : ?>
 					<a href="<?php echo JRoute::_('index.php?option=com_homeconnect&task=homeconnect.edit&id='.(int) $item->id); ?>" title="<?php echo JText::sprintf('Edit Home Page Text', $this->escape($item->home_text)); ?>">
-						<?php echo $this->escape($item->home_text); ?></a>
+						<?php echo $this->escape($item->category); ?></a>
 					<?php else : ?>
-						<?php echo $this->escape($item->home_text); ?>
+						<?php echo $this->escape($item->category); ?>
 					<?php endif; ?>
 				</td>
+				<td>
+					<?php echo $item->category_description; ?>
+				</td>
+				
 
                 <?php if (isset($this->items[0]->state)) { ?>
 				    <td class="center">

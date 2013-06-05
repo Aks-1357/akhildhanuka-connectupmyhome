@@ -294,11 +294,13 @@ div.fss_faq_answer {
 div.fss_faq_tags 
 {
     padding-bottom: 3px;
+	display:none
 }
 
 div.fss_faq_tags span
 {
     font-weight: bold;
+	display:none
 }
 
 /* Answer when shown within a tooltip */
@@ -514,6 +516,7 @@ div.fss_kb_views
 {
 	font-size:120%;
 	padding:8px;
+	display:none
 }
 
 img.fss_kb_view_image
@@ -589,13 +592,18 @@ div.fss_comment_name {
 }
 div.fss_comment_left {
 	float:left;
+	/* Aks : Added To Hide */
+	display: none;
 }
 div.fss_comment_website {
 	width: 150px;
 }
 div.fss_comment_comment 
 {
+	/* Aks : Changed
     padding-left: 153px;
+    */
+   padding-left: 0;
 }
 div.fss_comment_commentmod
 {
@@ -750,23 +758,28 @@ div.fss_main_announce_body {
 	float:left;
 	position:absolute;
 	width:140px;
-	display:inline;
 	left:0px;
 	top:0px;
 	padding-top: 5px;
+	display:none;
 }
 
 .fss_limit {
 	float:right;
-	display:inline;
 	position:absolute;
 	right:0px;
+	display:none;
 }
 
 .fss_pagination {
 	text-align:center !important;
-	padding-top: 5px;
+	padding: 10px;
+	border: 1px solid #DDDDDD;
+	-webkit-border-radius: 5px; -moz-border-radius: 5px;border-radius:5px;
+	background: none repeat scroll 0 0 #E1E1E1;
+	font-weight:bold;
 }
+
 
 /* ---------------- */
 /* Testimonials mod */

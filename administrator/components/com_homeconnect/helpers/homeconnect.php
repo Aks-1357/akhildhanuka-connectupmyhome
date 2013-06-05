@@ -25,6 +25,7 @@ class HomeconnectHelper
 			'index.php?option=com_homeconnect&view=homeconnects',
 			$vName == 'homeconnects'
 		);
+		
 
 	}
 

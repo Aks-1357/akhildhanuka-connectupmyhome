@@ -25,7 +25,7 @@
 defined('_JEXEC') or die('Restricted access'); ?>
 
 <?php echo FSS_Helper::PageStyle(); ?>
-<?php echo FSS_Helper::PageTitle("TESTIMONIALS",$this->product['title']);?>
+<?php echo FSS_Helper::PageTitle("What people are saying",$this->product['title']);?>
 <?php $hideprodlink = 1; ?>
 <?php $product = &$this->product; ?>
 <?php include JPATH_SITE.DS.'components'.DS.'com_fss'.DS.'views'.DS.'test'.DS.'snippet'.DS.'_prod.php';

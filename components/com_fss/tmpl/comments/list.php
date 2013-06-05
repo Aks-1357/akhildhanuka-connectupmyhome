@@ -1,3 +1,4 @@
+<link href="templates/beez_20/css/personal.css" rel="stylesheet" type="text/css" />
 <?php $comm_ref = "comments_" . $this->ident; ?>
 <a name="<?php echo $comm_ref; ?>"></a>
 <?php if ($this->showheader): ?>
@@ -24,9 +25,9 @@
 
 		<?php if ($offset < $start) continue; ?>
 		<?php if ($offset > $end) continue; ?>
-		
+		<div class="maintestimonial" style="margin-bottom:20px">
 		<?php include $this->tmplpath . DS .'comment.php' ?>
-		
+		</div>
 	<?php endforeach; ?>
 </div>
 

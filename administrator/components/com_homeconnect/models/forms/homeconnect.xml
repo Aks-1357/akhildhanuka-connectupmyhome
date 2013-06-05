@@ -9,12 +9,19 @@
 			label="COM_HOMECONNECT_FORM_LBL_HOMECONNECT_ID"
 			description="JGLOBAL_FIELD_ID_DESC" />
 
-		<field name="home_text"
+		<field name="category_description"
 			type="textarea"
 			default=""
-			label="Home Page Text"
-			description="Text to be displayed on the Home Page" />
-
+			label="Category Description on accordion"
+			description="Text to be displayed on the Accordion Page" />
+			
+	    <field name="category"
+		type="text"
+		default=""
+		label="Category"
+		description="tv ,gaming like categories" />
+				
+		
 		<field name="created_by"
 			type="createdby"
 			default=""

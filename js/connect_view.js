@@ -16,4 +16,12 @@ var View = function ()
 		VC_obj	= new Controller();
 		VM_obj	= new Model();
 	};
+
+	this.getLoadingHTML = function()
+	{
+		return "<div id='loading'>"+
+					"<span class='loading_circle'></span>"+
+					"<span class='loading_text'></span>"+
+				"</div>";
+	};
 };

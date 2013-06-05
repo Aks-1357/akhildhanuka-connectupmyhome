@@ -25,8 +25,10 @@
 <div class="fss_spacer"></div>
 
 <?php if ($this->use_letter_bar): ?>
-	<div class="fss_glossary_letters">
+	<div class="glossary">
+	<ul>
 	<?php foreach ($this->letters as &$letter): ?>
+	<li>
 		<span class="fss_glossary_letter">
 			<?php if ($this->use_letter_bar == 2): ?>
 				<a href='<?php echo FSSRoute::x('index.php?option=com_fss&view=glossary&letter=' . strtolower($letter->letter)); ?>'>&nbsp;<?php echo $letter->letter; ?>&nbsp;</a>
@@ -34,11 +36,14 @@
 				<a href='<?php echo FSSRoute::x('index.php?option=com_fss&view=glossary#letter_' . strtolower($letter->letter)); ?>'>&nbsp;<?php echo $letter->letter; ?>&nbsp;</a>
 			<?php endif; ?>
 		</span>
+		</li>
 	<?php endforeach; ?>
+	</ul>
 	</div>
 <?php endif; ?>
 
 <?php $letter = ""; ?>
+<div class="glossary">
 <?php foreach($this->rows as $glossary) : ?>
 <?php $thisletter = strtolower(substr($glossary->word,0,1)); 
 	if ($thisletter != $letter)
@@ -47,11 +52,12 @@
 		echo "<a name='letter_$letter' ></a>";
 	}
 ?>
-<div class="fss_glossary_div">
-<div class="fss_glossary_word"><a name='<?php echo $glossary->word; ?>'></a><?php echo $glossary->word; ?></div>
-<div class="fss_glossary_text"><?php echo $glossary->description; ?><?php echo $glossary->longdesc; ?></div>
-</div>
+
+<span><a name='<?php echo $glossary->word; ?>'></a><?php echo $glossary->word; ?></span>
+<?php echo $glossary->description; ?><?php echo $glossary->longdesc; ?>
+
 
 <?php endforeach; ?>
+</div>
 <?php include JPATH_SITE.DS.'components'.DS.'com_fss'.DS.'_powered.php'; ?>
 <?php echo FSS_Helper::PageStyleEnd(); ?>

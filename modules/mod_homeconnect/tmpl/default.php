@@ -19,9 +19,7 @@ $document->addStyleSheet(JURI::base() . 'includes/assets/css/jquery/ui-lightness
 ?>
 
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 
-<script src="<?php echo $jsPath; ?>jquery/jquery-1.8.3.js"></script>
 <script src="<?php echo $jsPath; ?>jquery/jquery-ui-1.9.2.custom.min.js"></script>
 
 <script src="<?php echo $jsPath; ?>jquery/jquery.geocomplete.js"></script>
@@ -71,7 +69,7 @@ $document->addStyleSheet(JURI::base() . 'includes/assets/css/jquery/ui-lightness
             <a class="tool_tip_1" rel="#tool_tip_1" href="javascript:void(0);">
 				<img id="tool_tip_1_inner" alt="More Info" src="<?php echo JURI::base().'images/Information.png'; ?>">
 			</a>
-            <label for="geocomplete" style="font-size:10px;">
+            <label for="geocomplete" style="font-size:11px;">
             	<strong>Example : </strong>
 				<span onClick="javascript:moduleObj.selectAddress(this.innerHTML);"><?php echo trim(strip_tags($params->get('example_address'))); ?></span>
 			</label>

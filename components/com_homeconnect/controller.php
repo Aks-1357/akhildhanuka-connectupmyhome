@@ -13,58 +13,46 @@ defined('_JEXEC') or die;
 jimport('joomla.application.component.controller');
 jimport( 'joomla.utilities.utility' );
 
+JLoader::import('joomla.application.component.model');
+JLoader::import( 'createbundle', JPATH_ADMINISTRATOR . DS . 'components' . DS . 'com_homeconnect' . DS . 'models' );
+
 class HomeconnectController extends JController
 {
-	
-	public function callWebService()
+	public function getProductsDataFromAPI()
 	{
-		// create curl resource
-		$ch = curl_init();
+		$model = JModel::getInstance( 'createbundle', 'HomeconnectModel' );
 
-		// set url
-		curl_setopt($ch, CURLOPT_URL, "http://50.18.20.35:15100/cgi-bin/xsearch?query=2085&rpf_navigation:enabled=1");
-
-		// return the transfer as a string
-		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-
-		// $output contains the output string
-		$output = curl_exec($ch);
-		$xml = new SimpleXMLElement($output);
-
-		// close curl resource to free up system resources
-		curl_close($ch);
-
-		$result = array();
-
-		for ($i=0; $i < $xml->SEGMENT->RESULTPAGE->NAVIGATION['ENTRIES'][0]; $i++)
+		$superCat = JRequest::getVar('sup_cat_name');
+		if(!isset($superCat) || empty($superCat))
 		{
-			$temp = array();
-			if($xml->SEGMENT->RESULTPAGE->NAVIGATION->NAVIGATIONENTRY[$i]['NAME'][0] == "rspnav")
-			{
-				for ($j=0; $j < ($xml->SEGMENT->RESULTPAGE->NAVIGATION->NAVIGATIONENTRY[$i]->NAVIGATIONELEMENTS['COUNT'][0]); $j++)
-				{
-					$temp[$j]['brand'] = $xml->SEGMENT->RESULTPAGE->NAVIGATION->NAVIGATIONENTRY[$i]->NAVIGATIONELEMENTS->NAVIGATIONELEMENT[$j]['NAME'][0];
-				}
-			}
-			if($xml->SEGMENT->RESULTPAGE->NAVIGATION->NAVIGATIONENTRY[$i]['NAME'][0] == "taxonomynavigator")
-			{
-				for ($j = 0; $j < ($xml->SEGMENT->RESULTPAGE->NAVIGATION->NAVIGATIONENTRY[$i]->NAVIGATIONELEMENTS['COUNT'][0]); $j++)
-				{
-					$temp[$j]['category'] = $xml->SEGMENT->RESULTPAGE->NAVIGATION->NAVIGATIONENTRY[$i]->NAVIGATIONELEMENTS->NAVIGATIONELEMENT[$j]['NAME'][0];
-				}
-			}
-			if(!empty($temp))
-			{
-				array_push($result, $temp);
-			}
+			$superCat = "";
 		}
-		echo json_encode($result);
+
+		$model->getProductsDataFromAPI( $superCat,
+										JRequest::getVar('sub_cat_name'),
+										JRequest::getVar('brand_name'),
+										JRequest::getVar('prev_id'),
+										JRequest::getVar('next_id'),
+										JRequest::getVar('accordion_no'),
+										JRequest::getVar('noc') );
+	}
+	public function getBrandsDataFromAPI()
+	{
+		$model = JModel::getInstance( 'createbundle', 'HomeconnectModel' );
+
+		$Category = JRequest::getVar('cat_name');
+		if(!isset($Category) || empty($Category))
+		{
+			$Category = "";
+		}
+
+		$model->getBrandsDataFromAPI($Category);
 	}
 
 	public function createlogsendemail()
 	{
 		$this->createcsv();
-		
+
 		echo $this->sendEmail();
 	}
 
@@ -152,5 +140,12 @@ class HomeconnectController extends JController
 		{
 			return false;
 		}
+	}
+
+
+	public function sendSelectionChanges()
+	{
+		$model = $this->getModel('Createbundle', 'HomeconnectModel');
+		echo $model->sendSelectionChanges(JRequest::getVar("category"), JRequest::getVar("selection"));
 	}
 }

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="finder" method="upgrade">
+  <name>Smart Search - Freestyle FAQs</name>
+  <author>Freestyle Joomla</author>
+  <creationDate>2013 02 11</creationDate>
+  <authorEmail>support@freestyle-joomla.com</authorEmail>
+  <authorUrl>http://www.freestyle-joomla.com</authorUrl>
+  <author>Freestyle Joomla</author>
+  <copyright>Copyright Freestyle Joomla 2010</copyright>
+  <license>Please see http://www.freestyle-joomla.com/license for software license</license>
+  <version>1.10.0.1580</version>
+  <description>Smart Search - Freestyle FAQs</description>
+  <files>
+    <file plugin="fss_faq">fss_faq.php</file>
+  </files>
+</extension>

@@ -21,7 +21,6 @@
 <?php ('_JEXEC') or die('Restricted access'); ?>
 
 <?php echo FSS_Helper::PageStyle(); ?>
-<?php echo FSS_Helper::PageTitle("KNOWLEDGE_BASE"); ?>
 <div class="fss_spacer"></div>
 <?php if ($this->main_show_search) : ?>
 	<div class="fss_kb_search">
@@ -44,7 +43,7 @@
 	</div>
 <?php endif; ?>
 
-<?php if (FSS_Settings::get('kb_view_top')): ?>
+<?php if (false): ?>
 <?php include JPATH_SITE.DS.'components'.DS.'com_fss'.DS.'views'.DS.'kb'.DS.'snippet'.DS.'_views.php';
 //include "components/com_fss/views/kb/snippet/_views.php" ?>
 <div class='kb_product'></div>
@@ -75,7 +74,7 @@
 		//include "components/com_fss/views/kb/snippet/_prod_list.php" ?>
 	<?php endif; ?>	
 	
-	<?php if ($this->main_show_cat): ?>
+	<?php if (false): ?>
 		<?php include JPATH_SITE.DS.'components'.DS.'com_fss'.DS.'views'.DS.'kb'.DS.'snippet'.DS.'_cat_list.php';
 		//include "components/com_fss/views/kb/snippet/_cat_list.php" ?>
 	<?php endif; ?>

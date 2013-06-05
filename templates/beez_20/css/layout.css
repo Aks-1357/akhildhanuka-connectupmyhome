@@ -1,4 +1,4 @@
-/**
+	/**
  * @author  ( Angie Radtke  )
  * @package Joomla
  * @subpackage Accessible-Template-Beez
@@ -36,7 +36,7 @@ fieldset
 p
 {
         line-height:1.7em;
-        margin:8px 0;
+        margin:2px 0;
 }
 
 em
@@ -76,7 +76,7 @@ em
 
 
 #header form .inputbox { margin: 2px 13px 2px 2px;}
-#header form .inputbox:focus { margin: 1px 11px 0 1px; }
+#header form .inputbox:focus {}
 
 /*#header ul
 {
@@ -319,9 +319,9 @@ h3.js_heading a
 
 #main h2
 {
-        font-size:1.6em;
+        font-size:12px;
         font-weight:normal;
-        margin-bottom:10px;
+
         padding:3px 0px;
 }
 
@@ -332,7 +332,7 @@ h3.js_heading a
 
 #main h3
 {
-        margin:20px 0 10px;
+        margin:20px 0 13px;
 }
 
 .item
@@ -343,7 +343,7 @@ h3.js_heading a
 
 .item h2
 {
-        margin:0 0px 10px 0px
+        margin:0 0px 0px 0px
 }
 
 .item-page
@@ -377,12 +377,17 @@ h3.js_heading a
 }
 
 
+
 #main .items-row h2
 {
         font-weight:normal;
         padding:5px 2px 5px 2px;
-        font-size:1.4em
+        font-size:1.4em;
+		color:#656464;
 }
+#main .items-row p
+{	color:#1099ce !important}
+
 #main ul.subcategories
 {
         margin:20px 20px 20px 10px
@@ -394,10 +399,10 @@ h3.js_heading a
 
 #main ul
 {
-        list-style-position:outside;
+/*        list-style-position:outside;
         list-style-type:square;
-        padding:0 0 0 15px;
-        margin:10px 0 10px 0px;
+        padding:0 0 0 15px; */
+        margin:0 0 10px 0px;
 }
 
 #main ol
@@ -555,11 +560,7 @@ ul#archive-items li.row1
 
 #main .readmore a
 {
-        font-weight:bold;
-        padding:2px 5px 2px 10px;
-        display:inline-block;
-        margin-top:5px;
-                text-decoration:none
+	text-decoration:underline
 }
 
 .newsflash  a.readmore:link,
@@ -595,7 +596,7 @@ a.readmore:focus
 
 .article-info
 {
-        margin:10px 0 10px 0px;
+        margin:0px;
         font-size:0.9em;
 }
 
@@ -616,7 +617,7 @@ dt.createdby
 .archive .article-info dd,
 .article-info dd
 {
-        margin:2px 0 0px 0;
+        margin:2px 0 10px 0;
         line-height:1.2em
 }
 
@@ -752,7 +753,7 @@ p.counter
 #right .moduletable
 {
         margin:0px 0px 10px 00px;
-        padding:0px 0 20px 0;
+        padding:0;
 }
 
 #right h3
@@ -1293,7 +1294,7 @@ legend.element-invisible
 
 .cat-items
 {
-        margin-top:20px
+        margin-top:0px
 }
 
 
@@ -1362,7 +1363,8 @@ legend.element-invisible
 
 #bottom ul.latestnews
 {
-        padding-left:0
+        padding-left:0;
+		width:85%;
 }
 /* ++++SDs changed copyright font size ++++ */
 #footer p

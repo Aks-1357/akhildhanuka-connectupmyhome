@@ -88,22 +88,22 @@ JHtml::_('behavior.framework');
 		</dd>
 <?php endif; ?>
 <?php if ($params->get('show_create_date')) : ?>
-		<dd class="create">
+		<dd class="article-postdetails">
 		<?php echo JText::sprintf('COM_CONTENT_CREATED_DATE_ON', JHtml::_('date', $this->item->created, JText::_('DATE_FORMAT_LC2'))); ?>
-		</dd>
+		<!--</dd>-->
 <?php endif; ?>
 <?php if ($params->get('show_modify_date')) : ?>
-		<dd class="modified">
+		<!--<dd class="modified">-->
 		<?php echo JText::sprintf('COM_CONTENT_LAST_UPDATED', JHtml::_('date', $this->item->modified, JText::_('DATE_FORMAT_LC2'))); ?>
-		</dd>
+		<!--</dd>-->
 <?php endif; ?>
 <?php if ($params->get('show_publish_date')) : ?>
-		<dd class="published">
+<!--		<dd class="published">-->
 		<?php echo JText::sprintf('COM_CONTENT_PUBLISHED_DATE_ON', JHtml::_('date', $this->item->publish_up, JText::_('DATE_FORMAT_LC2'))); ?>
-		</dd>
+		<!--</dd>-->
 <?php endif; ?>
 <?php if ($params->get('show_author') && !empty($this->item->author )) : ?>
-	<dd class="createdby">
+<!--	<dd class="createdby">-->
 		<?php $author =  $this->item->author; ?>
 		<?php $author = ($this->item->created_by_alias ? $this->item->created_by_alias : $author);?>
 
@@ -123,6 +123,7 @@ JHtml::_('behavior.framework');
 <?php endif; ?>
 <?php if (($params->get('show_author')) or ($params->get('show_category')) or ($params->get('show_create_date')) or ($params->get('show_modify_date')) or ($params->get('show_publish_date')) or ($params->get('show_parent_category')) or ($params->get('show_hits'))) :?>
  	</dl>
+    
 <?php endif; ?>
 <?php  if (isset($images->image_intro) and !empty($images->image_intro)) : ?>
 	<?php $imgfloat = (empty($images->float_intro)) ? $params->get('float_intro') : $images->float_intro; ?>
@@ -149,22 +150,17 @@ JHtml::_('behavior.framework');
 		$link->setVar('return', base64_encode($returnURL));
 	endif;
 ?>
-		<p class="readmore">
+		<span class="readmore">
 				<a href="<?php echo $link; ?>">
 					<?php if (!$params->get('access-view')) :
 						echo JText::_('COM_CONTENT_REGISTER_TO_READ_MORE');
-					elseif ($readmore = $this->item->alternative_readmore) :
 						echo $readmore;
-						if ($params->get('show_readmore_title', 0) != 0) :
-						    echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
-						endif;
-					elseif ($params->get('show_readmore_title', 0) == 0) :
-						echo JText::sprintf('COM_CONTENT_READ_MORE_TITLE');
 					else :
 						echo JText::_('COM_CONTENT_READ_MORE');
-						echo JHtml::_('string.truncate', ($this->item->title), $params->get('readmore_limit'));
+						
 					endif; ?></a>
-		</p>
+		</span>
+        
 <?php endif; ?>
 
 <?php if ($this->item->state == 0) : ?>

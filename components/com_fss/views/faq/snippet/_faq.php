@@ -1,3 +1,4 @@
+
 <?php
 /**
 * @Copyright Freestyle Joomla (C) 2010
@@ -20,13 +21,13 @@
 ?>
 <?php ('_JEXEC') or die('Restricted access'); ?>
 <?php $unpubclass = ""; if ($faq['published'] == 0) $unpubclass = "content_edit_unpublished"; ?>
-	<?php if ($this->view_mode == 'allononepage') : ?>
-	<div class='fss_faq_inline'>
-		<div class="fss_faq_question <?php echo $unpubclass; ?>">
+	<?php if (true) : ?>
+	<div class='article'>
+		<div class="article-title">
 			<?php echo $this->content->EditPanel($faq); ?>
-			<strong><?php echo $faq['question']; ?></strong>
+			<h2><?php echo $faq['question']; ?></h2>
 		</div>
-		<div class='fss_faq_answer'>
+		<div class='description' style="color:#1099ce">
 			<?php 
 			if (FSS_Settings::get( 'glossary_faqs' )) {
 				echo FSS_Glossary::ReplaceGlossary($faq['answer']); 

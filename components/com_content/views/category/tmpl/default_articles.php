@@ -56,16 +56,19 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 	</fieldset>
 	<?php endif; ?>
 
-	<table class="category">
+
+
+	<div class="article">
+    <div class="title">Articles</div>
 		<?php if ($this->params->get('show_headings')) :?>
-		<thead>
-			<tr>
-				<th class="list-title" id="tableOrdering">
+		<div>
+			<div>
+				<div class="article-title" id="tableOrdering">
 					<?php  echo JHtml::_('grid.sort', 'JGLOBAL_TITLE', 'a.title', $listDirn, $listOrder) ; ?>
-				</th>
+				</div>
 
 				<?php if ($date = $this->params->get('list_show_date')) : ?>
-				<th class="list-date" id="tableOrdering2">
+				<div class="list-date" id="tableOrdering2">
 					<?php if ($date == "created") : ?>
 						<?php echo JHtml::_('grid.sort', 'COM_CONTENT_'.$date.'_DATE', 'a.created', $listDirn, $listOrder); ?>
 					<?php elseif ($date == "modified") : ?>
@@ -73,35 +76,35 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 					<?php elseif ($date == "published") : ?>
 						<?php echo JHtml::_('grid.sort', 'COM_CONTENT_'.$date.'_DATE', 'a.publish_up', $listDirn, $listOrder); ?>
 					<?php endif; ?>
-				</th>
+				</div>
 				<?php endif; ?>
 
 				<?php if ($this->params->get('list_show_author', 1)) : ?>
-				<th class="list-author" id="tableOrdering3">
+				<div class="list-author" id="tableOrdering3">
 					<?php echo JHtml::_('grid.sort', 'JAUTHOR', 'author', $listDirn, $listOrder); ?>
-				</th>
+				</div>
 				<?php endif; ?>
 
 				<?php if ($this->params->get('list_show_hits', 1)) : ?>
-				<th class="list-hits" id="tableOrdering4">
+				<div class="list-hits" id="tableOrdering4">
 					<?php echo JHtml::_('grid.sort', 'JGLOBAL_HITS', 'a.hits', $listDirn, $listOrder); ?>
-				</th>
+				</div>
 				<?php endif; ?>
-			</tr>
-		</thead>
+			</div>
+		</div>
 		<?php endif; ?>
 
-		<tbody>
+		<div>
 
 		<?php foreach ($this->items as $i => $article) : ?>
 			<?php if ($this->items[$i]->state == 0) : ?>
-				<tr class="system-unpublished cat-list-row<?php echo $i % 2; ?>">
+				<div class="system-unpublished cat-list-row<?php echo $i % 2; ?>">
 			<?php else: ?>
-				<tr class="cat-list-row<?php echo $i % 2; ?>" >
+				<div class="articlewrap  cat-list-row<?php echo $i % 2; ?>" >
 			<?php endif; ?>
 				<?php if (in_array($article->access, $this->user->getAuthorisedViewLevels())) : ?>
 
-					<td class="list-title">
+					<div class="article-title">
 						<a href="<?php echo JRoute::_(ContentHelperRoute::getArticleRoute($article->slug, $article->catid)); ?>">
 							<?php echo $this->escape($article->title); ?></a>
 
@@ -112,17 +115,13 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 							</li>
 						</ul>
 						<?php endif; ?>
-					</td>
+					</div>
 
 					<?php if ($this->params->get('list_show_date')) : ?>
-					<td class="list-date">
-						<?php echo JHtml::_('date', $article->displayDate, $this->escape(
-						$this->params->get('date_format', JText::_('DATE_FORMAT_LC3')))); ?>
-					</td>
-					<?php endif; ?>
+					<div class="article-postdetails">
+<!--Author Name-->						
+				<?php if ($this->params->get('list_show_author', 1)) : ?>
 
-					<?php if ($this->params->get('list_show_author', 1)) : ?>
-					<td class="list-author">
 						<?php if(!empty($article->author) || !empty($article->created_by_alias)) : ?>
 							<?php $author =  $article->author ?>
 							<?php $author = ($article->created_by_alias ? $article->created_by_alias : $author);?>
@@ -138,17 +137,23 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 								<?php echo JText::sprintf('COM_CONTENT_WRITTEN_BY', $author); ?>
 							<?php endif; ?>
 						<?php endif; ?>
-					</td>
+                  <!--Date  -->      
+                        <?php echo JHtml::_('date', $article->displayDate, $this->escape(
+						$this->params->get('date_format', JText::_('DATE_FORMAT_LC3')))); ?>
+					
+					<?php endif; ?>
+                        
+					</div>
 					<?php endif; ?>
 
 					<?php if ($this->params->get('list_show_hits', 1)) : ?>
-					<td class="list-hits">
+					<div class="list-hits">
 						<?php echo $article->hits; ?>
-					</td>
+					</div>
 					<?php endif; ?>
 
 				<?php else : // Show unauth links. ?>
-					<td>
+					<div>
 						<?php
 							echo $this->escape($article->title).' : ';
 							$menu		= JFactory::getApplication()->getMenu();
@@ -161,12 +166,12 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 						?>
 						<a href="<?php echo $fullURL; ?>" class="register">
 							<?php echo JText::_( 'COM_CONTENT_REGISTER_TO_READ_MORE' ); ?></a>
-					</td>
+					</div>
 				<?php endif; ?>
-				</tr>
+				</div>
 		<?php endforeach; ?>
-		</tbody>
-	</table>
+		</div>
+	</div>
 <?php endif; ?>
 
 <?php // Code to add a link to submit an article. ?>
